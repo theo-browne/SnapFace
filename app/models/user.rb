@@ -12,6 +12,12 @@ class User < ApplicationRecord
   through: :friendships,
   source: :friend
 
+  has_many :posts
+
+  has_many :friends_posts,
+  through: :friends,
+  source: :posts
+
   after_initialize :ensure_session_token
 
   def password=(password)

@@ -24,7 +24,7 @@ export default class SearchItem extends React.Component {
         } 
 
         return (
-            <div>
+            <div className="search-item">
                 <li>{this.props.user.name}</li>
                 <button onClick={action}>{text}</button>
             </div>

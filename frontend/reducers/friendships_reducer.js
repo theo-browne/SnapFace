@@ -7,7 +7,8 @@ const friendshipsReducer = (state = {}, action) => {
 
     switch (action.type) {
         case RECEIVE_USERS:
-            return action.payload.friendships
+
+            return action.payload.friendships || {}
 
         case ADD_FRIEND: 
              

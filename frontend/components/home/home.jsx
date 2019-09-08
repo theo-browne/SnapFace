@@ -1,5 +1,6 @@
 import React from 'react'
 import SearchContainer from '../search/search_container'
+import NewsFeedContainer from '../feed/news_feed_container'
 
 export default class Home extends React.Component{
     constructor(props){
@@ -22,6 +23,7 @@ export default class Home extends React.Component{
                              <img className="profile-icon" src="https://image.flaticon.com/icons/svg/1006/1006052.svg" alt="" />
                             <button onClick={() => this.props.logoutUser()}>Logout</button>
                     </div>
+                    <NewsFeedContainer />
                 </div>
                 <div className="home-right">
                     

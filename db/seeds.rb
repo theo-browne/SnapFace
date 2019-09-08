@@ -7,6 +7,11 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 User.destroy_all
-100.times do 
-    User.create(name: Faker::TvShows::RickAndMorty.character.downcase, email: Faker::TvShows::RickAndMorty.location.downcase, password: "123456" )
+Post.destroy_all
+
+20.times do 
+    user = User.create(name: Faker::Sports::Basketball.player.downcase, email: Faker::Company.catch_phrase.downcase, password: "123456" )
+    5.times do 
+        Post.create(user_id: user.id, body: Faker::TvShows::RickAndMorty.quote.downcase )
+    end
 end

@@ -1,0 +1,48 @@
+.post{
+    width: 400px;
+    display: flex;
+    /* justify-content: center; */
+    margin: auto;
+    padding: 10px;
+    padding-top: 40px;
+    position: relative;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    background-color: white;
+    font-size: 12px;
+    border: 1px solid lightgray
+}
+
+.feed {
+    display: flex;
+    justify-content: center
+}
+
+
+.post-author {
+    position: absolute;
+    top: 5px;
+    left: 10px;
+    /* float: left; */
+    color: plum;
+    text-decoration: none;
+    font-size: 12px;
+    display: flex
+}
+
+
+.post-author a {
+    text-decoration: none
+}
+.post-author p {
+    color: lightgray;
+    font-size: 10px;
+    margin: 0;
+    margin-top: 2px
+}
+
+.post-author img{
+    height: 30px;
+    margin-right: 5px
+}
+

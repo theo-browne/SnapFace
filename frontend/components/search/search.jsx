@@ -27,9 +27,12 @@ export default class Search extends React.Component{
     render(){
         
         let users = []
+        let name = "search-results"
         if (this.state.name) {
             users = this.props.users.slice(0)
-        } 
+        } else {
+            name = "search-results-none"
+        }
 
         return(
             <div className="search-bar">
@@ -39,7 +42,7 @@ export default class Search extends React.Component{
                     <input type="text" value={this.state.name} placeholder="Search" onChange={this.handleChange}/>
                     </div>
                 </form>
-            <div className="search-results">
+            <div className={name}>
                 <ul className="users-list">
                         {users.map(user => <SearchItem key={user.id} deleteFriendship={this.props.deleteFriendship} createFriendship={this.props.createFriendship} friends={this.props.friends} user={user}/> )}
                 </ul>
