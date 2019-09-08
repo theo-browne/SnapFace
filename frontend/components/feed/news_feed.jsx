@@ -1,5 +1,6 @@
 import React from 'react'
 import NewsFeedItem from './news_feed_item'
+import PostFormContainer from '../posts/post_form_container'
 
 export default class NewsFeed extends React.Component {
     constructor(props){
@@ -14,9 +15,8 @@ export default class NewsFeed extends React.Component {
         if (this.props.posts === undefined) return null
         return(
             <div className="feed">
+                <PostFormContainer />
                 <form action="">
-
-
                 </form>
                 <ul>
                     {this.props.posts.map(post => <NewsFeedItem key={post.id} post={post} />)}

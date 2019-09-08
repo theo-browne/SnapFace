@@ -14,8 +14,12 @@
 }
 
 .feed {
-    display: flex;
+    display: block;
     justify-content: center
+}
+
+.feed ul{
+    padding: 0
 }
 
 
@@ -32,7 +36,11 @@
 
 
 .post-author a {
-    text-decoration: none
+    text-decoration: none;
+    color: plum;
+}
+.post-author a:hover {
+    border-bottom: 1px solid plum
 }
 .post-author p {
     color: lightgray;
@@ -46,3 +54,63 @@
     margin-right: 5px
 }
 
+.new-post-div {
+    display: flex;
+    justify-content: left;
+    width: 400px;
+    background-color: white;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 4px;
+    background-color: white;
+    font-size: 12px;
+    border: 1px solid lightgray;
+    position: relative;
+}
+
+.new-post-div img {
+    height: 30px;
+    margin-right: 5px;
+    margin-top: 25px
+}
+
+.new-post textarea{
+    border: none
+}
+
+
+input:focus{
+    outline: none
+}
+
+textarea{
+    resize: none;
+    overflow: auto;
+    font-size: 20px
+}
+
+textarea:focus {
+    outline: none
+}
+.new-post{
+    padding: 20px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    width: 100%
+}
+.new-post button {
+    background-color: plum;
+    width: 90%
+}
+.new-post-head{
+    width: 100%;
+    box-sizing: border-box;
+    background-color: rgba(243, 242, 242, 0.8);
+    position: absolute;
+    padding: 5px;
+    padding-left: 5px;
+    
+    top: 0;
+    left: 0;
+    border-bottom: 1px solid lightgray
+}

@@ -61,7 +61,7 @@ position: relative;
     width: 103%;
     list-style: none;
     background-color: white;
-    border: 1px solid gray
+    border: 1px solid lightgrey
 }
 .search-results-none{
     display: none
