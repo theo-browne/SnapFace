@@ -2,21 +2,31 @@ import * as APIFriendsUtil from '../util/friends_util'
 
 export const RECEIVE_USERS = 'RECEIVE_USERS'
 export const REMOVE_USERS = 'REMOVE_USERS'
+export const ADD_FRIEND = 'ADD_FRIEND'
+export const REMOVE_FRIENDSHIP = 'REMOVE_FRIENDSHIP'
 
 
-export const receiveUsers = (users) => ({
+export const receiveUsers = (payload) => ({
     type: RECEIVE_USERS,
-    users
+    payload
 })
+
+
 
 export const removeUsers = () => ({
     type: REMOVE_USERS
 })
 
-export const deleteFriendId = (id) => ({
-    type: DELETE_FRIEND_ID,
-    id
+export const addFriendship = (friendship) => ({
+    type: ADD_FRIEND,
+    friendship
 })
+
+export const removeFriendship = (friendshipId) => ({
+    type: REMOVE_FRIENDSHIP,
+    friendshipId
+})
+
 
 
 
@@ -25,8 +35,13 @@ export const fetchUsers = (search) => dispatch => {
 }
 
 export const createFriendship = friendship => dispatch => {
-    return APIFriendsUtil.createFriendship(friendship).then()
+    return APIFriendsUtil.createFriendship(friendship).then(friendship => dispatch(addFriendship(friendship)))
 }
+
+export const deleteFriendship = friendshipId => dispatch => {
+    return APIFriendsUtil.deleteFriendship(friendshipId).then(friendshipId => dispatch(removeFriendship(friendshipId)))
+}
+
 
 
 

@@ -9,7 +9,7 @@ export default class SearchItem extends React.Component {
     }
 
     isFriend(){
-       return this.props.friendIds.includes(this.props.user.id)
+       return Object.keys(this.props.friends).includes(String(this.props.user.id))
     }
 
     render(){
@@ -19,9 +19,8 @@ export default class SearchItem extends React.Component {
             text = "Add Friend"
             action = () => this.props.createFriendship({ status: "CONFIRMED", friend_id: this.props.user.id })
         } else {
-            
             text = "Nah we ain't cool"
-            action = console.log("I need to add a delete feature")
+            action = () => this.props.deleteFriendship(this.props.friends[this.props.user.id])
         } 
 
         return (

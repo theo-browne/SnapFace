@@ -25,6 +25,7 @@ export default class Search extends React.Component{
     }
 
     render(){
+        
         let users = []
         if (this.state.name) {
             users = this.props.users.slice(0)
@@ -40,7 +41,7 @@ export default class Search extends React.Component{
                 </form>
             <div className="search-results">
                 <ul className="users-list">
-                        {users.map(user => <SearchItem key={user.id} createFriendship={this.props.createFriendship} friendIds={this.props.friendIds} user={user}/> )}
+                        {users.map(user => <SearchItem key={user.id} deleteFriendship={this.props.deleteFriendship} createFriendship={this.props.createFriendship} friends={this.props.friends} user={user}/> )}
                 </ul>
             </div>
             </div>

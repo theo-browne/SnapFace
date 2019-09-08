@@ -1,0 +1,1 @@
+json.friendId @friendship.friend_id
