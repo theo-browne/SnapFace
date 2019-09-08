@@ -5,3 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+User.destroy_all
+100.times do 
+    User.create(name: Faker::TvShows::RickAndMorty.character.downcase, email: Faker::TvShows::RickAndMorty.location.downcase, password: "123456" )
+end

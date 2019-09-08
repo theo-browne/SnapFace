@@ -1,0 +1,145 @@
+body{
+    /* font-family: 'PT Sans', sans-serif; */
+    font-family: 'Fira Sans', sans-serif;
+
+}
+
+
+.nav-bar{
+    background-color: plum;
+    width: 100%;
+    height: 60px;
+    display: flex;
+    margin-bottom: 50px;
+    justify-content: flex-end;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1
+}
+
+.auth-form{
+    margin-top: 70px;
+    align-content: flex-start
+}
+.auth-form h2{
+    padding: 0;
+    margin: 0
+}
+.auth-form input{
+    height: 25px;
+    border: 1px solid gray;
+    border-radius: 4px;
+    width: 80%;
+    margin-bottom: 5px;
+    padding-left: 10px;
+}
+.auth-form {
+    margin: 0;
+    padding: 0
+}
+.auth-form button {
+    width: 110px;
+    background-color: rgb(80,136,63);
+    color: white;
+    height: 25px;
+    border: none;
+    border-radius: 4px;
+    margin-bottom: 30px;
+
+}
+button:hover{
+    cursor: pointer;
+}
+
+/* .sign-up-main{
+    background-color: rgba(243, 242, 242, 0.8);
+    position: relative;
+    height: 400px
+} */
+
+.icon{
+    position: absolute;
+    height: 40px;
+    top: -70px;
+    left: -50%;
+    z-index: 2;
+    margin-left: 20px;
+    color: white
+}
+
+
+
+
+.sign-in {
+    display: flex;
+    position: absolute;
+    top: 5px;
+    z-index: 2;
+    font-size: 10px;
+    align-content: center
+}
+.sign-in input{
+    margin-right: 4px;
+    border-radius: 2px;
+    border: 1px solid gray;
+}
+
+.sign-in button{
+    margin-top: 12px;
+    background-color: plum;
+    color: white;
+    border: 1px solid black;
+    border-radius: 2px
+}
+
+.splash-sign-up{
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+    padding-top: 50px;
+    background-color: rgba(243, 242, 242, 0.8);
+}
+
+.sign-in-button{
+    align-self: center
+}
+.sign-in-names {
+    width: 100%
+}
+.sign-in-names input {
+    width: 37%;
+    margin-right: 5px;
+}
+
+.splash-sign-up-right{
+    width: 25%
+}
+.splash-sign-up-left{
+    width: 25%;
+    /* display: flex; */
+    justify-content: flex-start;
+    margin-right: 10%;
+    margin-top: 25px;
+    position: relative;
+}
+
+.splash-sign-up-left img{
+    width: 100%;
+    margin-right: 20px
+}
+
+footer {
+    justify-self: center;
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    border-bottom: 1px solid lightgray
+}
+
+.footer{
+    display: flex;
+    justify-content: center;
+    font-size: 12px;
+    margin-top: 50px
+}
