@@ -12,6 +12,7 @@ export default class Search extends React.Component{
     }
 
     handleChange(e){
+        
         if (e.target.value === "") {
             this.setState({ name: e.target.value })
             this.props.removeUsers()
@@ -41,14 +42,14 @@ export default class Search extends React.Component{
         return(
             <div className="search-bar">
                 
-                <form action="">
+                <form action="" onSubmit={this.handleSubmit}>
                   <div>
                     <input type="text" value={this.state.name} placeholder="Search" onChange={this.handleChange}/>
                     </div>
                 </form>
             <div className={name}>
-                <ul className="users-list" onClick={this.clear}>
-                        {users.map(user => <SearchItem key={user.id} deleteFriendship={this.props.deleteFriendship} createFriendship={this.props.createFriendship} friends={this.props.friends} user={user}/> )}
+                    <ul className="users-list" onClick={this.clear} >
+                        {users.map(user => <SearchItem  key={user.id} deleteFriendship={this.props.deleteFriendship} createFriendship={this.props.createFriendship} friends={this.props.friends} user={user}/> )}
                 </ul>
             </div>
             </div>

@@ -9,8 +9,10 @@ import HomeContainer from './home/home_container'
 
 const App = (props) => (
     <div>
-        <AuthRoute path="/" component={Splash} /> 
-        <ProtectedRoute path="/" component={HomeContainer} />
+        
+            <AuthRoute path="/splash" component={Splash} /> 
+            <ProtectedRoute path="/" component={HomeContainer} />
+        
     </div>
 )
 

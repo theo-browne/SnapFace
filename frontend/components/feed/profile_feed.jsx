@@ -1,7 +1,9 @@
 import React from 'react'
 import NewsFeedItem from './news_feed_item'
+import {withRouter} from 'react-router-dom'
 
-export default class ProfileFeed extends React.Component {
+
+ class ProfileFeed extends React.Component {
     constructor(props){
         super(props)
     }
@@ -20,3 +22,5 @@ export default class ProfileFeed extends React.Component {
         )
     }
 }
+
+export default withRouter(ProfileFeed)

@@ -3,10 +3,11 @@ import SearchContainer from '../search/search_container'
 import NewsFeedContainer from '../feed/news_feed_container'
 import {Switch, Route} from 'react-router-dom'
 import ProfileFeedContainer from '../feed/profile_feed_container'
-import {Link} from 'react-router-dom'
+import {Link, withRouter} from 'react-router-dom'
+import {ProtectedRoute} from '../../util/route_util'
 
 
-export default class Home extends React.Component{
+ class Home extends React.Component{
     constructor(props){
         super(props)
     }
@@ -28,7 +29,7 @@ export default class Home extends React.Component{
                             <button onClick={() => this.props.logoutUser()}>Logout</button>
                     </div>
                     <Switch>
-                            <Route path="/users/:id" component={ProfileFeedContainer} />
+                            <Route path="/users/:id"  component={ProfileFeedContainer} />
 
                             <Route path="/" component={NewsFeedContainer} />
                             
@@ -44,3 +45,5 @@ export default class Home extends React.Component{
         )
     }
 }
+
+export default withRouter(Home)
