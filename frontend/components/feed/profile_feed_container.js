@@ -1,5 +1,6 @@
 import { connect } from 'react-redux'
 import { fetchUser } from '../../actions/user_actions'
+import { removeUsers } from '../../actions/friend_actions'
 import ProfileFeed from './profile_feed'
 
 const mSTP = (state, props) => ({
@@ -10,7 +11,8 @@ const mSTP = (state, props) => ({
 
 
 const mDTP = dispatch => ({
-    fetchUser: id => dispatch(fetchUser(id))
+    fetchUser: id => dispatch(fetchUser(id)),
+    removeUsers: () => dispatch(removeUsers())
 })
 
 export default connect(mSTP, mDTP)(ProfileFeed)

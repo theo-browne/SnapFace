@@ -9,7 +9,9 @@ export default class Search extends React.Component{
         }
         this.handleChange = this.handleChange.bind(this)
         this.clear = this.clear.bind(this)
+        
     }
+
 
     handleChange(e){
         

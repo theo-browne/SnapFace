@@ -8,7 +8,7 @@ import {withRouter} from 'react-router-dom'
         super(props)
     }
     componentDidMount(){
-        this.props.fetchUser(this.props.match.params.id)
+        this.props.fetchUser(this.props.match.params.id).then(() => this.props.removeUsers())
     }
 
     render(){
