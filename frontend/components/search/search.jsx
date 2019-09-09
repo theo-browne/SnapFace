@@ -8,7 +8,7 @@ export default class Search extends React.Component{
             name: ""
         }
         this.handleChange = this.handleChange.bind(this)
-        
+        this.clear = this.clear.bind(this)
     }
 
     handleChange(e){
@@ -22,6 +22,10 @@ export default class Search extends React.Component{
  
         // this.props.fetchUsers(this.state)
 
+    }
+    clear(){
+        this.setState({name: ""})
+        this.props.removeUsers()
     }
 
     render(){
@@ -43,7 +47,7 @@ export default class Search extends React.Component{
                     </div>
                 </form>
             <div className={name}>
-                <ul className="users-list">
+                <ul className="users-list" onClick={this.clear}>
                         {users.map(user => <SearchItem key={user.id} deleteFriendship={this.props.deleteFriendship} createFriendship={this.props.createFriendship} friends={this.props.friends} user={user}/> )}
                 </ul>
             </div>

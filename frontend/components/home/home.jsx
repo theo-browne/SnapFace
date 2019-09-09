@@ -1,6 +1,10 @@
 import React from 'react'
 import SearchContainer from '../search/search_container'
 import NewsFeedContainer from '../feed/news_feed_container'
+import {Switch, Route} from 'react-router-dom'
+import ProfileFeedContainer from '../feed/profile_feed_container'
+import {Link} from 'react-router-dom'
+
 
 export default class Home extends React.Component{
     constructor(props){
@@ -8,7 +12,7 @@ export default class Home extends React.Component{
     }
 
     render(){
-        
+        const name = this.props.currentUser.name.split(" ")[0]
         return(
             <div className="home-container">
                 <div className="home-nav" ></div>
@@ -18,12 +22,17 @@ export default class Home extends React.Component{
                 <div className="home-mid">
                     <SearchContainer />
                     <div className="user-info">
-                            <a href="">{this.props.currentUser}</a>
-                            <a href="">Home</a>
+                            <Link to={`/users/${this.props.currentUser.id}`} >{name}</Link>
+                            <Link to={`/`}>Home</Link>
                              <img className="profile-icon" src="https://image.flaticon.com/icons/svg/1006/1006052.svg" alt="" />
                             <button onClick={() => this.props.logoutUser()}>Logout</button>
                     </div>
-                    <NewsFeedContainer />
+                    <Switch>
+                            <Route path="/users/:id" component={ProfileFeedContainer} />
+
+                            <Route path="/" component={NewsFeedContainer} />
+                            
+                    </Switch>
                 </div>
                 <div className="home-right">
                     

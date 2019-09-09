@@ -11,5 +11,6 @@
         end
         json.time post.created_at.to_formatted_s(:long_ordinal)
         json.author name.join(" ")
+        json.authorId  post.user.id
     end 
 end

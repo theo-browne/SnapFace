@@ -3,8 +3,12 @@ import Home from './home'
 import { logoutUser } from '../../actions/session_actions'
 import { createFriendship } from '../../actions/friend_actions'
 
-const mSTP = state => ({
-    currentUser: state.session["name"].split(" ")[0]})
+const mSTP = state => {
+    const currentUser = state.session
+    return {
+    currentUser
+    }
+}
 
 
 

@@ -1,14 +1,10 @@
 import * as APIUtil from "../util/session_util";
 
-export const RECEIVE_USER = "RECEIVE_USER";
 export const LOGOUT_USER = "LOGOUT_USER";
 export const RECEIVE_SESSION_ERRORS = "RECEIVE_SESSION_ERRORS"
 export const LOGIN_USER = "LOGIN_USER"
 
-export const receiveUser = (user) => ({
-    type: RECEIVE_USER,
-    user
-})
+
 
 export const setUser = user => ({
     type: LOGIN_USER,
