@@ -6,10 +6,18 @@ import {withRouter} from 'react-router-dom'
  class ProfileFeed extends React.Component {
     constructor(props){
         super(props)
+        
     }
     componentDidMount(){
         this.props.fetchUser(this.props.match.params.id).then(() => this.props.removeUsers())
     }
+
+    componentDidUpdate(prevProps){
+        if (this.props.match.params.id !== prevProps.match.params.id){
+            this.props.fetchUser(this.props.match.params.id).then(() => this.props.removeUsers())
+        }
+    }
+    
 
     render(){
         

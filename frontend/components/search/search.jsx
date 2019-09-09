@@ -40,7 +40,7 @@ export default class Search extends React.Component{
         } else {
             name = "search-results-none"
         }
-
+    
         return(
             <div className="search-bar">
                 
@@ -51,7 +51,8 @@ export default class Search extends React.Component{
                 </form>
             <div className={name}>
                     <ul className="users-list" onClick={this.clear} >
-                        {users.map(user => <SearchItem  key={user.id} deleteFriendship={this.props.deleteFriendship} createFriendship={this.props.createFriendship} friends={this.props.friends} user={user}/> )}
+                        {users.map(user => <SearchItem key={user.id} receiveUser={this.props.receiveUser} deleteFriendship={this.props.deleteFriendship} createFriendship={this.props.createFriendship} friends={this.props.friends} user={user}/> )}
+                      
                 </ul>
             </div>
             </div>
