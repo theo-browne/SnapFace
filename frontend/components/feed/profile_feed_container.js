@@ -5,7 +5,8 @@ import ProfileFeed from './profile_feed'
 
 const mSTP = (state, props) => ({
     user: state.entities.users[props.match.params.id],
-    posts: Object.values(state.entities.posts)
+    posts: Object.values(state.entities.posts).reverse(),
+    currentUser: state.session
 })
 
 

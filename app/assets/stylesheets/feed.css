@@ -50,6 +50,45 @@
     margin-top: 2px
 }
 
+.post-delete-button{
+    position: absolute;
+    padding: 0;
+    right: 5px;
+    top: 5px;
+    background-color: white;
+    border: none
+}
+.post-delete-button:hover {
+    color: plum
+}
+.post-drop-down {
+    display: none;
+    list-style: none;
+    color: black
+}
+.show {
+    position: absolute;
+    display: block;
+    right:0;
+    /* height: 50px; */
+    width: 80px; 
+    background-color: white;
+}
+.show li:first-child {
+    border-bottom: 1px solid black;
+    
+}
+
+.show li {
+    margin-top: 5px;
+    padding-bottom: 5px
+}
+.show li:hover {
+    color: plum
+}
+*:focus{
+    outline: none
+}
 .post-author img{
     height: 30px;
     margin-right: 5px

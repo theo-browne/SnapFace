@@ -24,7 +24,7 @@ import {withRouter} from 'react-router-dom'
         return(
             <div>
                 {
-                    this.props.posts.map( post => <NewsFeedItem key={post.id} post={post} /> )
+                    this.props.posts.map(post => <NewsFeedItem key={post.id} currentUser={this.props.currentUser} user={this.props.user} post={post} /> )
                 } 
             </div>
         )

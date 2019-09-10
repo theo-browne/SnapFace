@@ -1,13 +1,16 @@
 import {connect} from 'react-redux'
 import NewsFeed from './news_feed'
-import { fetchPosts } from '../../actions/post_actions';
+import { fetchPosts, deletePost } from '../../actions/post_actions';
+
 
 const mSTP = state => ({
-    posts: Object.values(state.entities.posts)
+    posts: Object.values(state.entities.posts).reverse(),
+    currentUser: state.session
 })
 
 const mDTP = dispatch => ({
-    fetchPosts: () => dispatch(fetchPosts())
+    fetchPosts: () => dispatch(fetchPosts()),
+    deletePost: id => dispatch(deletePost(id))
 })
 
 

@@ -17,7 +17,7 @@ export default class NewsFeed extends React.Component {
             <div className="feed">
                 <PostFormContainer />
                 <ul>
-                    {this.props.posts.map(post => <NewsFeedItem key={post.id} post={post} />)}
+                    {this.props.posts.map(post => <NewsFeedItem key={post.id} deletePost={this.props.deletePost} currentUser={this.props.currentUser} post={post} />)}
                 </ul>
             </div>
         )

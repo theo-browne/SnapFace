@@ -28,7 +28,7 @@ export default class PostForm extends React.Component {
         return(
             <div className="new-post-div">
                 <div className="new-post-head"> Create Post</div>
-                <img src="https://image.flaticon.com/icons/svg/149/149452.svg" alt="" />
+                <img className="profile-image" src="https://image.flaticon.com/icons/svg/149/149452.svg" alt="" />
                 <form className="new-post" action="">
                     <textarea placeholder="Whats on your mind?" value={this.state.body} onChange={this.handleChange}  cols="30" rows={this.rows}></textarea>
                     <br/>

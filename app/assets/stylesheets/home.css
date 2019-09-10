@@ -114,3 +114,48 @@ position: relative;
     justify-content: flex-start;
     padding-left: 5px
 }
+
+.edit-post-modal{
+    position: absolute;
+    z-index: 3;
+    background-color: rgba(243, 242, 242, 0.8);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center
+}
+.modal-close{
+    position: absolute;
+    right: 2px;
+    top: 2px;
+    
+}
+.modal-close a{
+    color: black;
+    text-decoration: none;
+    font-size: 15px
+}
+
+.modal-close a:hover{
+    color: plum
+}
+
+.edit{
+    height: 150px;
+}
+
+.edit-post-div form {
+    padding: 20px
+}
+.show a{
+    text-decoration: none;
+    color: black;
+    border: none
+}
+.edit-post-head {
+    display: block;
+    width: 100%;
+    margin-left: 10px 
+    /* box-sizing: border-box;
+    padding: 10px */
+}

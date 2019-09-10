@@ -5,7 +5,7 @@ import {Switch, Route} from 'react-router-dom'
 import ProfileFeedContainer from '../feed/profile_feed_container'
 import {Link, withRouter} from 'react-router-dom'
 import {ProtectedRoute} from '../../util/route_util'
-
+import PostEditContainer from '../posts/post_edit_container'
 
  class Home extends React.Component{
     constructor(props){
@@ -34,6 +34,7 @@ import {ProtectedRoute} from '../../util/route_util'
                             <Route path="/" component={NewsFeedContainer} />
                             
                     </Switch>
+                        <Route path={`/posts/:id/edit`} component={PostEditContainer} />
                 </div>
                 <div className="home-right">
                     
