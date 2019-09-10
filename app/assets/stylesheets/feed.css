@@ -11,8 +11,10 @@
     background-color: white;
     font-size: 12px;
     border: 1px solid lightgray;
-    margin-top: 20px
+    margin-top: 20px;
+    overflow: auto;
 }
+
 
 .feed {
     display: block;
@@ -75,13 +77,14 @@
     background-color: white;
 }
 .show li:first-child {
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid lightgray;
     
 }
 
 .show li {
     margin-top: 5px;
-    padding-bottom: 5px
+    padding-bottom: 5px;
+    color: gray
 }
 .show li:hover {
     color: plum
@@ -100,12 +103,13 @@
     width: 400px;
     background-color: white;
     padding: 10px;
+    margin: auto;
     margin-top: 5px;
     border-radius: 4px;
     background-color: white;
     font-size: 12px;
     border: 1px solid lightgray;
-    position: relative;
+    position: relative;;
 }
 
 .new-post-div img {
@@ -118,6 +122,20 @@
     border: none
 }
 
+.file-input{
+     
+
+}
+
+/* input[type="file"] {
+    background-color:red
+} */
+/* .file-input-label{
+    border: 1px solid blueviolet
+} */
+.file-input input {
+    background-color: plum
+}
 
 input:focus{
     outline: none
@@ -154,3 +172,23 @@ textarea:focus {
     left: 0;
     border-bottom: 1px solid lightgray
 }
+.post-photo{
+    width: 100%
+}
+.post p{
+    width: 100%
+}
+.post-content{
+    display: block;
+}
+.show a{
+    text-decoration: none;
+    color: gray;
+    border: none
+}
+.show li {
+    color: gray
+}
+/* .post img {
+    width: 100%
+} */

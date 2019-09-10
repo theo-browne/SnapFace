@@ -3,7 +3,7 @@ class Api::UsersController < ApplicationController
   def show 
     @user = User.find(params[:id])
     @posts = @user.posts
-    
+    @friend_id = current_user.friendships.find_by("friend_id = ?", @user.id)
     render :show
   end
  

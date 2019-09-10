@@ -5,7 +5,7 @@ import { createFriendship, deleteFriendship } from '../../actions/friend_actions
 import {receiveUser } from '../../actions/user_actions'
 
 const mSTP = state => ({
-    users: Object.values(state.entities.users),
+    users: Object.values(state.entities.searchedUsers),
     friends: state.entities.friendships
 })
 

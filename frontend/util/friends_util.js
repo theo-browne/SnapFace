@@ -17,13 +17,10 @@ export const createFriendship = (friendship) => {
     })
 }
 
-export const deleteFriendship = (friendship)  => {
+export const deleteFriendship = (id)  => {
     return $.ajax({
-        url: `/api/friendships/${friendship.id}`,
+        url: `/api/friendships/${id}`,
         method: 'DELETE',
-        data: {
-            friendship
-        }
     })
 }
 

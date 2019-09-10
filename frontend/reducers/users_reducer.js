@@ -11,10 +11,10 @@ const usersReducer = (state = {}, action) => {
             
             newState[action.payload.user.id] = action.payload.user 
             return newState;
-        case RECEIVE_USERS:
-            return action.payload.users || {}
-        case REMOVE_USERS:
-            return {}
+        // case RECEIVE_USERS:
+        //     return action.payload.users || {}
+        // case REMOVE_USERS:
+        //     return {}
         default:
             return state;
     }

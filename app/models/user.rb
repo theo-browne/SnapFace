@@ -18,6 +18,10 @@ class User < ApplicationRecord
   through: :friends,
   source: :posts
 
+  has_one_attached :profile_photo
+
+  has_one_attached :cover_photo
+
   after_initialize :ensure_session_token
 
   def password=(password)
@@ -37,6 +41,12 @@ class User < ApplicationRecord
 
   def is_password?(password) 
     BCrypt::Password.new(self.password_digest).is_password?(password)
+  end
+
+  def is_friend?(user)
+    friend_ids = self.friends.map{|friend| friend.id}
+
+    friend_ids.include?(user.id)
   end
 
   def self.find_by_credentials(email, password)

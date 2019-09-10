@@ -6,6 +6,7 @@ import ProfileFeedContainer from '../feed/profile_feed_container'
 import {Link, withRouter} from 'react-router-dom'
 import {ProtectedRoute} from '../../util/route_util'
 import PostEditContainer from '../posts/post_edit_container'
+import UserInfoPanelContainer from './user_info_panel_container'
 
  class Home extends React.Component{
     constructor(props){
@@ -22,6 +23,7 @@ import PostEditContainer from '../posts/post_edit_container'
                 </div>
                 <div className="home-mid">
                     <SearchContainer />
+                        <Route path="/users/:id" component={UserInfoPanelContainer} />
                     <div className="user-info">
                             <Link to={`/users/${this.props.currentUser.id}`} >{name}</Link>
                             <Link to={`/`}>Home</Link>

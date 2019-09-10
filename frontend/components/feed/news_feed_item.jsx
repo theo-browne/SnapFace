@@ -29,6 +29,7 @@ export default class NewsFeedItem extends React.Component {
                 </button>
             )
         }
+        const photo = this.props.post.photoUrl ? (<img className="post-photo" src={this.props.post.photoUrl} alt="" />) : null
         return(
             <div className="post" key={this.props.post.id}>
                 {button}
@@ -42,11 +43,13 @@ export default class NewsFeedItem extends React.Component {
                 </div>
                 
                 </div>
-                
+                <div className="post-content">
                 <p>
                 {this.props.post.body}
                 </p>
-               
+              <br/>
+                {photo}
+                </div>
             </div>
         )
     }

@@ -1,4 +1,5 @@
 import { RECEIVE_USERS, ADD_FRIEND, REMOVE_FRIENDSHIP } from '../actions/friend_actions';
+import { RECEIVE_USER} from '../actions/user_actions';
 
 const friendshipsReducer = (state = {}, action) => {
     Object.freeze(state)
@@ -10,6 +11,9 @@ const friendshipsReducer = (state = {}, action) => {
 
             return action.payload.friendships || {}
 
+        // case RECEIVE_USER:
+
+        //     return action.payload.friendships || {}
         case ADD_FRIEND: 
              
             newState[action.friendship.friendId] = action.friendship
