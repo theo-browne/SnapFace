@@ -11,9 +11,9 @@ const friendshipsReducer = (state = {}, action) => {
 
             return action.payload.friendships || {}
 
-        // case RECEIVE_USER:
-
-        //     return action.payload.friendships || {}
+        case RECEIVE_USER:
+            newState[action.payload.friendship.friendId] = action.payload.friendship
+            return newState
         case ADD_FRIEND: 
              
             newState[action.friendship.friendId] = action.friendship

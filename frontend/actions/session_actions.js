@@ -16,11 +16,11 @@ export const logoutUser = () => ({
 })
 
 export const createUser = (user) => dispatch => {
-    return APIUtil.createUser(user).then((user) => dispatch(setUser(user)))
+    return APIUtil.createUser(user).then((user) => dispatch(setUser(user)), (errors) => dispatch(receiveSessionErrors(errors)))
 }
 
 export const loginUser = (user) => dispatch => {
-    return APIUtil.login(user).then((user) => dispatch(setUser(user)))
+    return APIUtil.login(user).then((user) => dispatch(setUser(user)), (errors) => dispatch(receiveSessionErrors(errors)))
 }
 
 export const logout = () => dispatch => {

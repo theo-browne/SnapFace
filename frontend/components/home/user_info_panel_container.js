@@ -5,7 +5,7 @@ import { fetchUser } from '../../actions/user_actions'
 
 const mSTP = (state, props) => ({
     user: state.entities.users[props.match.params.id],
-    friends: state.entities.friendships,
+    friendship: state.entities.friendships[props.match.params.id],
     currentUser: state.session
 })
 

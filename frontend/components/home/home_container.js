@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import Home from './home'
-import { logoutUser } from '../../actions/session_actions'
+import { logout } from '../../actions/session_actions'
 import { createFriendship } from '../../actions/friend_actions'
 
 const mSTP = state => {
@@ -13,7 +13,7 @@ const mSTP = state => {
 
 
 const mDTP = dispatch => ({
-    logoutUser: () => dispatch(logoutUser()),
+    logoutUser: () => dispatch(logout()),
     createFriendship: friendship => dispatch(createFriendship(friendship))
 })
 

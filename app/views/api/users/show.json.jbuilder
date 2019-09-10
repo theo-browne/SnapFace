@@ -10,9 +10,7 @@
 json.user do   
     json.id @user.id
     json.name @user.name
-    if @friend_id
-    json.friendId @friend_id.id 
-    end
+    
 end
 
 
@@ -37,12 +35,14 @@ end
 end
 end
     
-# json.friendships do 
-#     @friendships.each do |friendship|
-#         json.set! friendship.friend_id do
-#             json.friend_id friendship.friend_id
-#             json.id friendship.id
-#             json.friendId friendship.friend_id
-#         end
-#     end
-# end
+ json.friendship do 
+         json.set! @user.id do
+             if @friendship
+                json.id @friendship.id 
+                json.friendId @friendship.friend_id 
+             else
+                json.friendId @user.id
+                json.id false
+             end
+         end
+ end

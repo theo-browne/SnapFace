@@ -4,6 +4,7 @@ class User < ApplicationRecord
 
   validates :email, :session_token, presence: true, uniqueness: true
   validates :password_digest, presence: true
+
   validates :password, length: { minimum: 6, allow_nil: true }
 
   has_many :friendships
@@ -49,9 +50,11 @@ class User < ApplicationRecord
     friend_ids.include?(user.id)
   end
 
+  
+
   def self.find_by_credentials(email, password)
     user = User.find_by(email: email)
-
+    return false unless user
     if user.is_password?(password)
       return user
     else

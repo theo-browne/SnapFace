@@ -16,16 +16,16 @@
 }
 
 .profile-photo{
-
     border-radius: 50%;
     height: 100px;
     width: 100px;
-    position: absolute;
-    bottom: -20px;
+    position: relative;
+    bottom: -60px;
     left: 10px;
     background-image: url("https://s3-us-west-2.amazonaws.com/aa-progress-tracker/students/avatars/000/003/806/medium/Wesley_Tam.jpg?1563384027");
     background-size: cover;
-    border: 3px solid white
+    border: 3px solid white;
+    overflow: hidden;
 }
 
 .profile-buttons{
@@ -53,4 +53,31 @@
     height: 40px;
     border: 1px solid lightgray;
     border-top: none
+}
+.profile-photo-link{
+    background-color: rgba(0,0,0,.6);
+
+    display: none;
+    /* align-content: flex-end; */
+    position: absolute;
+   padding: 50%;
+   padding-left:30%;
+   padding-right: 70%;
+    margin-top: 50%; 
+
+    font-size: 12px;
+
+}
+.shown{
+    display: flex
+}
+
+.profile-photo-link form{
+   color: white;
+   text-decoration: none;
+   position: absolute;
+   top: 10%;
+}
+.profile-photo-link form input{
+    display: none
 }

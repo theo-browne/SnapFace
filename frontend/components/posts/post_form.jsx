@@ -55,7 +55,7 @@ export default class PostForm extends React.Component {
                 <form className="new-post" action="">
                     <textarea placeholder="Whats on your mind?" value={this.state.body} onChange={this.handleChange}  cols="30" rows={this.rows}></textarea>
                     <br/>
-                    <label className="file-input-label">
+                    <label className="file-input-label"> Upload a file
                         <input className="file-input" size="600" type="file" onChange={this.handleFile} />
                     </label>
                     <button onClick={this.handleSubmit}>Post</button>

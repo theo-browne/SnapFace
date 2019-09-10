@@ -36,7 +36,6 @@ import UserInfoPanelContainer from './user_info_panel_container'
                             <Route path="/" component={NewsFeedContainer} />
                             
                     </Switch>
-                        <Route path={`/posts/:id/edit`} component={PostEditContainer} />
                 </div>
                 <div className="home-right">
                     

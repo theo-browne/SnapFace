@@ -23,6 +23,7 @@ export default class SignIn extends React.Component {
 
     render() {
         return (
+            <div>
             <form className="sign-in">
                 <div>
                 <label>Email:
@@ -41,6 +42,8 @@ export default class SignIn extends React.Component {
                 <button onClick={this.handleSubmit}>Log In</button>
                 </div>
             </form>
+            {this.props.errors.map(error => <li className="sign-in-error">{error}</li>)}
+            </div>
         )
     }
 }

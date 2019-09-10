@@ -11,6 +11,17 @@ export default class SignUp extends React.Component {
             password: ""
         }
         this.handleSubmit = this.handleSubmit.bind(this)
+        this.demoLogin = this.demoLogin.bind(this)
+    }
+    demoLogin(){
+        let email = String(Math.random())
+        
+        const demoUser = {
+            name: "Demo User",
+            email,
+            password: "123456"
+        }
+        this.props.createUser(demoUser)
     }
 
     handleInput(str) {
@@ -41,7 +52,8 @@ export default class SignUp extends React.Component {
                 </div>
                 <div className="auth-forms">
                     <SignInContainer />
-                    <h2>Create a New Account</h2>
+                    <h2 className="signup-header">Create a New Account</h2>
+                    {this.props.errors.map((error, idx) => <li key={idx} className="signup-error">{error}</li>)}
             <form className="auth-form">
                 
                     <div className="sign-in-names">
@@ -56,7 +68,10 @@ export default class SignUp extends React.Component {
                 
                     <input type="text" value={this.state.password} placeholder="Password" onChange={this.handleInput("password")} />
                    <br/>
+                   <div className="sign-up-button">
                 <button onClick={this.handleSubmit}>Sign Up</button>
+                <button id="demo-login" onClick={this.demoLogin}> Demo Login</button>
+                 </div>
             </form>
             </div>
                 <div className="splash-sign-up-right" >

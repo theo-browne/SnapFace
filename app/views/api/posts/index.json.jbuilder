@@ -13,7 +13,7 @@
         json.author name.join(" ")
         json.authorId  post.user.id
         if post.photo.attached?
-        json.photoUrl url_for(post.photo)
+            json.photoUrl url_for(post.photo)
         end
     end 
 end

@@ -3,6 +3,10 @@ import NewsFeedItem from './news_feed_item'
 import {withRouter} from 'react-router-dom'
 import PostFormContainer from '../posts/post_form_container'
 import UserInfoPanel from '../home/user_info_panel'
+import PostEditContainer from '../posts/post_edit_container'
+import {Route} from 'react-router-dom'
+
+
  class ProfileFeed extends React.Component {
     constructor(props){
         super(props)
@@ -27,7 +31,8 @@ import UserInfoPanel from '../home/user_info_panel'
         }
         return(
             <div className="profile-feed">
-              
+                <Route path={`/posts/:id/edit`} component={PostEditContainer} />
+
                 {form}
                 {
                     this.props.posts.map(post => <NewsFeedItem key={post.id} currentUser={this.props.currentUser} user={this.props.user} post={post} /> )
