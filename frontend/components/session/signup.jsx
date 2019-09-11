@@ -57,16 +57,16 @@ export default class SignUp extends React.Component {
             <form className="auth-form">
                 
                     <div className="sign-in-names">
-                    <input type="text" value={this.state.firstName} placeholder="First Name" onChange={this.handleInput("firstName")} />
-                    <input type="text" value={this.state.lastName} placeholder="Last Name" onChange={this.handleInput("lastName")} />
+                            <input type="text" value={this.state.firstName} placeholder="First Name" autoComplete="name" onChange={this.handleInput("firstName")} />
+                            <input type="text" value={this.state.lastName} placeholder="Last Name" autoComplete="family-name" onChange={this.handleInput("lastName")} />
                     </div>
                     <br />
                 
-                     <input type="text" value={this.state.email} placeholder="Email" onChange={this.handleInput("email")} />
+                        <input type="text" value={this.state.email} placeholder="Email" autoComplete="email" onChange={this.handleInput("email")} />
        
                     <br />
                 
-                    <input type="text" value={this.state.password} placeholder="Password" onChange={this.handleInput("password")} />
+                        <input type="password" value={this.state.password} autoComplete="new-password" placeholder="New Password" onChange={this.handleInput("password")} />
                    <br/>
                    <div className="sign-up-button">
                 <button onClick={this.handleSubmit}>Sign Up</button>

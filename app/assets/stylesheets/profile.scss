@@ -22,10 +22,15 @@
     position: relative;
     bottom: -60px;
     left: 10px;
-    background-image: url("https://s3-us-west-2.amazonaws.com/aa-progress-tracker/students/avatars/000/003/806/medium/Wesley_Tam.jpg?1563384027");
+    // background-image: url("https://s3-us-west-2.amazonaws.com/aa-progress-tracker/students/avatars/000/003/806/medium/Wesley_Tam.jpg?1563384027");
     background-size: cover;
     border: 3px solid white;
     overflow: hidden;
+}
+.profile-photo img {
+    height: 100%;
+    width: 100%;
+    background-color: grey
 }
 
 .profile-buttons{
@@ -44,7 +49,7 @@
     position: absolute;
     color: white;
     bottom: -10px;
-    left: 150px;
+    left: 130px;
     z-index: 4;
     font-size: 25px
 }

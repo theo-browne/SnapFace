@@ -1,4 +1,9 @@
 
 json.id user.id
 json.name user.name
-json.friends user.friendships
+if user.profile_photo.attached?
+    json.profileUrl url_for(user.profile_photo)
+else 
+    json.profileUrl "https://image.flaticon.com/icons/svg/149/149452.sv"
+end 
+# json.friends user.friendships

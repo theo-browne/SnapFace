@@ -31,17 +31,19 @@ import {withRouter, Link} from 'react-router-dom'
         
         return(
             <div className="edit-post-modal">
-                <div className="new-post-div edit">
+                <div className="edit">
                 <div className="new-post-head"> Edit Post</div>
-                <img className="profile-image" src="https://image.flaticon.com/icons/svg/149/149452.svg" alt="" />
+                    <div className="post-edit-content">
+                <img className="profile-image" src={this.props.user.profileUrl} alt="" />
                 <div className="modal-close">
                 <Link to="/" >X</Link>
                     </div>
-                <form className="new-post" action="">
+                <form className="new-post edit-post" action="">
                     <textarea  value={this.state.body} onChange={this.handleChange} cols="30" rows={this.rows}></textarea>
                     <br />
                     <button onClick={this.handleSubmit}>Edit</button>
                 </form>
+                    </div>
             </div>
             </div>
         )

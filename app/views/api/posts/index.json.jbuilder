@@ -15,5 +15,10 @@
         if post.photo.attached?
             json.photoUrl url_for(post.photo)
         end
+        if post.user.profile_photo.attached?
+            json.profileUrl url_for(post.user.profile_photo)
+        else 
+            json.profileUrl "https://image.flaticon.com/icons/svg/149/149452.svg"
+        end
     end 
 end

@@ -12,6 +12,7 @@ class Api::UsersController < ApplicationController
     @posts = []
     if @user.save
         login(@user)
+        
       render :new
     else
       render json: { type: "signup", errors: @user.errors.full_messages }, status: 422
@@ -26,8 +27,9 @@ class Api::UsersController < ApplicationController
   end
 
   def update 
-    @user = User.find[params[:id]]
-
+    
+    @user = User.find(params[:id])
+    @posts = @user.posts
     if @user.update(user_params)
       render :show
     else

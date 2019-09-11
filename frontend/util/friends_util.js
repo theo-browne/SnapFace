@@ -1,4 +1,5 @@
 export const fetchUsers = (search) => {
+    
     return $.ajax({
         url: "/api/users",
         method: "GET",

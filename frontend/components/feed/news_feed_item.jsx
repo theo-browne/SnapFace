@@ -35,8 +35,8 @@ export default class NewsFeedItem extends React.Component {
                 {button}
                 <div className="post-author">
                     
-                    <img src="https://image.flaticon.com/icons/svg/149/149452.svg" alt=""/>
-                    <div>
+                    <Link to={`/users/${this.props.post.authorId}`}> <img src={this.props.post.profileUrl} className="profile-icon" alt="" /></Link>
+                    <div className="post-info">
                     <Link to={`/users/${this.props.post.authorId}`}>{this.props.post.author}</Link>
                 
                 <p>{this.props.post.time}</p>

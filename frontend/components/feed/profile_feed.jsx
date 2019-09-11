@@ -10,7 +10,6 @@ import {Route} from 'react-router-dom'
  class ProfileFeed extends React.Component {
     constructor(props){
         super(props)
-        
     }
     componentDidMount(){
         // this.props.fetchUser(this.props.match.params.id).then(() => this.props.removeUsers())
@@ -27,7 +26,7 @@ import {Route} from 'react-router-dom'
         if (this.props.user === undefined) return null
         let form = null
         if (this.props.currentUser.id === this.props.user.id) {
-            form = (<PostFormContainer />)
+            form = (<PostFormContainer user={this.props.user} />)
         }
         return(
             <div className="profile-feed">
@@ -35,7 +34,7 @@ import {Route} from 'react-router-dom'
 
                 {form}
                 {
-                    this.props.posts.map(post => <NewsFeedItem key={post.id} currentUser={this.props.currentUser} user={this.props.user} post={post} /> )
+                    this.props.posts.map(post => <NewsFeedItem key={post.id} deletePost={this.props.deletePost} currentUser={this.props.currentUser} user={this.props.user} post={post} /> )
                 } 
             </div>
         )

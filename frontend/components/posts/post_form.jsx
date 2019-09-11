@@ -1,7 +1,8 @@
 import React from 'react'
+import {withRouter} from 'react-router-dom'
 
 
-export default class PostForm extends React.Component {
+ class PostForm extends React.Component {
     constructor(props){
         super(props)
         this.state = {
@@ -22,6 +23,7 @@ export default class PostForm extends React.Component {
         } 
     }
     handleFile(e) {
+        
         const file = e.currentTarget.files[0];
         const fileReader = new FileReader();
         fileReader.onloadend = () => {
@@ -35,6 +37,7 @@ export default class PostForm extends React.Component {
 
 
     handleSubmit(e){
+        
         e.preventDefault()
         const formData = new FormData();
         formData.append('post[body]', this.state.body);
@@ -47,11 +50,13 @@ export default class PostForm extends React.Component {
     }
 
     render(){
+        
+        const image = this.props.user.profileUrl || ""
         const preview = this.state.photoUrl ? <img src={this.state.photoUrl} /> : null;
         return(
             <div className="new-post-div">
                 <div className="new-post-head"> Create Post</div>
-                <img className="profile-image" src="https://image.flaticon.com/icons/svg/149/149452.svg" alt="" />
+                <img className="form" src={image} alt="" />
                 <form className="new-post" action="">
                     <textarea placeholder="Whats on your mind?" value={this.state.body} onChange={this.handleChange}  cols="30" rows={this.rows}></textarea>
                     <br/>
@@ -65,3 +70,5 @@ export default class PostForm extends React.Component {
         )
     }
 }
+
+export default withRouter(PostForm)
