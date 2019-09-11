@@ -22,6 +22,8 @@ export default class SignIn extends React.Component {
     }
 
     render() {
+        
+        let error = this.props.errors["Credentials"] ? <li className="sign-in-error">Invalid Credentials</li> : ""
         return (
             <div>
             <form className="sign-in">
@@ -42,7 +44,7 @@ export default class SignIn extends React.Component {
                 <button onClick={this.handleSubmit}>Log In</button>
                 </div>
             </form>
-            {this.props.errors.map(error => <li className="sign-in-error">{error}</li>)}
+            {error}
             </div>
         )
     }

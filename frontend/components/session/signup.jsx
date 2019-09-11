@@ -41,10 +41,17 @@ export default class SignUp extends React.Component {
     }
 
     render() {
+        let nameId = this.props.errors["Name"] ? "error" : "input"
+        let emailId = this.props.errors["Email"] ? "error" : "input"
+        let passwordId = this.props.errors["Password"] ? "error" : "input"
+        let nameError = this.props.errors["Name"] 
+        let emailError = this.props.errors["Email"] 
+        let passwordError = this.props.errors["Password"] 
+  
         return (
             <div className="splash-sign-up">
                 
-
+                <div className="splash-sign-up-content">
                 <div className="splash-sign-up-left" >
                     <img className="icon" src="https://image.flaticon.com/icons/svg/864/864685.svg" alt=""/>
                     <img src="https://www.sportscasting.com/wp-content/uploads/2019/08/Bill-Belichick-Madden-2-GettyImages-1030030996.jpg" alt=""/>
@@ -53,29 +60,32 @@ export default class SignUp extends React.Component {
                 <div className="auth-forms">
                     <SignInContainer />
                     <h2 className="signup-header">Create a New Account</h2>
-                    {this.props.errors.map((error, idx) => <li key={idx} className="signup-error">{error}</li>)}
+                    {/* {this.props.errors.map((error, idx) => <li key={idx} className="signup-error">{error}</li>)} */}
             <form className="auth-form">
                 
-                    <div className="sign-in-names">
-                            <input type="text" value={this.state.firstName} placeholder="First Name" autoComplete="name" onChange={this.handleInput("firstName")} />
-                            <input type="text" value={this.state.lastName} placeholder="Last Name" autoComplete="family-name" onChange={this.handleInput("lastName")} />
+                    <div className="sign-in-names" >
+                                <input type="text" className={nameId} value={this.state.firstName} placeholder="First Name" autoComplete="name" onChange={this.handleInput("firstName")} />
+                                <input type="text" className={nameId} value={this.state.lastName} placeholder="Last Name" autoComplete="family-name" onChange={this.handleInput("lastName")} />
+                            <li>{nameError}</li>
                     </div>
-                    <br />
+                    {/* <br /> */}
                 
-                        <input type="text" value={this.state.email} placeholder="Email" autoComplete="email" onChange={this.handleInput("email")} />
-       
-                    <br />
+                            <input type="text" className={emailId} value={this.state.email} placeholder="Email" autoComplete="email" onChange={this.handleInput("email")} />
+                            <li>{emailError}</li>
+                    {/* <br /> */}
                 
-                        <input type="password" value={this.state.password} autoComplete="new-password" placeholder="New Password" onChange={this.handleInput("password")} />
-                   <br/>
+                            <input type="password" className={passwordId} value={this.state.password} autoComplete="new-password" placeholder="New Password" onChange={this.handleInput("password")} />
+                            <li>{passwordError}</li>
+                   {/* <br/> */}
                    <div className="sign-up-button">
                 <button onClick={this.handleSubmit}>Sign Up</button>
                 <button id="demo-login" onClick={this.demoLogin}> Demo Login</button>
                  </div>
             </form>
             </div>
-                <div className="splash-sign-up-right" >
+                {/* <div className="splash-sign-up-right" >
 
+                </div> */}
                 </div>
             </div>
         )

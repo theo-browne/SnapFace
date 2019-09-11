@@ -4,7 +4,7 @@ import SignIn from './signin'
 
 
 const mSTP = state => ({
-    errors: state.errors.sessions.signin || []
+    errors: state.errors.sessions.signin || {}
 })
 
 const mDTP = dispatch => ({

@@ -3,10 +3,13 @@ import { combineReducers } from "redux"
 import friendshipsReducer from './friendships_reducer'
 import postsReducer from './post_reducer'
 import searchedUsersReducer from './searched_users_reducer'
+import commentsReducer from './comments_reducer'
+
 
 export default combineReducers({
     users: usersReducer,
     friendships: friendshipsReducer,
     posts: postsReducer,
-    searchedUsers: searchedUsersReducer
+    searchedUsers: searchedUsersReducer,
+    comments: commentsReducer
 })

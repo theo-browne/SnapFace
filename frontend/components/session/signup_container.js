@@ -4,7 +4,7 @@ import SignUp from './signup'
 
 
 const mSTP = state => ({
-    errors: state.errors.sessions.signup || []
+    errors: state.errors.sessions.signup || {}
 })
 
 const mDTP = dispatch => ({

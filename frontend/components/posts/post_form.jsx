@@ -50,13 +50,16 @@ import {withRouter} from 'react-router-dom'
     }
 
     render(){
-        
+        if (this.props.user === undefined) return null
         const image = this.props.user.profileUrl || ""
         const preview = this.state.photoUrl ? <img src={this.state.photoUrl} /> : null;
         return(
             <div className="new-post-div">
                 <div className="new-post-head"> Create Post</div>
-                <img className="form" src={image} alt="" />
+                <div className="new-post-main">
+                    <div className="new-post-photo">
+                        <img className="" src={image} alt=""  />
+                    </div>
                 <form className="new-post" action="">
                     <textarea placeholder="Whats on your mind?" value={this.state.body} onChange={this.handleChange}  cols="30" rows={this.rows}></textarea>
                     <br/>
@@ -66,6 +69,7 @@ import {withRouter} from 'react-router-dom'
                     <button onClick={this.handleSubmit}>Post</button>
                 </form>
                 {preview}
+                </div>
             </div>
         )
     }

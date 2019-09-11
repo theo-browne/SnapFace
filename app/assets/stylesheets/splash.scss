@@ -27,7 +27,7 @@ body{
     padding: 0;
     margin: 0
 }
-.auth-form input{
+.input{
     height: 25px;
     border: 1px solid gray;
     border-radius: 4px;
@@ -35,6 +35,7 @@ body{
     margin-bottom: 5px;
     padding-left: 10px;
 }
+
 .auth-form {
     margin: 0;
     padding: 0
@@ -95,14 +96,14 @@ button:hover{
 
 .splash-sign-up{
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     position: relative;
     padding-top: 50px;
-    background-color: rgba(243, 242, 242, 0.8);
 }
 
 .sign-in-button{
-    align-self: center
+    align-self: center;
+    width: 70px
 }
 .sign-in-names {
     width: 100%
@@ -170,4 +171,30 @@ footer {
 
     background-color: plum
 
+}
+
+.splash-sign-up-content{
+    display: flex;
+    justify-content: center
+}
+.splash{
+    display: flex;
+    justify-content: center;
+    background-color: rgba(243, 242, 242, 0.8);
+
+}
+
+.auth-form li {
+    list-style: none;
+    color: red;
+    font-size: 10px
+}
+
+.error{
+     height: 25px;
+    border-radius: 4px;
+    width: 80%;
+    margin-bottom: 5px;
+    padding-left: 10px;
+    border: 1px solid red
 }

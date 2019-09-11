@@ -12,7 +12,6 @@ class Api::UsersController < ApplicationController
     @posts = []
     if @user.save
         login(@user)
-        
       render :new
     else
       render json: { type: "signup", errors: @user.errors.full_messages }, status: 422

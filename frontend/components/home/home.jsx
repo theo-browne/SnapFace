@@ -7,6 +7,8 @@ import {Link, withRouter} from 'react-router-dom'
 import {ProtectedRoute} from '../../util/route_util'
 import PostEditContainer from '../posts/post_edit_container'
 import UserInfoPanelContainer from './user_info_panel_container'
+import NavBar from './nav_bar'
+
 
  class Home extends React.Component{
     constructor(props){
@@ -24,24 +26,15 @@ import UserInfoPanelContainer from './user_info_panel_container'
                 <div className="home-mid">
                     <SearchContainer />
                         <Route path="/users/:id" component={UserInfoPanelContainer} />
-                    <div className="user-info">
-                            <Link to={`/users/${this.props.currentUser.id}`} >{name}</Link>
-                            <Link to={`/`}>Home</Link>
-                             <img className="profile-icon" src="https://image.flaticon.com/icons/svg/1006/1006052.svg" alt="" />
-                            <button onClick={() => this.props.logoutUser()}>Logout</button>
-                    </div>
+                        <NavBar user={this.props.currentUser} logoutUser={this.props.logoutUser} />
                     <Switch>
                             <Route path="/users/:id"  component={ProfileFeedContainer} />
 
-                            <Route path="/" component={NewsFeedContainer} />
-                            
+                            <Route path="/" component={NewsFeedContainer} />  
                     </Switch>
                 </div>
                 <div className="home-right">
-                    
-
                 </div>
-
             </div>
             </div>
         )

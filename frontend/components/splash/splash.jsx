@@ -8,6 +8,7 @@ export default class Splash extends React.Component {
 
     render(){
         return(
+            <div>
             <div className="splash">
                 <div className="nav-bar">
                     
@@ -16,11 +17,13 @@ export default class Splash extends React.Component {
                     {/* <SignInContainer /> */}
                     <SignUpContainer />
                 </div>
-                <div className="footer">
+                
+            </div>
+            <div className="footer">
                 <footer>
                     link link link
                 </footer>
-                </div>
+            </div>
             </div>
         )
     }

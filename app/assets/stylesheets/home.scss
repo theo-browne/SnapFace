@@ -161,8 +161,10 @@
     background-color: white;
     font-size: 12px;
     border: 1px solid lightgray;
-    position: relative;;
-
+    position: sticky;
+    top: 10%
+   
+    
 }
 
 .edit-post-div form {

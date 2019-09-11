@@ -1,5 +1,7 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
+import CommentFormContainer from '../comments/comment_form_container'
+
 
 export default class NewsFeedItem extends React.Component {
     constructor(props){
@@ -31,6 +33,7 @@ export default class NewsFeedItem extends React.Component {
         }
         const photo = this.props.post.photoUrl ? (<img className="post-photo" src={this.props.post.photoUrl} alt="" />) : null
         return(
+            <div className="post-container">
             <div className="post" key={this.props.post.id}>
                 {button}
                 <div className="post-author">
@@ -50,6 +53,10 @@ export default class NewsFeedItem extends React.Component {
               <br/>
                 {photo}
                 </div>
+                
+            </div>
+                <div className="post-interactions-container"></div>
+                <CommentFormContainer post={this.props.post} />
             </div>
         )
     }
