@@ -53,7 +53,8 @@ class User < ApplicationRecord
     friend_ids.include?(user.id)
   end
 
-  def grab_posts
+  def grab_posts(last_post)
+    @posts = current_user.friends_posts.where("posts.created_at > ?", last_post.created_at).order("created_at DESC")
   end
 
   

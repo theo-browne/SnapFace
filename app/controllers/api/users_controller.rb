@@ -2,7 +2,7 @@ class Api::UsersController < ApplicationController
 
   def show 
     @user = User.find(params[:id])
-    @posts = @user.posts
+    @posts = @user.posts.limit(2).order("posts.created_at DESC")
     @friendship = current_user.friendships.find_by("friend_id = ?", @user.id)
     render :show
   end
@@ -11,6 +11,7 @@ class Api::UsersController < ApplicationController
     @user = User.new(user_params)
     @posts = []
     if @user.save
+        Friendship.create(user_id: current_user.id, friend_id: current_user.id, status: "CONFIRMED")
         login(@user)
       render :new
     else

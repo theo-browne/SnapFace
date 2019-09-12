@@ -19,7 +19,7 @@ export default class NewsFeed extends React.Component {
             <div className="feed">
                 <Route path={`/posts/:id/edit`} component={PostEditContainer} />
                 <PostFormContainer user={this.props.currentUser} />
-                <ul>
+                <ul >
                     {this.props.posts.map(post => <NewsFeedItem key={post.id} fetchComments={this.props.fetchComments} deletePost={this.props.deletePost} currentUser={this.props.currentUser} post={post} />)}
                 </ul>
             </div>
