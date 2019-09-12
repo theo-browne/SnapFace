@@ -11,7 +11,6 @@ export default class NewsFeedItem extends React.Component {
     }
     showDropdown(e){
         e.currentTarget.lastChild.classList.add('show')
-        
     }
     hideDropdown(e){
         e.currentTarget.lastChild.classList.remove('show')
@@ -55,7 +54,14 @@ export default class NewsFeedItem extends React.Component {
                 </div>
                 
             </div>
-                <div className="post-interactions-container"></div>
+                <div className="post-interactions-container">
+                  
+                        <button className="react-button">React</button>
+                  
+                    <button className="comment-button" onClick={() => this.props.fetchComments(this.props.post.id)}>Comment</button>
+                       
+                    
+                </div>
                 <CommentFormContainer post={this.props.post} />
             </div>
         )

@@ -53,6 +53,9 @@ class User < ApplicationRecord
     friend_ids.include?(user.id)
   end
 
+  def grab_posts
+  end
+
   
 
   def self.find_by_credentials(email, password)

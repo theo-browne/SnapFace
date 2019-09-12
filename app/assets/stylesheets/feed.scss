@@ -285,3 +285,25 @@ textarea:focus {
 .new-post-main{
     display: flex
 }
+
+.post-interactions-container{
+    display: flex;
+    position: relative;
+}
+
+.post-interactions-container button {
+    width: 50%;
+    height: 100%;
+    text-align: center;
+    border: none;
+    position: absolute
+    
+}
+.post-interactions-container button.comment-button{
+    right: 0;
+    top: 0
+}
+.post-interactions-container button.react-button{
+    left: 0;
+    top: 0
+}

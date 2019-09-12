@@ -6,7 +6,9 @@ Rails.application.routes.draw do
       resources :users 
 
       resources :friendships
-      resources :posts
+      resources :posts do
+        resources :comments, only: [:index]
+      end
       resource :session
       resources :comments
   end

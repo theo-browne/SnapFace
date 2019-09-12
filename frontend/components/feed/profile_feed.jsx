@@ -34,7 +34,7 @@ import {Route} from 'react-router-dom'
 
                 {form}
                 {
-                    this.props.posts.map(post => <NewsFeedItem key={post.id} deletePost={this.props.deletePost} currentUser={this.props.currentUser} user={this.props.user} post={post} /> )
+                    this.props.posts.map(post => <NewsFeedItem key={post.id} fetchComments={this.props.fetchComments} deletePost={this.props.deletePost} currentUser={this.props.currentUser} user={this.props.user} post={post} /> )
                 } 
             </div>
         )
