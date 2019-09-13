@@ -27,6 +27,7 @@ export default class NewsFeed extends React.Component {
         const ul = document.querySelector(".news-feed")
 
         const lastEl = ul.lastElementChild
+        if (!lastEl) return null
         if (lastEl.offsetTop - pageYOffset < window.innerHeight && this.ready){
             this.page += 1
             this.props.fetchPosts(this.page)
@@ -47,7 +48,7 @@ export default class NewsFeed extends React.Component {
                 {/* <Route exact path={`/comments/:id/edit`} component={CommentEditFormContainer}></Route> */}
                 <PostFormContainer user={this.props.currentUser} />
                 <ul className="news-feed">
-                    {this.props.posts.map(post => <NewsFeedItem key={post.id} fetchComments={this.props.fetchComments} deletePost={this.props.deletePost} currentUser={this.props.currentUser} post={post} />)}
+                    {this.props.posts.map(post => <NewsFeedItem key={post.id} createReaction={this.props.createReaction} fetchComments={this.props.fetchComments} deletePost={this.props.deletePost} currentUser={this.props.currentUser} post={post} />)}
                 </ul>
             </div>
         )

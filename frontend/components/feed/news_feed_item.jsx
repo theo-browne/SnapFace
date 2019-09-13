@@ -8,6 +8,7 @@ export default class NewsFeedItem extends React.Component {
         super(props)
         this.showDropdown = this.showDropdown.bind(this)
         this.hideDropdown = this.hideDropdown.bind(this)
+        this.react = this.react.bind(this)
     }
     showDropdown(e){
         e.currentTarget.lastChild.classList.add('show')
@@ -22,7 +23,10 @@ export default class NewsFeedItem extends React.Component {
 
     unrevealDropdown(e){
         e.currentTarget.lastChild.classList.remove('reveal')
+    }
 
+    react(type){
+        this.props.createReaction({reacted_type: "Post", reacted_id: this.props.post.id, reaction_type: type})
     }
 
     render(){
@@ -66,11 +70,11 @@ export default class NewsFeedItem extends React.Component {
                   
                     <button className="react-button" onMouseEnter={this.revealDropdown} onMouseLeave={this.unrevealDropdown}>React
                             <div className="reaction-pop-up">
-                                <img src="https://image.flaticon.com/icons/svg/1946/1946399.svg" alt=""/>
-                            <img src="https://image.flaticon.com/icons/svg/1946/1946497.svg" alt=""/>
-                            <img src="https://image.flaticon.com/icons/svg/1946/1946406.svg" alt=""/>
-                            <img src="https://image.flaticon.com/icons/svg/1356/1356427.svg" alt=""/>
-                            <img src="https://image.flaticon.com/icons/svg/1854/1854218.svg" alt=""/>
+                            <img src="https://image.flaticon.com/icons/svg/1946/1946399.svg" onClick={() => this.react('like')} alt=""/>
+                            <img src="https://image.flaticon.com/icons/svg/1946/1946497.svg" onClick={() => this.react('dislike')}alt=""/>
+                            <img src="https://image.flaticon.com/icons/svg/1946/1946406.svg" onClick={() => this.react('love')} alt=""/>
+                            <img src="https://image.flaticon.com/icons/svg/1356/1356427.svg" onClick={() => this.react('laugh')} alt=""/>
+                            <img src="https://image.flaticon.com/icons/svg/1854/1854218.svg" onClick={() => this.react('sad')} alt=""/>
                                 {/* <button>LIKE</button> */}
                                 {/* <button>LOVE</button>
                                 <button>LAUGH</button> */}

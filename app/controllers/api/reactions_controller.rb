@@ -2,7 +2,12 @@ class Api::ReactionsController < ApplicationController
 
     def create
         @reaction = Reaction.create(reaction_params)
-        @reaction.save
+        @reaction.user_id = current_user.id
+        if @reaction.save
+            render :show
+        else 
+            render json: @reaction.errors.full_messages, status: 422
+        end
     end
 
 
