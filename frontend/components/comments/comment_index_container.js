@@ -1,6 +1,7 @@
 import {connect} from 'react-redux'
 import CommentIndex from './comment_index'
 import { fetchComments, deleteComment, updateComment, removeComments } from '../../actions/comment_actions'
+import {setComment} from '../../actions/ui_actions'
 
 
 const mSTP = (state, props) => ({
@@ -19,7 +20,8 @@ const mDTP = dispatch => ({
     fetchComments: (postId, page) => dispatch(fetchComments(postId, page)),
     deleteComment: commentId => dispatch(deleteComment(commentId)),
     updateComment: comment => dispatch(updateComment(comment)),
-    removeComments: postId => dispatch(removeComments(postId))
+    removeComments: postId => dispatch(removeComments(postId)),
+    setComment: comment => dispatch(setComment(comment))
 })
 
 export default connect(mSTP, mDTP)(CommentIndex)

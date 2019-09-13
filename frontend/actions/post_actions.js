@@ -9,9 +9,9 @@ export const receivePost = (post) => ({
     type: RECEIVE_POST,
     post
 })
-export const receivePosts = (posts) => ({
+export const receivePosts = (payload) => ({
     type: RECEIVE_POSTS,
-    posts
+    payload
 })
 
 export const removePost = (post) => ({
@@ -24,7 +24,7 @@ export const fetchPost = id => dispatch => {
 }
 
 export const fetchPosts = (page) => dispatch => {
-    return APIPostsUtil.fetchPosts(page).then(posts => dispatch(receivePosts(posts)))
+    return APIPostsUtil.fetchPosts(page).then(payload => dispatch(receivePosts(payload)))
 }
 
 export const createPost = (post) => dispatch => {

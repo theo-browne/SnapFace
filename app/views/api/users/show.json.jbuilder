@@ -61,3 +61,5 @@ end
              end
          end
  end
+
+ json.maxPages @max 

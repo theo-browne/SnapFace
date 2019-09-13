@@ -71,9 +71,14 @@
     color: plum
 }
 .post-drop-down {
+    position: absolute;
     display: none;
     list-style: none;
-    color: black
+    color: black;
+    right:0;
+    /* height: 50px; */
+    width: 80px; 
+    background-color: white;
 }
 .post-delete{
     border-bottom: 1px solid lightgray;
@@ -384,15 +389,57 @@ textarea:focus {
     z-index: 2;
     background-color: white ;
     border: 1px solid gray;
-    box-shadow: 1px gray
-}
-.show {
+    box-shadow: 1px gray;
     position: absolute;
-    display: block;
     right:0;
     /* height: 50px; */
     width: 80px; 
     background-color: white;
+ 
+}
+
+.reaction-pop-up{
+    display: none;
+    justify-content: space-around;
+    // background-color: white;
+    position: absolute;
+    // border: 1px solid red;
+    top: -40px;
+    left: 20px;
+    width: 200px;
+    height: 50px;
+}
+.reaction-pop-up button {
+    border-radius: 50%;
+    background-color: blue;
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+    position: relative;
+    color: white;
+    padding: 0
+}
+.reaction-pop-up img {
+    margin: 0;
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+.reaction-pop-up img:hover{
+    width: 40px;
+    height: 40px;
+}
+.reveal{
+  position: absolute;
+    display: flex;  
+}
+.show {
+    position: absolute;
+    display: block;
+    // right:0;
+    // /* height: 50px; */
+    // width: 80px; 
+    // background-color: white;
 }
 
 .comment-drop-down li{
@@ -409,4 +456,39 @@ textarea:focus {
     border: none;
     padding: none;
     font-size: 10px
+}
+
+.edit-comment-form{
+    padding: 10px;
+    display: flex;
+    background-color: white;
+    width: 400px;
+    margin: auto;
+    // border: 1px solid lightgray;
+    border-top: none;
+    border-bottom: none ;
+    border-bottom-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+    padding-left: 0;
+    position: relative;
+}
+
+.edit-comment-form textarea{
+    padding-left: 10px;
+    padding-top: 2px;
+    border-radius: 10px;
+    border: 1px solid lightgray;
+    background-color: rgb(243, 243, 243);
+    // height: 20px;
+    min-height: 15px;
+    width: 300px;
+    font-size: 12px;
+}
+
+.edit-comment-form button {
+    position: absolute;
+    right: 2px
+}
+.edit-comment-form button:hover{
+    color: plum
 }

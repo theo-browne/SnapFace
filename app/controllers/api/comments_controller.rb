@@ -15,7 +15,7 @@ class Api::CommentsController < ApplicationController
         end
     end
 
-    def edit 
+    def update 
         @comment = Comment.find(params[:id])
 
         if @comment.update(comment_params)
@@ -24,6 +24,11 @@ class Api::CommentsController < ApplicationController
             render json: @comment.errors.full_messages
         end
 
+    end
+
+    def show
+        @comment = Comment.find(params[:id])
+        render :show
     end
 
     def destroy

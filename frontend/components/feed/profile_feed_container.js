@@ -9,7 +9,8 @@ import { fetchComments } from '../../actions/comment_actions';
 const mSTP = (state, props) => ({
     user: state.entities.users[props.match.params.id],
     posts: Object.values(state.entities.posts).filter(post => post.authorId === +props.match.params.id).reverse(),
-    currentUser: state.session
+    currentUser: state.session,
+    maxPages: state.pagination.profileFeedLength
 })
 
 

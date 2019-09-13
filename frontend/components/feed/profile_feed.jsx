@@ -41,6 +41,9 @@ import {Route} from 'react-router-dom'
              this.ready = false
              setTimeout(() => this.ready = true, 1000)
          }
+         if (this.page > this.props.maxPages) {
+             window.removeEventListener('scroll', this.handleScroll)
+         }
      }
     
 

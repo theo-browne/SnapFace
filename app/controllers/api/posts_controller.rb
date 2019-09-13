@@ -7,6 +7,7 @@ class Api::PostsController < ApplicationController
         # @posts.concat(@friend_posts)
         #order("posts.created_at DESC").limit(5)
         @posts = current_user.friends_posts.order("posts.created_at DESC").page(params[:page]).per(5)
+        @max = current_user.friends_posts.length / 5
         render :index
     end
 

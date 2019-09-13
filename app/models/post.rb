@@ -6,8 +6,7 @@ class Post < ApplicationRecord
 
     has_many :comments
 
-    def grab_comments(last_comment)
-        @comments = @post.comments.where("comments.created_at > ?", last_comment.created_at).order("created_at DESC")
-    end
+    has_many :reaction, as: :reacted
+
 
 end

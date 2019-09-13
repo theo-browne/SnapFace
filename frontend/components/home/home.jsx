@@ -29,7 +29,6 @@ class Home extends React.Component {
                         <NavBar user={this.props.currentUser} logoutUser={this.props.logoutUser} />
                         <Switch>
                             <Route path="/users/:id" component={ProfileFeedContainer} />
-
                             <Route path="/" component={NewsFeedContainer} />
                         </Switch>
                     </div>

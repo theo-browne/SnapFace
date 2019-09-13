@@ -7,6 +7,12 @@ export default class CommentEditForm extends React.Component{
         this.rows = 1
         this.handleChange = this.handleChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
+        this.listen = false
+        this.ready = true
+    }
+
+    componentDidMount(){
+        // this.props.fetchComment(this.props.match.params.id)
     }
 
     handleChange(e) {
@@ -14,21 +20,38 @@ export default class CommentEditForm extends React.Component{
         if ((this.state.body.length % 50) === 0) {
             this.rows = (this.state.body.length / 50) + 1
         }
+        e.target.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter' && this.ready) {
+                this.handleSubmit()
+                this.listen = true
+                this.ready = false
+                setTimeout(() => { this.ready = true }, 500)
+            }
+        })
     }
-    
+
     handleSubmit(e) {
-        e.preventDefault()
-        this.props.createComment(this.state).then(() => this.setState({ body: "" }))
+        // e.preventDefault()
+        this.props.updateComment(this.state).then(() => {
+            this.setState({ body: "" })
+            this.props.editSubmit()
+        })
         this.rows = 1
     }
 
 
     render(){
+        if (this.props.comment === undefined) return null
+        
+        // if (this.props.comment.id !== +this.props.match.params.id ) return null
         return(
             <div>
-                <form action="" onSubmit={this.handleSubmit} >
+                <form action="" className="edit-comment-form" onSubmit={this.handleSubmit} >
+                    <img className="comment-image" src={this.props.comment.profileUrl} alt="" />
+                    
                     <textarea onChange={this.handleChange} value={this.state.body} placeholder="Write a comment" cols="30" rows={this.rows}></textarea>
-                    <input type="submit" onSubmit={this.handleSubmit} className="comment-submit" value="" />
+                    <button onClick={() => this.props.editSubmit()}>X</button>
+                    {/* <input type="submit" onSubmit={this.handleSubmit} className="comment-submit" value="" /> */}
                 </form>
             </div>
         )

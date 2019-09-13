@@ -38,3 +38,7 @@ export const updateComment = comment => dispatch => {
 export const deleteComment = commentId => dispatch => {
     return ApiCommentUtils.deleteComment(commentId).then(comment => dispatch(removeComment(comment)))
 }
+
+export const fetchComment = id => dispatch => {
+    return ApiCommentUtils.fetchComment(id).then(comment => dispatch(receiveComment(comment)))
+}

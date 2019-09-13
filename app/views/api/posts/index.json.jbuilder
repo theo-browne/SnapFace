@@ -1,6 +1,6 @@
 
 
-
+json.posts do
 @posts.each do |post|
     json.set! post.id do 
         json.id post.id
@@ -21,4 +21,7 @@
             json.profileUrl "https://image.flaticon.com/icons/svg/149/149452.svg"
         end
     end 
+end 
 end
+json.maxPages @max 
+

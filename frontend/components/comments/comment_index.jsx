@@ -37,7 +37,7 @@ export default class CommentIndex extends React.Component{
         return(
             <div className="comment-index">
                 <ul>
-                    {this.props.comments.map(comment => <CommentIndexItem key={comment.id} deleteComment={this.props.deleteComment} updateComment={this.props.updateComment} currentUser={this.props.currentUser} comment={comment} /> )}
+                    {this.props.comments.map(comment => <CommentIndexItem key={comment.id} setComment={this.props.setComment} deleteComment={this.props.deleteComment} updateComment={this.props.updateComment} currentUser={this.props.currentUser} comment={comment} /> )}
                 </ul>
                 {button}
                 {hide}

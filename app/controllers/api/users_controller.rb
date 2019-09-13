@@ -5,14 +5,14 @@ class Api::UsersController < ApplicationController
     @friendship = current_user.friendships.find_by("friend_id = ?", @user.id)
     # @posts = @user.posts.order("posts.created_at DESC")
     @posts = @user.posts.order("posts.created_at DESC").page(params[:page]).per(5)
-
+    @max = @user.posts.length / 5
     render :show
   end
  
   def create
     @user = User.new(user_params)
     @posts = []
-    debugger
+    
     if @user.save
         Friendship.create(user_id: @user.id, friend_id: @user.id, status: "CONFIRMED")
         login(@user)

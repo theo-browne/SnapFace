@@ -16,6 +16,15 @@ export default class NewsFeedItem extends React.Component {
         e.currentTarget.lastChild.classList.remove('show')
     }
 
+    revealDropdown(e){
+        e.currentTarget.lastChild.classList.add('reveal')
+    }
+
+    unrevealDropdown(e){
+        e.currentTarget.lastChild.classList.remove('reveal')
+
+    }
+
     render(){
         if (this.props.post === undefined) return null
         let button;
@@ -55,7 +64,20 @@ export default class NewsFeedItem extends React.Component {
             </div>
                 <div className="post-interactions-container">
                   
-                        <button className="react-button">React</button>
+                    <button className="react-button" onMouseEnter={this.revealDropdown} onMouseLeave={this.unrevealDropdown}>React
+                            <div className="reaction-pop-up">
+                                <img src="https://image.flaticon.com/icons/svg/1946/1946399.svg" alt=""/>
+                            <img src="https://image.flaticon.com/icons/svg/1946/1946497.svg" alt=""/>
+                            <img src="https://image.flaticon.com/icons/svg/1946/1946406.svg" alt=""/>
+                            <img src="https://image.flaticon.com/icons/svg/1356/1356427.svg" alt=""/>
+                            <img src="https://image.flaticon.com/icons/svg/1854/1854218.svg" alt=""/>
+                                {/* <button>LIKE</button> */}
+                                {/* <button>LOVE</button>
+                                <button>LAUGH</button> */}
+                                {/* <button>SAD</button>
+                                <button>ANGRY</button> */}
+                            </div>
+                        </button>
                   
                     <button className="comment-button" onClick={() => this.props.fetchComments(this.props.post.id, 1)}>Comment</button>
                        

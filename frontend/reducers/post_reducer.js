@@ -8,9 +8,10 @@ const postsReducer = (state = {}, action) => {
 
     switch (action.type) {
         case RECEIVE_POSTS:
-            Object.values(action.posts).forEach(post => {
+            if (action.payload.posts) {
+            Object.values(action.payload.posts).forEach(post => {
                 newState[post.id] = post
-            })
+            })}
             return newState
         case RECEIVE_POST:
             newState[action.post.id] = action.post

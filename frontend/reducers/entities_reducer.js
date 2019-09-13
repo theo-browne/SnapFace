@@ -4,6 +4,7 @@ import friendshipsReducer from './friendships_reducer'
 import postsReducer from './post_reducer'
 import searchedUsersReducer from './searched_users_reducer'
 import commentsReducer from './comments_reducer'
+import reactionReducer from './reaction_reducer'
 
 
 export default combineReducers({
@@ -11,5 +12,6 @@ export default combineReducers({
     friendships: friendshipsReducer,
     posts: postsReducer,
     searchedUsers: searchedUsersReducer,
-    comments: commentsReducer
+    comments: commentsReducer,
+    reactions: reactionReducer
 })

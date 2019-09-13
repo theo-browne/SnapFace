@@ -8,6 +8,8 @@ export default class CommentForm extends React.Component{
             post_id: this.props.post.id
         }
         this.rows = 1
+        this.listen = false
+        this.ready = true
         this.handleChange = this.handleChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
     }
@@ -17,9 +19,19 @@ export default class CommentForm extends React.Component{
         if ((this.state.body.length % 50) === 0) {
             this.rows = (this.state.body.length / 50) + 1
         }
+            e.target.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter' && this.ready ) {
+                    this.handleSubmit()
+                    this.listen = true
+                    this.ready = false
+                    setTimeout(() => {this.ready = true}, 500)
+                }
+            })
+        
     }
+
     handleSubmit(e) {
-        e.preventDefault()
+        // e.preventDefault()
         this.props.createComment(this.state).then(() => this.setState({body: ""})) 
         this.rows = 1
     }
@@ -32,7 +44,7 @@ export default class CommentForm extends React.Component{
                 <img className="comment-image"  src={image} alt="" />
                 <form action="" onSubmit={this.handleSubmit} >
                     <textarea onChange={this.handleChange} value={this.state.body} placeholder="Write a comment" cols="30" rows={this.rows}></textarea>
-                    <input type="submit" onSubmit={this.handleSubmit} className="comment-submit" value=""/>
+                    {/* <input type="submit" onSubmit={this.handleSubmit} className="comment-submit" value=""/> */}
                 </form>
             </div>
         )
