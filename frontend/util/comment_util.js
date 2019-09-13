@@ -6,9 +6,25 @@ export const createComment = comment => {
     })
 }
 
-export const fetchComments = postId => {
+export const deleteComment = commentId => {
+    return $.ajax({
+        method: "DELETE",
+        url: `/api/comments/${commentId}`
+    })
+}
+
+export const updateComment = comment => {
+    return $.ajax({
+        method: "PATCH",
+        url: `/api/comments/${comment.id}`,
+        data: {comment}
+    })
+}
+
+export const fetchComments = (postId, page) => {
     return $.ajax({
         method: "GET",
         url: `/api/posts/${postId}/comments`,
+        data: {page}
     })
 }

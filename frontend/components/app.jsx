@@ -8,7 +8,7 @@ import SearchContainer from './search/search_container'
 import HomeContainer from './home/home_container'
 
 const App = (props) => (
-    <div>
+    <div >
         
             <AuthRoute path="/splash" component={Splash} /> 
             <ProtectedRoute path="/" component={HomeContainer} />

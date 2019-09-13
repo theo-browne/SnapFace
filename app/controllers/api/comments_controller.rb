@@ -2,7 +2,7 @@ class Api::CommentsController < ApplicationController
 
     def index
         @post = Post.find(params[:post_id])
-        @comments = @post.comments
+        @comments = @post.comments.order("comments.created_at DESC").page(params[:page]).per(3)
     end
 
     def create 
@@ -11,8 +11,19 @@ class Api::CommentsController < ApplicationController
         if @comment.save
             render :show
         else 
+            render json: @comment.errors.full_messages  
+        end
+    end
+
+    def edit 
+        @comment = Comment.find(params[:id])
+
+        if @comment.update(comment_params)
+            render :show
+        else 
             render json: @comment.errors.full_messages
         end
+
     end
 
     def destroy

@@ -1,7 +1,7 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 import CommentFormContainer from '../comments/comment_form_container'
-
+import CommentIndexContainer from '../comments/comment_index_container'
 
 export default class NewsFeedItem extends React.Component {
     constructor(props){
@@ -23,8 +23,7 @@ export default class NewsFeedItem extends React.Component {
             button = ( 
                 <button className="post-delete-button" onMouseEnter={this.showDropdown} onMouseLeave={this.hideDropdown}  >...
                     <div className="post-drop-down" >
-                        <li onClick={() => this.props.deletePost(this.props.post.id)}>Delete Post</li>
-
+                        <li onClick={() => this.props.deletePost(this.props.post.id)} className="post-delete">Delete Post</li>
                         <Link to={`/posts/${this.props.post.id}/edit`}><li >Edit Post</li></Link>
                     </div>
                 </button>
@@ -58,11 +57,12 @@ export default class NewsFeedItem extends React.Component {
                   
                         <button className="react-button">React</button>
                   
-                    <button className="comment-button" onClick={() => this.props.fetchComments(this.props.post.id)}>Comment</button>
+                    <button className="comment-button" onClick={() => this.props.fetchComments(this.props.post.id, 1)}>Comment</button>
                        
                     
                 </div>
                 <CommentFormContainer post={this.props.post} />
+                <CommentIndexContainer post={this.props.post}/>
             </div>
         )
     }

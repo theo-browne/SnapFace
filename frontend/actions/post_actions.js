@@ -23,8 +23,8 @@ export const fetchPost = id => dispatch => {
     return APIPostsUtil.fetchPost(id).then(post => dispatch(receivePost(post)))
 }
 
-export const fetchPosts = () => dispatch => {
-    return APIPostsUtil.fetchPosts().then(posts => dispatch(receivePosts(posts)))
+export const fetchPosts = (page) => dispatch => {
+    return APIPostsUtil.fetchPosts(page).then(posts => dispatch(receivePosts(posts)))
 }
 
 export const createPost = (post) => dispatch => {

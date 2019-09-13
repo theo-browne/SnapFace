@@ -10,9 +10,9 @@ const mSTP = state => ({
 })
 
 const mDTP = dispatch => ({
-    fetchPosts: () => dispatch(fetchPosts()),
+    fetchPosts: (page) => dispatch(fetchPosts(page)),
     deletePost: id => dispatch(deletePost(id)),
-    fetchComments: postId => dispatch(fetchComments(postId))
+    fetchComments: (postId, page) => dispatch(fetchComments(postId, page))
 })
 
 

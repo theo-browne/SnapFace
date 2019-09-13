@@ -2,16 +2,19 @@ class Api::UsersController < ApplicationController
 
   def show 
     @user = User.find(params[:id])
-    @posts = @user.posts.limit(2).order("posts.created_at DESC")
     @friendship = current_user.friendships.find_by("friend_id = ?", @user.id)
+    # @posts = @user.posts.order("posts.created_at DESC")
+    @posts = @user.posts.order("posts.created_at DESC").page(params[:page]).per(5)
+
     render :show
   end
  
   def create
     @user = User.new(user_params)
     @posts = []
+    debugger
     if @user.save
-        Friendship.create(user_id: current_user.id, friend_id: current_user.id, status: "CONFIRMED")
+        Friendship.create(user_id: @user.id, friend_id: @user.id, status: "CONFIRMED")
         login(@user)
       render :new
     else

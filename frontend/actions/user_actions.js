@@ -7,8 +7,8 @@ export const receiveUser = (payload) => ({
     payload
 })
 
-export const fetchUser = id => dispatch => {
-    return APIUserUtils.fetchUser(id).then(payload => dispatch(receiveUser(payload)))
+export const fetchUser = (id, page) => dispatch => {
+    return APIUserUtils.fetchUser(id, page).then(payload => dispatch(receiveUser(payload)))
 }
 
 export const updateUser = (data, id) => dispatch => {

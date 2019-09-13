@@ -7,19 +7,41 @@ import {Route} from 'react-router-dom'
 export default class NewsFeed extends React.Component {
     constructor(props){
         super(props)
+        this.page = 1
+        this.ready = true 
+        this.handleScroll = this.handleScroll.bind(this)
     }
     componentDidMount(){
-        this.props.fetchPosts()
+        this.props.fetchPosts(1);
+        this.event = window.addEventListener('scroll', this.handleScroll)
+    }
+
+    componentWillUnmount() {
+         
+        window.removeEventListener('scroll',  this.handleScroll)
+        
+    }
+
+    handleScroll(e){
+        const ul = document.querySelector(".news-feed")
+
+        const lastEl = ul.lastElementChild
+        if (lastEl.offsetTop - pageYOffset < window.innerHeight && this.ready){
+            this.page += 1
+            this.props.fetchPosts(this.page)
+            this.ready = false
+            setTimeout(() => this.ready = true, 1000)
+        }
     }
 
 
     render(){
         if (this.props.posts === undefined) return null
         return(
-            <div className="feed">
+            <div className="feed" >
                 <Route path={`/posts/:id/edit`} component={PostEditContainer} />
                 <PostFormContainer user={this.props.currentUser} />
-                <ul >
+                <ul className="news-feed">
                     {this.props.posts.map(post => <NewsFeedItem key={post.id} fetchComments={this.props.fetchComments} deletePost={this.props.deletePost} currentUser={this.props.currentUser} post={post} />)}
                 </ul>
             </div>

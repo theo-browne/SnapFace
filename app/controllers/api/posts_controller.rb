@@ -1,10 +1,12 @@
 class Api::PostsController < ApplicationController
 
     def index 
-        @posts = []
-        @friend_posts = current_user.friends_posts
-        @posts.concat(current_user.posts)
-        @posts.concat(@friend_posts)
+        # @posts = []
+        # @friend_posts = current_user.friends_posts
+        # @posts.concat(current_user.posts)
+        # @posts.concat(@friend_posts)
+        #order("posts.created_at DESC").limit(5)
+        @posts = current_user.friends_posts.order("posts.created_at DESC").page(params[:page]).per(5)
         render :index
     end
 

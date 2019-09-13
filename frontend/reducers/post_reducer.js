@@ -8,12 +8,19 @@ const postsReducer = (state = {}, action) => {
 
     switch (action.type) {
         case RECEIVE_POSTS:
-            return action.posts
+            Object.values(action.posts).forEach(post => {
+                newState[post.id] = post
+            })
+            return newState
         case RECEIVE_POST:
             newState[action.post.id] = action.post
             return newState
         case RECEIVE_USER: 
-            return action.payload.posts || {}
+            if (action.payload.posts)
+            Object.values(action.payload.posts).forEach(post => {
+                newState[post.id] = post
+            })
+            return newState || {}
         case REMOVE_POST:
             delete newState[action.post.id]
             return newState

@@ -23,7 +23,7 @@ class Home extends React.Component {
                 <div className="home">
                     <div className="home-left">
                     </div>
-                    <div className="home-mid">
+                    <div className="home-mid" >
                         <SearchContainer />
                         <Route path="/users/:id" component={UserInfoPanelContainer} />
                         <NavBar user={this.props.currentUser} logoutUser={this.props.logoutUser} />
