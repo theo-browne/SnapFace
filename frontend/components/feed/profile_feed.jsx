@@ -60,7 +60,7 @@ import {Route} from 'react-router-dom'
                 {form}
                     <ul className="news-feed"> 
                 {
-                    this.props.posts.map(post => <NewsFeedItem key={post.id} fetchComments={this.props.fetchComments} deletePost={this.props.deletePost} currentUser={this.props.currentUser} user={this.props.user} post={post} /> )
+                        this.props.posts.map(post => <NewsFeedItem key={post.id} updateReaction={this.props.updateReaction} deleteReaction={this.props.deleteReaction} createReaction={this.props.createReaction} fetchComments={this.props.fetchComments} deletePost={this.props.deletePost} currentUser={this.props.currentUser} user={this.props.user} post={post} /> )
                 } 
                 </ul>
             </div>

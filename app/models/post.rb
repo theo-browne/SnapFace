@@ -6,7 +6,7 @@ class Post < ApplicationRecord
 
     has_many :comments
 
-    has_many :reaction, as: :reacted
+    has_many :reactions, as: :reacted
 
 
 end

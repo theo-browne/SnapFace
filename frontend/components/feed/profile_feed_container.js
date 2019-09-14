@@ -4,6 +4,8 @@ import { removeUsers } from '../../actions/friend_actions'
 import ProfileFeed from './profile_feed'
 import { deletePost } from '../../actions/post_actions';
 import { fetchComments } from '../../actions/comment_actions';
+import { createReaction, updateReaction, deleteReaction } from '../../actions/reaction_actions'
+
 
 
 const mSTP = (state, props) => ({
@@ -19,7 +21,10 @@ const mDTP = dispatch => ({
     fetchUser: (id, page) => dispatch(fetchUser(id, page)),
     removeUsers: () => dispatch(removeUsers()),
     deletePost: id => dispatch(deletePost(id)),
-    fetchComments: (postId,page) => dispatch(fetchComments(postId, page))
+    fetchComments: (postId,page) => dispatch(fetchComments(postId, page)),
+    createReaction: reaction => dispatch(createReaction(reaction)),
+    deleteReaction: id => dispatch(deleteReaction(id)),
+    updateReaction: reaction => dispatch(updateReaction(reaction))
 })
 
 export default connect(mSTP, mDTP)(ProfileFeed)

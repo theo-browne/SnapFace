@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 // users: { [window.currentUser.id]: window.currentUser }
             },
             session: {
-                id: window.currentUser.id, name: window.currentUser.name, profileUrl: currentUser.profileUrl || "https://image.flaticon.com/icons/svg/149/149452.sv" }
+                id: window.currentUser.id, name: window.currentUser.name, profileUrl: currentUser.profileUrl}
         };
         store = configureStore(preloadedState);
         delete window.currentUser;

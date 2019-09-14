@@ -2,6 +2,7 @@ import {connect} from 'react-redux'
 import CommentIndex from './comment_index'
 import { fetchComments, deleteComment, updateComment, removeComments } from '../../actions/comment_actions'
 import {setComment} from '../../actions/ui_actions'
+import { createReaction, updateReaction, deleteReaction } from '../../actions/reaction_actions'
 
 
 const mSTP = (state, props) => ({
@@ -21,7 +22,10 @@ const mDTP = dispatch => ({
     deleteComment: commentId => dispatch(deleteComment(commentId)),
     updateComment: comment => dispatch(updateComment(comment)),
     removeComments: postId => dispatch(removeComments(postId)),
-    setComment: comment => dispatch(setComment(comment))
+    setComment: comment => dispatch(setComment(comment)),
+    createReaction: reaction => dispatch(createReaction(reaction)),
+    deleteReaction: id => dispatch(deleteReaction(id)),
+    updateReaction: reaction => dispatch(updateReaction(reaction))
 })
 
 export default connect(mSTP, mDTP)(CommentIndex)

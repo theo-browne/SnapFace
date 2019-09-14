@@ -10,7 +10,22 @@ class Api::ReactionsController < ApplicationController
         end
     end
 
+    def update 
+        @reaction = Reaction.find(params[:id])
 
+        if @reaction.update(reaction_params)
+            render :show
+        else 
+            render json: @reaction.errors.full_messages, status: 422
+        end
+
+    end
+
+    def destroy
+        @reaction = Reaction.find(params[:id])
+        @reaction.destroy
+        render :show
+    end
 
 
     def reaction_params
