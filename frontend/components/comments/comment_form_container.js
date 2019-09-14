@@ -3,17 +3,8 @@ import CommentForm from './comment_form'
 import {createComment} from '../../actions/comment_actions'
 
 const mSTP = (state, props) => {
-    let userPhoto;
-
-    if (props.match) {
-        userPhoto = state.entities.users[props.match.params.id]
-    } else {
-        userPhoto = state.session.profileUrl
-    }
-
-
     return {
-        userPhoto
+        userPhoto: state.session.profileUrl
     }
 }
 const mDTP = dispatch => ({

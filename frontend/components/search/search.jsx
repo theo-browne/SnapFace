@@ -21,10 +21,8 @@ export default class Search extends React.Component{
             return
         }
         this.setState({name: e.target.value})
-        setTimeout(() => this.props.fetchUsers({name: this.state.name.toLowerCase()}), 0)
- 
+        setTimeout(() => this.props.fetchUsers({name: this.state.name.toLowerCase()}), 1000)
         // this.props.fetchUsers(this.state)
-
     }
     clear(){
         this.setState({name: ""})

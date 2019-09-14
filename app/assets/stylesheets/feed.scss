@@ -384,7 +384,7 @@ textarea:focus {
 
 }
 .react-button{
-    margin-left: 40px
+    // margin-left: 40px
 }
 .comment-content{
     display: flex;
@@ -426,22 +426,13 @@ textarea:focus {
     background-color: white;
     border-radius: 20px;
     align-content: center;
-     padding-bottom: 10px;
-     padding-top: 5px;
+    //  padding-bottom: 10px;
+    //  padding-top: 5px;
+    padding: 5px;
      border: 1px solid lightgray;
      z-index: 6
 }
-.comment-reaction-pop-up img {
-    margin: 0;
-    width: 30px;
-    height: 30px;
-    margin-right: 5px;
-    margin-left: 5px;
-}
-.comment-reaction-pop-up img:hover{
-    width: 40px;
-    height: 40px;
-}
+
 .reaction-pop-up{
     display: none;
     // background-color: white;
@@ -453,8 +444,9 @@ textarea:focus {
     background-color: white;
     border-radius: 20px;
     align-content: center;
-     padding-bottom: 10px;
-     padding-top: 5px;
+    //  padding-bottom: 10px;
+    //  padding-top: 5px;
+    padding: 5px;
      border: 1px solid lightgray;
      z-index: 6
 }
@@ -462,8 +454,9 @@ textarea:focus {
     margin: 0;
     width: 20px;
     height: 20px;
-    margin-right: 5px;
+
     margin-left: 5px;
+   
 }
 .reaction-pop-up button {
     border-radius: 50%;
@@ -477,16 +470,12 @@ textarea:focus {
     padding: 0;
     z-index: 7
 }
-.reaction-pop-up img {
-    margin: 0;
-    width: 30px;
-    height: 30px;
-    margin-right: 5px;
-    margin-left: 5px;
-}
+
 .reaction-pop-up img:hover{
-    width: 40px;
-    height: 40px;
+    // width: 50px;
+    // height: 50px;
+    margin-top: -15px;
+    padding-bottom: 15px
 }
 .reveal{
   position: absolute;
@@ -586,12 +575,14 @@ textarea:focus {
     margin: 0
 }
 .post-interaction-details img {
-    width: 10px;
-    margin-right: 5px
+    width: 15px;
+    height: 15px;
+    margin-right: 2px
 }
 .comment-interaction-details img {
-    width: 10px;
-    margin-right: 5px
+    width: 15px;
+    height: 15px;
+    margin-right: 2px
 }
 .post-interaction-details-main {
     display: flex;
@@ -600,4 +591,35 @@ textarea:focus {
 .comment-interaction-details-main {
      display: flex;
     align-items: center
+}
+.post-interaction-details-main p{
+    font-size: 12px
+}
+.react-button img {
+    height: 20px;
+    width: 20px
+}
+
+.reaction-pop-up img {
+    margin: 0;
+    width: 40px;
+    height: 40px;
+    margin-top: -5px
+    //  padding-bottom: 50px
+    // margin-right: 5px;
+    // margin-left: 5px;
+}
+.comment-reaction-pop-up img {
+    margin: 0;
+    width: 40px;
+    height: 40px;
+    margin-top: -5px
+    // margin-right: 5px;
+    // margin-left: 5px;
+}
+.comment-reaction-pop-up img:hover{
+    // width: 50px;
+    // height: 50px;
+     margin-top: -15px;
+    padding-bottom: 15px
 }

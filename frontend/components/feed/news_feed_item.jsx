@@ -13,7 +13,8 @@ export default class NewsFeedItem extends React.Component {
         this.state = {
             count: this.props.post.reactions,
             reacted: this.props.post.userReaction,
-            reactionId: this.props.post.userReactionId
+            reactionId: this.props.post.userReactionId,
+            reactionImg: this.props.post.userReactionImg
         }
     }
     showDropdown(e){
@@ -33,13 +34,13 @@ export default class NewsFeedItem extends React.Component {
 
     react(type){
         if (type === this.state.reacted ) {
-            this.props.deleteReaction(this.state.reactionId).then(() => this.setState({ count: this.state.count -= 1, reacted: false, reactionId: false }))
+            this.props.deleteReaction(this.state.reactionId).then(() => this.setState({ count: this.state.count -= 1, reacted: false, reactionId: false, reactionImg: this.props.post.likeImg }))
         } else if (!this.state.reacted) {
             this.props.createReaction({reacted_type: "Post", reacted_id: this.props.post.id, reaction_type: type}).then((res) => {
-                this.setState({count: this.state.count += 1, reacted: type, reactionId: res.reaction.id})}
+                this.setState({count: this.state.count += 1, reacted: type, reactionId: res.reaction.id, reactionImg: this.props.post[`${type}Img`]})}
                 )
         } else {
-            this.props.updateReaction({ id: this.state.reactionId , reacted_type: "Post", reacted_id: this.props.post.id, reaction_type: type }).then(() => this.setState({ reacted: type }))
+            this.props.updateReaction({ id: this.state.reactionId, reacted_type: "Post", reacted_id: this.props.post.id, reaction_type: type }).then(() => this.setState({ reacted: type, reactionImg: this.props.post[`${type}Img`] }))
         }
     }
 
@@ -56,10 +57,11 @@ export default class NewsFeedItem extends React.Component {
                 </button>
             )
         }
-        const reacted = this.state.reacted ? this.state.reacted : null
+        const reacted = this.state.reacted ? <img src={this.state.reactionImg} alt=""/> : "React"
         const counts = this.state.count ? (<div className="post-interaction-details">
             <div className="post-interaction-details-main">
-            <img src="https://image.flaticon.com/icons/svg/1946/1946399.svg" alt="" />
+            {/* <img src="https://image.flaticon.com/icons/svg/1946/1946399.svg" alt="" /> */}
+            <img src={this.state.reactionImg} alt=""/>
             <p>{this.state.count}</p>
             {/* <p>{reacted}</p> */}
             </div>
@@ -67,7 +69,7 @@ export default class NewsFeedItem extends React.Component {
 
 
 
-        const photo = this.props.post.photoUrl ? (<img className="post-photo" src={this.props.post.photoUrl} alt="" />) : null
+        const photo = this.props.post.photoUrl ? ( <img className="post-photo" src={this.props.post.photoUrl} alt="" />) : null
         return(
             <div className="post-container">
                 {/* <img src={this.props.post.loveImg} alt=""/> */}
@@ -95,15 +97,19 @@ export default class NewsFeedItem extends React.Component {
             {counts}
                 <div className="post-interactions-container">
                   
-                    <button className="react-button" onMouseEnter={this.revealDropdown} onMouseLeave={this.unrevealDropdown}>React
+                    <button className="react-button" onMouseEnter={this.revealDropdown} onMouseLeave={this.unrevealDropdown}>{reacted}
                             <div className="reaction-pop-up">
-                            <img src="https://image.flaticon.com/icons/svg/1946/1946399.svg" onClick={() => this.react('like')} alt=""/>
-                            <img src="https://image.flaticon.com/icons/svg/1946/1946497.svg" onClick={() => this.react('dislike')}alt=""/>
+                            {/* <img src="https://image.flaticon.com/icons/svg/1946/1946399.svg" onClick={() => this.react('like')} alt=""/>
+                            <img src="https://image.flaticon.com/icons/svg/1946/1946497.svg" onClick={() => this.react('dislike')}alt=""/> */}
                             {/* <img src="https://image.flaticon.com/icons/svg/1946/1946406.svg" onClick={() => this.react('love')} alt=""/> */}
+                            <img src={this.props.post.likeImg} onClick={() => this.react('like')} alt=""/>
                             <img src={this.props.post.loveImg} onClick={() => this.react('love')} alt=""/>
+                            <img src={this.props.post.laughImg} onClick={() => this.react('laugh')} alt=""/>
+                            <img src={this.props.post.wowImg} onClick={() => this.react('wow')} alt=""/>
+                            <img src={this.props.post.sadImg} onClick={() => this.react('sad')} alt=""/>
                             {/* <img src="%Untitled design.png)%" onClick={() => this.react('love')} alt=""/> */}
-                            <img src="https://image.flaticon.com/icons/svg/1356/1356427.svg" onClick={() => this.react('laugh')} alt=""/>
-                            <img src="https://image.flaticon.com/icons/svg/1854/1854218.svg" onClick={() => this.react('sad')} alt=""/>
+                            {/* <img src="https://image.flaticon.com/icons/svg/1356/1356427.svg" onClick={() => this.react('laugh')} alt=""/>
+                            <img src="https://image.flaticon.com/icons/svg/1854/1854218.svg" onClick={() => this.react('sad')} alt=""/> */}
                             </div>
                         </button>
                   

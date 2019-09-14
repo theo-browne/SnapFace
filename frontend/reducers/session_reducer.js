@@ -7,7 +7,6 @@ const sessionReducer = (state = {}, action) => {
 
     switch (action.type) {
         case LOGIN_USER:
-            
             return { id: action.user.id, name: action.user.name, profileUrl: action.user.profileUrl };
         case LOGOUT_USER:
             return { currentUser: null };

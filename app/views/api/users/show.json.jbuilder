@@ -46,6 +46,11 @@ end
         else 
             json.profileUrl "https://image.flaticon.com/icons/svg/149/149452.svg"
         end
+    json.loveImg asset_path("love.png")
+    json.likeImg asset_path("like.png")
+    json.wowImg asset_path("wow.png")
+    json.sadImg asset_path("sad.png")
+    json.laughImg asset_path("laugh.png")
         
     loves = []
     likes = []
@@ -54,6 +59,7 @@ end
     sads = []
     userReaction = false
     userReactionId = false
+    userReactionImg = "like.png"
         post.reactions.each do |reaction| 
         if reaction.reaction_type == 'love'
             loves << reaction
@@ -69,6 +75,8 @@ end
         if reaction.user_id == current_user.id
             userReaction = reaction.reaction_type
             userReactionId = reaction.id
+            userReactionImg = "#{userReaction}.png"
+
         end
     end
     json.likes likes.length
@@ -79,6 +87,8 @@ end
     json.reactions post.reactions.length
     json.userReaction userReaction
     json.userReactionId userReactionId
+    json.userReactionImg asset_path(userReactionImg)
+
     end 
 end
 end

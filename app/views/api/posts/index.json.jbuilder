@@ -19,20 +19,26 @@ json.posts do
         else 
             json.profileUrl "https://image.flaticon.com/icons/svg/149/149452.svg"
         end
+    json.loveImg asset_path("love.png")
+    json.likeImg asset_path("like.png")
+    json.wowImg asset_path("wow.png")
+    json.sadImg asset_path("sad.png")
+    json.laughImg asset_path("laugh.png")
     loves = []
     likes = []
-    dislikes = []
+    wows = []
     laughs = []
     sads = []
     userReaction = false
     userReactionId = false
+    userReactionImg = "like.png"
     post.reactions.each do |reaction| 
         if reaction.reaction_type == 'love'
             loves << reaction
         elsif reaction.reaction_type == 'like'
             likes << reaction
-        elsif reaction.reaction_type == 'dislike'
-            dislikes << reaction
+        elsif reaction.reaction_type == 'wow'
+            wows << reaction
         elsif reaction.reaction_type == 'laugh'
             laughs << reaction
         elsif reaction.reaction_type == 'sad'
@@ -41,19 +47,22 @@ json.posts do
         if reaction.user_id == current_user.id
             userReaction = reaction.reaction_type
             userReactionId = reaction.id
+            userReactionImg = "#{userReaction}.png"
+            
         end
     end
     # json.loveImg url_for("app/assets/images/Untitled design.png")
-    json.loveImg asset_path("Untitled design.png")
+    
 
     json.likes likes.length
     json.loves loves.length
-    json.dislikes dislikes.length
+    json.wows wows.length
     json.sads sads.length
     json.laughs laughs.length
     json.reactions post.reactions.length
     json.userReaction userReaction
     json.userReactionId userReactionId
+    json.userReactionImg asset_path(userReactionImg)
     end 
 end 
 end

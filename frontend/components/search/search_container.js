@@ -16,7 +16,6 @@ const mDTP = dispatch => ({
     removeUsers: () => dispatch(removeUsers()),
     deleteFriendship: friendshipId => dispatch(deleteFriendship(friendshipId)),
     receiveUser: id => dispatch(receiveUser(id))
-
 })
 
 

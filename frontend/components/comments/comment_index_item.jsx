@@ -2,6 +2,7 @@ import React from 'react'
 import {Link, Route} from 'react-router-dom'
 import CommentEditFormContainer from './commnent_edit_form_container'
 import CommentEditForm from './comment_edit_form'
+import CommentFormContainer from './comment_form_container'
 
 export default class CommentIndexItem extends React.Component{
     constructor(props){
@@ -10,19 +11,14 @@ export default class CommentIndexItem extends React.Component{
             edit: false,
             count: this.props.comment.reactions,
             reacted: this.props.comment.userReaction,
-            reactionId: this.props.comment.userReactionId
+            reactionId: this.props.comment.userReactionId,
+            reactionImg: this.props.comment.userReactionImg
         }
-        // this.handleChange = this.handleChange.bind(this)
-        // this.handleSubmit = this.handleSubmit.bind(this)
         this.editSubmit = this.editSubmit.bind(this)
     }
- 
-
     editSubmit(){
         this.setState({edit: false})
     }
-
-
     showDropdown(e) {
         e.currentTarget.lastChild.classList.add('show')
     }
@@ -35,16 +31,17 @@ export default class CommentIndexItem extends React.Component{
     unrevealDropdown(e) {
         e.currentTarget.lastChild.classList.remove('reveal')
     }
+
     react(type) {
         if (type === this.state.reacted) {
-            this.props.deleteReaction(this.state.reactionId).then(() => this.setState({ count: this.state.count -= 1, reacted: false, reactionId: false }))
+            this.props.deleteReaction(this.state.reactionId).then(() => this.setState({ count: this.state.count -= 1, reacted: false, reactionId: false,  reactionImg: this.props.comment.likeImg }))
         } else if (!this.state.reacted) {
             this.props.createReaction({ reacted_type: "Comment", reacted_id: this.props.comment.id, reaction_type: type }).then((res) => {
-                this.setState({ count: this.state.count += 1, reacted: type, reactionId: res.reaction.id })
+                this.setState({ count: this.state.count += 1, reacted: type, reactionId: res.reaction.id, reactionImg: this.props.comment[`${type}Img`] })
             }
             )
         } else {
-            this.props.updateReaction({ id: this.state.reactionId, reacted_type: "Comment", reacted_id: this.props.comment.id, reaction_type: type }).then(() => this.setState({ reacted: type }))
+            this.props.updateReaction({ id: this.state.reactionId, reacted_type: "Comment", reacted_id: this.props.comment.id, reaction_type: type }).then(() => this.setState({ reacted: type, reactionImg: this.props.comment[`${type}Img`] }))
         }
     }
    
@@ -52,12 +49,13 @@ export default class CommentIndexItem extends React.Component{
         const reacted = this.state.reacted ? this.state.reacted : null
         const counts = this.state.count ? (<div className="comment-interaction-details">
             <div className="comment-interaction-details-main">
-                <img src="https://image.flaticon.com/icons/svg/1946/1946399.svg" alt="" />
+                <img src={this.state.reactionImg} alt="" />
                 <p>{this.state.count}</p>
                 {/* <p>{reacted}</p> */}
             </div>
         </div>) : <div></div>
         let button = null;
+        let photo = this.props.comment.profileUrl
         if (this.props.currentUser.id === this.props.comment.authorId) {
             button = (
                 <button className="comment-delete-button" onMouseEnter={this.showDropdown} onMouseLeave={this.hideDropdown}>...
@@ -68,13 +66,13 @@ export default class CommentIndexItem extends React.Component{
                     </div>
                 </button>
             )
+            photo = this.props.currentUser.profileUrl
         }
         let comment = "     " + this.props.comment.body
         let content = !this.state.edit ? (<div className="comment-div" >
             <div className="comment-div-main">
-            <Link to={`/users/${this.props.comment.authorId}`}><img className="comment-image" src={this.props.comment.profileUrl} alt="" /></Link>
+                <Link to={`/users/${this.props.comment.authorId}`}><img className="comment-image" src={photo} alt="" /></Link>
             <div className="comment-content">
-
                 <li className="comment-show">
                     <Link to={`/users/${this.props.comment.authorId}`} className="comment-author-link">{this.props.comment.author}</Link>
                     {comment}
@@ -86,11 +84,16 @@ export default class CommentIndexItem extends React.Component{
                 <div className="comment-react">
                 <button className="react-button" onMouseEnter={this.revealDropdown} onMouseLeave={this.unrevealDropdown}>React
                     <div className="comment-reaction-pop-up">
-                        <img src="https://image.flaticon.com/icons/svg/1946/1946399.svg" onClick={() => this.react('like')} alt="" />
+                        {/* <img src="https://image.flaticon.com/icons/svg/1946/1946399.svg" onClick={() => this.react('like')} alt="" />
                         <img src="https://image.flaticon.com/icons/svg/1946/1946497.svg" onClick={() => this.react('dislike')} alt="" />
                         <img src="https://image.flaticon.com/icons/svg/1946/1946406.svg" onClick={() => this.react('love')} alt="" />
                         <img src="https://image.flaticon.com/icons/svg/1356/1356427.svg" onClick={() => this.react('laugh')} alt="" />
-                        <img src="https://image.flaticon.com/icons/svg/1854/1854218.svg" onClick={() => this.react('sad')} alt="" />
+                        <img src="https://image.flaticon.com/icons/svg/1854/1854218.svg" onClick={() => this.react('sad')} alt="" /> */}
+                            <img src={this.props.comment.likeImg} onClick={() => this.react('like')} alt="" />
+                            <img src={this.props.comment.loveImg} onClick={() => this.react('love')} alt="" />
+                            <img src={this.props.comment.laughImg} onClick={() => this.react('laugh')} alt="" />
+                            <img src={this.props.comment.wowImg} onClick={() => this.react('wow')} alt="" />
+                            <img src={this.props.comment.sadImg} onClick={() => this.react('sad')} alt="" />
                     </div>
                 </button>
                     {counts}

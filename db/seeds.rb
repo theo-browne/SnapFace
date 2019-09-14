@@ -8,10 +8,18 @@
 
 User.destroy_all
 Post.destroy_all
+Comment.destroy_all
+Reaction.destroy_all
 
-20.times do 
-    user = User.create(name: Faker::Sports::Basketball.player.downcase, email: Faker::Company.catch_phrase.downcase, password: "123456" )
-    5.times do 
-        Post.create(user_id: user.id, body: Faker::TvShows::RickAndMorty.quote.downcase )
-    end
+5.times do 
+    user = User.create(name: Faker::Sports::Basketball,  email: Faker::Company.catch_phrase.downcase, password: "123456" )
+
+  
 end
+
+# 20.times do 
+#     user = User.create(name: Faker::Sports::Basketball.player.downcase, email: Faker::Company.catch_phrase.downcase, password: "123456" )
+#     5.times do 
+#         Post.create(user_id: user.id, body: Faker::TvShows::RickAndMorty.quote.downcase )
+#     end
+# end
