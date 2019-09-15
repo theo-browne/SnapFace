@@ -13,7 +13,8 @@ export default class SignUp extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this)
         this.demoLogin = this.demoLogin.bind(this)
     }
-    demoLogin(){
+    demoLogin(e){
+        e.preventDefault()
         let email = String(Math.random())
         
         const demoUser = {
