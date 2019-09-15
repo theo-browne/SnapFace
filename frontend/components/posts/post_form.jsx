@@ -39,6 +39,7 @@ import {withRouter} from 'react-router-dom'
     handleSubmit(e){
         
         e.preventDefault()
+        if (!this.state.body) return
         const formData = new FormData();
         formData.append('post[body]', this.state.body);
         if (this.state.photoFile) {
