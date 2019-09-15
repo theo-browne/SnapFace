@@ -58,10 +58,11 @@ post_count = 0
 reactions = ["like", "love", "wow", "laugh", "sad"]
 10.times do 
     # photo = photos.sample
-    photo = "https://s3.amazonaws.com/snap-face-pro/#{photos.sample}.jpg"
+    filename = photos.sample
+    photo = "https://s3.amazonaws.com/snap-face-pro/#{filename}.jpg"
     file = open(photo)
     user = User.new(name: Faker::Sports::Basketball.player.downcase, email: rand() , password: "123456" )
-    user.profile_photo.attach(io: file, filename: "photo")
+    user.profile_photo.attach(io: file, filename: filename)
     user.save!
     user_count += 1
     5.times do 
