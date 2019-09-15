@@ -25,7 +25,6 @@ export default class NewsFeed extends React.Component {
     }
 
     handleScroll(e){
-        console.log(this.page)
         const ul = document.querySelector(".news-feed")
 
         const lastEl = ul.lastElementChild
