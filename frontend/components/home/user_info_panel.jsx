@@ -56,7 +56,7 @@ export default class UserInfoPanel extends React.Component {
     render(){
         
         if (this.props.user === undefined) return null
-
+        if (this.props.friendship === undefined) return null
         let text = ""
         let action = ""
         
