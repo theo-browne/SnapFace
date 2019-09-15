@@ -60,7 +60,7 @@ export default class UserInfoPanel extends React.Component {
         let text = ""
         let action = ""
         
-        if (!this.props.friendship) {
+        if (!this.props.friendship.id) {
             text = "Add Friend"
             action = () => this.props.createFriendship({ status: "CONFIRMED", friend_id: this.props.user.id })
         } else {
