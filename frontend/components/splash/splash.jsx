@@ -21,7 +21,7 @@ export default class Splash extends React.Component {
             </div>
             <div className="footer">
                 <footer>
-                    link link link
+                    
                 </footer>
             </div>
             </div>

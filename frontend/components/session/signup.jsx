@@ -54,8 +54,8 @@ export default class SignUp extends React.Component {
                 <div className="splash-sign-up-content">
                 <div className="splash-sign-up-left" >
                     <img className="icon" src="https://image.flaticon.com/icons/svg/864/864685.svg" alt=""/>
-                    <img src="https://www.sportscasting.com/wp-content/uploads/2019/08/Bill-Belichick-Madden-2-GettyImages-1030030996.jpg" alt=""/>
-                    <p>Welcome to SnapFace! The unofficial and unaffiliated social media site of New England Patriots' Head Coach Bill Belichick</p>
+                        <img src="https://images.unsplash.com/photo-1471306224500-6d0d218be372?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80" alt=""/>
+                    {/* <p>Welcome to SnapFace! The unofficial and unaffiliated social media site of New England Patriots' Head Coach Bill Belichick</p> */}
                 </div>
                 <div className="auth-forms">
                     <SignInContainer />
