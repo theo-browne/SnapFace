@@ -20,7 +20,6 @@ const sesssionErrorsReducer = (state = {}, action) => {
         case RECEIVE_POSTS:
             return {}
         case RECEIVE_SESSION_ERRORS:
-            
             let errorsObj = {}
             let curErrors = action.errors.responseJSON.errors
             for (let i = 0; i < curErrors.length; i++) {

@@ -9,12 +9,13 @@ import CommentEditFormContainer from '../comments/commnent_edit_form_container'
 export default class NewsFeed extends React.Component {
     constructor(props){
         super(props)
-        this.page = 1
+        this.page = 2
         this.ready = true 
         this.handleScroll = this.handleScroll.bind(this)
     }
     componentDidMount(){
-        this.props.fetchPosts(1);
+        this.props.fetchPosts(1)
+        this.props.fetchPosts(2);
         this.event = window.addEventListener('scroll', this.handleScroll)
     }
 
@@ -24,6 +25,7 @@ export default class NewsFeed extends React.Component {
     }
 
     handleScroll(e){
+        console.log(this.page)
         const ul = document.querySelector(".news-feed")
 
         const lastEl = ul.lastElementChild
@@ -44,12 +46,30 @@ export default class NewsFeed extends React.Component {
         if (this.props.posts === undefined) return null
         return(
             <div className="feed" >
+                <div className="feed-sidebar">
+                    <div className="feed-sidebar-user">
+                        <img src={this.props.currentUser.profileUrl} alt=""/>
+                        <li>{this.props.currentUser.name}</li>
+                    </div>
+                    <div>
+                        <a href="https://github.com/theo-browne">
+                            <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="" />
+                            <li>Github</li>
+                            </a>
+                    </div>
+                </div>
+                <div className="feed-main">
                 <Route path={`/posts/:id/edit`} component={PostEditContainer} />
                 {/* <Route exact path={`/comments/:id/edit`} component={CommentEditFormContainer}></Route> */}
+                
                 <PostFormContainer user={this.props.currentUser} />
                 <ul className="news-feed">
                     {this.props.posts.map(post => <NewsFeedItem key={post.id} updateReaction={this.props.updateReaction} deleteReaction={this.props.deleteReaction} createReaction={this.props.createReaction} fetchComments={this.props.fetchComments} deletePost={this.props.deletePost} currentUser={this.props.currentUser} post={post} />)}
                 </ul>
+                </div>
+                <div className="feed-sponsored">
+                    
+                </div>
             </div>
         )
     }
