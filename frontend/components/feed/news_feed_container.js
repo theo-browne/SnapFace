@@ -9,7 +9,7 @@ const mSTP = state => ({
     posts: Object.values(state.entities.posts).reverse(),
     currentUser: state.session,
     maxPages: state.pagination.newsFeedPageLength,
-    users: Object.values(state.entities.users).reverse()
+    users: Object.values(state.entities.users).filter(user => user.mutualFriends >= 0).reverse()
 })
 
 const mDTP = dispatch => ({
