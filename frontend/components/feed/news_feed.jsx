@@ -67,7 +67,8 @@ export default class NewsFeed extends React.Component {
                 </ul>
                 </div>
                 <div className="feed-sponsored">
-                    {this.props.users.map(user => <SuggestedFriendItem key={user.id} user={user} />)}
+                    <p>Suggested Friends</p>
+                    {this.props.users.map(user => <SuggestedFriendItem key={user.id} createFriendship={this.props.createFriendship} user={user} />)}
                 </div>
             </div>
         )

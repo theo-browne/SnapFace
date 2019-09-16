@@ -3,6 +3,7 @@ import NewsFeed from './news_feed'
 import { fetchPosts, deletePost } from '../../actions/post_actions';
 import { fetchComments } from '../../actions/comment_actions';
 import { createReaction, updateReaction, deleteReaction}  from '../../actions/reaction_actions'
+import {createFriendship} from '../../actions/friend_actions'
 
 const mSTP = state => ({
     posts: Object.values(state.entities.posts).reverse(),
