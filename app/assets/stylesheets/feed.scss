@@ -361,6 +361,7 @@ textarea:focus {
 .comment-div button{
     padding:0;
     border: none;
+    margin-left: 40px
 }
 // .comment-div li {
 //     margin: 0;
@@ -435,12 +436,14 @@ textarea:focus {
     //  padding-top: 5px;
     padding: 5px;
      border: 1px solid lightgray;
-     z-index: 6
+     z-index: 6;
+  
 }
 
 .reaction-pop-up{
     display: none;
     // background-color: white;
+    justify-content: center;
     position: absolute;
     top: -40px;
     left: 20px;
@@ -453,14 +456,14 @@ textarea:focus {
     //  padding-top: 5px;
     padding: 5px;
      border: 1px solid lightgray;
-     z-index: 6
+     z-index: 6;
 }
 .reaction-pop-up img {
     margin: 0;
     width: 20px;
     height: 20px;
-
     margin-left: 5px;
+    transition: margin-top 0.1s;
    
 }
 .reaction-pop-up button {
@@ -480,11 +483,12 @@ textarea:focus {
     // width: 50px;
     // height: 50px;
     margin-top: -15px;
-    padding-bottom: 15px
+    padding-bottom: 15px;
 }
 .reveal{
   position: absolute;
     display: flex;  
+    
 }
 .show {
     position: absolute;
@@ -618,7 +622,8 @@ textarea:focus {
     margin: 0;
     width: 40px;
     height: 40px;
-    margin-top: -5px
+    margin-top: -5px;
+    transition: margin-top 0.1s;
     // margin-right: 5px;
     // margin-left: 5px;
 }
@@ -677,4 +682,10 @@ textarea:focus {
     width: 25px;
     border-radius: 50%;
     margin-bottom: -6px;
+}
+
+.reply-drop-down{
+    border: 1px solid red;
+    height: 10px;
+    width: 10px
 }

@@ -3,6 +3,7 @@ import {Link, Route} from 'react-router-dom'
 import CommentEditFormContainer from './commnent_edit_form_container'
 import CommentEditForm from './comment_edit_form'
 import CommentFormContainer from './comment_form_container'
+import CommentReplyForm from './comment_reply_form'
 
 export default class CommentIndexItem extends React.Component{
     constructor(props){
@@ -84,11 +85,6 @@ export default class CommentIndexItem extends React.Component{
                 <div className="comment-react">
                 <button className="react-button" onMouseEnter={this.revealDropdown} onMouseLeave={this.unrevealDropdown}>React
                     <div className="comment-reaction-pop-up">
-                        {/* <img src="https://image.flaticon.com/icons/svg/1946/1946399.svg" onClick={() => this.react('like')} alt="" />
-                        <img src="https://image.flaticon.com/icons/svg/1946/1946497.svg" onClick={() => this.react('dislike')} alt="" />
-                        <img src="https://image.flaticon.com/icons/svg/1946/1946406.svg" onClick={() => this.react('love')} alt="" />
-                        <img src="https://image.flaticon.com/icons/svg/1356/1356427.svg" onClick={() => this.react('laugh')} alt="" />
-                        <img src="https://image.flaticon.com/icons/svg/1854/1854218.svg" onClick={() => this.react('sad')} alt="" /> */}
                             <img src={this.props.comment.likeImg} onClick={() => this.react('like')} alt="" />
                             <img src={this.props.comment.loveImg} onClick={() => this.react('love')} alt="" />
                             <img src={this.props.comment.laughImg} onClick={() => this.react('laugh')} alt="" />
@@ -97,16 +93,11 @@ export default class CommentIndexItem extends React.Component{
                     </div>
                 </button>
                     {counts}
+                    {/* <CommentReplyForm /> */}
                 </div>
 
             </div>
-            {/* <Route exact path={`/comments/:id/edit`} component={CommentEditFormContainer}></Route> */}
         </div>) : <CommentEditForm comment={this.props.comment} editSubmit={this.editSubmit} updateComment={this.props.updateComment}/>
-        
-        // if (this.props.comments ) {
-        //     button = <button onClick={() => this.props.fetchComments(this.props.comment.postId, this.page)}>More Comments</button>
-        // }
-  
         return(
             <div>
                 {content}

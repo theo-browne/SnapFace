@@ -16,7 +16,7 @@
     sads = []
     userReaction = false
     userReactionId = false
-    userReactionImg = "like.svg"
+    userReactionImg = "like.png"
     comment.reactions.each do |reaction| 
         if reaction.reaction_type == 'love'
             loves << reaction

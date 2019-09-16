@@ -5,7 +5,8 @@ if @user.profile_photo.attached?
 else 
     json.profileUrl url_for("https://image.flaticon.com/icons/svg/149/149452.svg")
 end
+name = []
 @user.name.split(" ").each do |part|
     name << part.capitalize
 end
-    json.name name.join(" ")
+json.name name.join(" ")
