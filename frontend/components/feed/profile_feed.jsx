@@ -27,8 +27,8 @@ import {Route} from 'react-router-dom'
         }
     }
     componentWillUnmount(){
-        
         window.removeEventListener('scroll',this.handleScroll)
+        this.props.removePosts()
     }
 
      handleScroll(e) {

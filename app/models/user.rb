@@ -53,6 +53,28 @@ class User < ApplicationRecord
     friend_ids.include?(user.id)
   end
 
+  def mutual_friends(current_user, user)
+    return -1 if current_user.friends.include?(user) 
+    return  if current_user.id == user.id
+    hash = {}
+    count = 0 
+      current_user.friends.each do |user|
+        hash[user.id] = true
+      end
+
+      user.friends.each do |user|
+        if hash[user.id]
+          count += 1
+        end
+      end
+    count
+  end
+
+  def suggested_friends 
+    users = User.all.sort_by {|user| -self.mutual_friends(self, user)}
+    users[0..4]
+  end 
+
   def grab_posts(last_post)
     @posts = current_user.friends_posts.where("posts.created_at > ?", last_post.created_at).order("created_at DESC")
   end

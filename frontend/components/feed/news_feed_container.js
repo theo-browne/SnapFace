@@ -7,7 +7,8 @@ import { createReaction, updateReaction, deleteReaction}  from '../../actions/re
 const mSTP = state => ({
     posts: Object.values(state.entities.posts).reverse(),
     currentUser: state.session,
-    maxPages: state.pagination.newsFeedPageLength
+    maxPages: state.pagination.newsFeedPageLength,
+    users: Object.values(state.entities.users)
 })
 
 const mDTP = dispatch => ({
@@ -16,7 +17,8 @@ const mDTP = dispatch => ({
     fetchComments: (postId, page) => dispatch(fetchComments(postId, page)),
     createReaction: reaction => dispatch(createReaction(reaction)),
     deleteReaction: id => dispatch(deleteReaction(id)),
-    updateReaction: reaction => dispatch(updateReaction(reaction))
+    updateReaction: reaction => dispatch(updateReaction(reaction)),
+    createFriendship: friendship => dispatch(createFriendship(friendship)),
 })
 
 export default connect(mSTP, mDTP)(NewsFeed)

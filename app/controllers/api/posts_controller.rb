@@ -8,6 +8,7 @@ class Api::PostsController < ApplicationController
         #order("posts.created_at DESC").limit(5)
         @posts = current_user.friends_posts.order("posts.created_at DESC").page(params[:page]).per(5)
         @max = current_user.friends_posts.length / 5
+        @suggested = current_user.suggested_friends
         render :index
     end
 
@@ -42,8 +43,6 @@ class Api::PostsController < ApplicationController
         render :show
     end
     
-    
-
     def post_params
         params.require(:post).permit(:body, :photo)
     end

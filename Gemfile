@@ -27,6 +27,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'jquery-rails'
 gem 'faker'
 gem 'kaminari'
+gem 'rename'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 

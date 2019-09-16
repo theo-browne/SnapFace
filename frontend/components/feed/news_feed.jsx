@@ -4,7 +4,7 @@ import PostFormContainer from '../posts/post_form_container'
 import PostEditContainer from '../posts/post_edit_container'
 import {Route} from 'react-router-dom'
 import CommentEditFormContainer from '../comments/commnent_edit_form_container'
-
+import SuggestedFriendItem from '../home/suggested_friend_item'
 
 export default class NewsFeed extends React.Component {
     constructor(props){
@@ -67,7 +67,7 @@ export default class NewsFeed extends React.Component {
                 </ul>
                 </div>
                 <div className="feed-sponsored">
-                    
+                    {this.props.users.map(user => <SuggestedFriendItem key={user.id} user={user} />)}
                 </div>
             </div>
         )

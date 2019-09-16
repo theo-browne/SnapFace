@@ -68,3 +68,21 @@ end
 end
 json.maxPages @max 
 
+json.suggested do 
+    @suggested.each do |user|
+        json.set! user.id do 
+            json.id user.id
+            name = []
+                user.name.split(" ").each do |part|
+            name << part.capitalize
+            end
+            json.name name.join(" ")
+            if user.profile_photo.attached?
+                json.profileUrl url_for(user.profile_photo)
+            else 
+                json.profileUrl "https://image.flaticon.com/icons/svg/149/149452.svg"
+            end
+        end
+    end
+end
+

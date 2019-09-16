@@ -12,7 +12,6 @@ class Api::UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     @posts = []
-    
     if @user.save
         Friendship.create(user_id: @user.id, friend_id: @user.id, status: "CONFIRMED")
         login(@user)
@@ -24,9 +23,7 @@ class Api::UsersController < ApplicationController
 
   def index 
     @users = User.where("users.name LIKE ?", "#{params[:search][:name]}%").limit(5)
-    
     render :index
-
   end
 
   def update 
