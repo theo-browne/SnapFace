@@ -11,9 +11,12 @@ class Api::SessionsController < ApplicationController
     end
 
   def destroy
-    
+    @user = current_user
     if current_user
       logout
+       if @user.name == "Demo User"
+        @user.delete
+       end
       render json: {}
     else
       render json: ["no user to logout!"] , status: 422
