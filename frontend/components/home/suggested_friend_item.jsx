@@ -25,6 +25,7 @@ export default class SuggestedFriendsItem extends React.Component {
                 </div>
                 <li>{this.props.user.name}</li>
             </div>
+                <li className="mutual-friends">Mutual Friends: {this.props.user.mutualFriends}</li>
             {button}
             {/* <button onClick={() => this.props.createFriendship({ status: "CONFIRMED", friend_id: this.props.user.id })}>Add Friend</button> */}
         </div>

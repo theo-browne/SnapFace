@@ -77,6 +77,7 @@ json.suggested do
             name << part.capitalize
             end
             json.name name.join(" ")
+            json.mutualFriends user.mutual_friends(current_user, user)
             if user.profile_photo.attached?
                 json.profileUrl url_for(user.profile_photo)
             else 
