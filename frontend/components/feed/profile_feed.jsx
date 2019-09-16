@@ -35,6 +35,7 @@ import {Route} from 'react-router-dom'
          const ul = document.querySelector(".news-feed")
 
          const lastEl = ul.lastElementChild
+         if (!lastEl) return
          if (lastEl.offsetTop - pageYOffset < window.innerHeight && this.ready) {
              this.page += 1
              this.props.fetchUser(this.props.match.params.id, this.page)

@@ -8,13 +8,15 @@ class User < ApplicationRecord
 
   validates :password, length: { minimum: 6, allow_nil: true }
 
-  has_many :friendships
+  has_many :friendships, 
+     dependent: :destroy
 
   has_many :friends,
   through: :friendships,
   source: :friend
 
-  has_many :posts
+  has_many :posts, 
+     dependent: :destroy
 
   has_many :friends_posts,
   through: :friends,
@@ -24,7 +26,11 @@ class User < ApplicationRecord
 
   has_one_attached :cover_photo
 
-  has_many :comments
+  has_many :comments, 
+     dependent: :destroy
+
+  has_many :reactions, 
+     dependent: :destroy
 
   after_initialize :ensure_session_token
 

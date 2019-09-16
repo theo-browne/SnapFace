@@ -15,7 +15,7 @@ class Api::SessionsController < ApplicationController
     if current_user
       logout
        if @user.name == "Demo User"
-        @user.delete
+        @user.destroy
        end
       render json: {}
     else

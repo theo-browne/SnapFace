@@ -10,7 +10,7 @@ import { createReaction, updateReaction, deleteReaction } from '../../actions/re
 
 const mSTP = (state, props) => ({
     user: state.entities.users[props.match.params.id],
-    posts: Object.values(state.entities.posts).filter(post => post.authorId === +props.match.params.id).reverse(),
+    posts: Object.values(state.entities.posts).filter(post => post.authorId === +props.match.params.id).reverse() || [],
     currentUser: state.session,
     maxPages: state.pagination.profileFeedLength
 })
