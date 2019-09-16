@@ -83,6 +83,7 @@ export default class UserInfoPanel extends React.Component {
         
         return(
             <div className="user-info-panel">
+                <div>
                 <div className="cover-photo">
                     
                         <div className="profile-photo"   onMouseEnter={this.showUpdate} onMouseLeave={this.hideUpdate}>
@@ -96,7 +97,7 @@ export default class UserInfoPanel extends React.Component {
                         </div>
                         </div>
                 <div className="user-info-panel-bottom">
-
+                </div>
                 </div>
             </div>
         )
