@@ -1,6 +1,8 @@
 import React from 'react'
 import CommentIndexContainer from '../comments/comment_index_container'
 import CommentFormContainer from '../comments/comment_form_container'
+import {Link, Redirect} from 'react-router-dom'
+
 
 export default class PhotoModal extends React.Component{
     constructor(props){
@@ -49,7 +51,7 @@ export default class PhotoModal extends React.Component{
                 <p>{this.state.count}</p>
                 {/* <p>{reacted}</p> */}
             </div>
-        </div>) : "TEST"
+        </div>) : null
         const reacted = this.state.reacted ? <img src={this.state.reactionImg} alt="" /> : "React"
         
         return(
@@ -62,6 +64,7 @@ export default class PhotoModal extends React.Component{
                         <div className="photo-user-info">
                     <img src={this.state.post.profileUrl} alt=""/>
                     <p>{this.state.post.author}</p>
+                    <Link to="/">X</Link>
                         </div>
                     {counts}
                         <div className="post-interactions-container">
@@ -77,9 +80,10 @@ export default class PhotoModal extends React.Component{
                        
                         <button className="comment-button" onClick={() => this.props.fetchComments(this.props.post.id, 1)}>Comment</button>
                         </div>
+                        <CommentFormContainer post={this.state.post} />
+
                         <CommentIndexContainer post={this.state.post} />
 
-                        <CommentFormContainer post={this.state.post} />
                 </div>
                     
                 </div>
