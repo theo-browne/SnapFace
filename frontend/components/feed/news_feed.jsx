@@ -5,6 +5,7 @@ import PostEditContainer from '../posts/post_edit_container'
 import {Route} from 'react-router-dom'
 import CommentEditFormContainer from '../comments/commnent_edit_form_container'
 import SuggestedFriendItem from '../home/suggested_friend_item'
+import PhotoModalContainer from './photo_modal_container'
 
 export default class NewsFeed extends React.Component {
     constructor(props){
@@ -60,6 +61,7 @@ export default class NewsFeed extends React.Component {
                 </div>
                 <div className="feed-main">
                 <Route path={`/posts/:id/edit`} component={PostEditContainer} />
+                <Route exact path={`/posts/:id`} component={PhotoModalContainer}/>
                 {/* <Route exact path={`/comments/:id/edit`} component={CommentEditFormContainer}></Route> */}
                 
                 <PostFormContainer user={this.props.currentUser} />

@@ -69,7 +69,9 @@ export default class NewsFeedItem extends React.Component {
 
 
 
-        const photo = this.props.post.photoUrl ? ( <img className="post-photo" src={this.props.post.photoUrl} alt="" />) : null
+        const photo = this.props.post.photoUrl ? ( 
+        <Link to={`/posts/${this.props.post.id}`}><img className="post-photo" src={this.props.post.photoUrl} alt="" /> 
+            </Link>) : null
         return(
             <div className="post-container">
                 {/* <img src={this.props.post.loveImg} alt=""/> */}
@@ -99,17 +101,11 @@ export default class NewsFeedItem extends React.Component {
                   
                     <button className="react-button" onMouseEnter={this.revealDropdown} onMouseLeave={this.unrevealDropdown}>{reacted}
                             <div className="reaction-pop-up">
-                            {/* <img src="https://image.flaticon.com/icons/svg/1946/1946399.svg" onClick={() => this.react('like')} alt=""/>
-                            <img src="https://image.flaticon.com/icons/svg/1946/1946497.svg" onClick={() => this.react('dislike')}alt=""/> */}
-                            {/* <img src="https://image.flaticon.com/icons/svg/1946/1946406.svg" onClick={() => this.react('love')} alt=""/> */}
                             <img src={this.props.post.likeImg} onClick={() => this.react('like')} alt=""/>
                             <img src={this.props.post.loveImg} onClick={() => this.react('love')} alt=""/>
                             <img src={this.props.post.laughImg} onClick={() => this.react('laugh')} alt=""/>
                             <img src={this.props.post.wowImg} onClick={() => this.react('wow')} alt=""/>
                             <img src={this.props.post.sadImg} onClick={() => this.react('sad')} alt=""/>
-                            {/* <img src="%Untitled design.png)%" onClick={() => this.react('love')} alt=""/> */}
-                            {/* <img src="https://image.flaticon.com/icons/svg/1356/1356427.svg" onClick={() => this.react('laugh')} alt=""/>
-                            <img src="https://image.flaticon.com/icons/svg/1854/1854218.svg" onClick={() => this.react('sad')} alt=""/> */}
                             </div>
                         </button>
                   
