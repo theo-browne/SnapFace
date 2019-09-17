@@ -22,6 +22,14 @@ class User < ApplicationRecord
   through: :friends,
   source: :posts
 
+  has_many :post_photos,
+    through: :posts,
+    source: :photo_attachment
+
+    has_many :post_blobs,
+    through: :posts,
+    source: :photo_blob
+
   has_one_attached :profile_photo
 
   has_one_attached :cover_photo

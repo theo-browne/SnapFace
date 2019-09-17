@@ -20,6 +20,7 @@ export default class NewsFeed extends React.Component {
     }
 
     componentWillUnmount() {
+        // this.props.clearUsers()
         window.removeEventListener('scroll',  this.handleScroll)
         
     }

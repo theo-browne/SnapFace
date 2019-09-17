@@ -12,10 +12,13 @@
 json.user do   
     json.id @user.id
     name = []
+    json.postPhotos @user.post_photos.map{|photo| url_for(photo)}
+    # json.postblobs @user.post_blobs
     @user.name.split(" ").each do |part|
             name << part.capitalize
         end
     json.name name.join(" ")
+    json.friends @user.friends.length
     if @user.profile_photo.attached?
     json.profileUrl url_for(@user.profile_photo)
     else 
@@ -103,6 +106,26 @@ end
                 json.id false
              end
          end
+ end
+
+ json.friends do 
+    if @user.friends.length > 0
+    @user.friends[1..9].each do |friend|
+        json.set! friend.id do 
+            name = []
+                friend.name.split(" ").each do |part|
+                    name << part.capitalize
+                end
+           json.name name.join(" ")
+           json.id friend.id
+           if friend.profile_photo.attached?
+                json.profileUrl url_for(friend.profile_photo)
+           else 
+                json.profileUrl "https://image.flaticon.com/icons/svg/149/149452.svg"
+           end
+        end
+    end
+    end
  end
 
  json.maxPages @max 

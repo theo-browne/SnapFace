@@ -4,7 +4,7 @@ import {withRouter} from 'react-router-dom'
 import PostFormContainer from '../posts/post_form_container'
 import UserInfoPanel from '../home/user_info_panel'
 import PostEditContainer from '../posts/post_edit_container'
-import {Route} from 'react-router-dom'
+import { Route, Link} from 'react-router-dom'
 
 
  class ProfileFeed extends React.Component {
@@ -15,12 +15,14 @@ import {Route} from 'react-router-dom'
         this.handleScroll = this.handleScroll.bind(this)
     }
     componentDidMount(){
+        
         this.props.fetchUser(this.props.match.params.id, 1).then(() => this.props.removeUsers())
         window.addEventListener('scroll', this.handleScroll)
     }
 
     componentDidUpdate(prevProps){
         if (this.props.match.params.id !== prevProps.match.params.id){
+            this.props.clearUsers()
             this.props.fetchUser(this.props.match.params.id, 1).then(() => this.props.removeUsers())
             this.page = 1
             this.ready = true
@@ -33,7 +35,7 @@ import {Route} from 'react-router-dom'
 
      handleScroll(e) {
          const ul = document.querySelector(".news-feed")
-
+         if (!ul) return
          const lastEl = ul.lastElementChild
          if (!lastEl) return
          if (lastEl.offsetTop - pageYOffset < window.innerHeight && this.ready) {
@@ -51,19 +53,55 @@ import {Route} from 'react-router-dom'
     render(){
         if (this.props.user === undefined) return null
         let form = null
+
+        
         if (this.props.currentUser.id === this.props.user.id) {
-            form = (<PostFormContainer user={this.props.user} />)
+            form = (<PostFormContainer user={this.props.user} />)   
         }
+        const photos = this.props.user.postPhotos || []
+        const num = (this.props.user.friends > 0) ? (this.props.user.friends - 1) : 0
         return(
             <div className="profile-feed">
                 <Route path={`/posts/:id/edit`} component={PostEditContainer} />
+                <div className="profile-feed-info">
+                    <div className="friends-info">
+                        <div>
+                        <img className="profile-icon" src="https://image.flaticon.com/icons/svg/1006/1006052.svg" alt="" />
+                        <p>Friends {num}</p>
+                        </div>
+                        <div>
+                        <div className="friends-photo-grid">
+                            {this.props.friends.map(friend => <div key={friend.id}>
+                                <Link to={`/users/${friend.id}`}>
+                                <img src={friend.profileUrl} alt=""/>
+                                <p>{friend.name}</p>
+                                </Link>
+                                </div>)}
+                        </div>
+                        </div>
+                    </div>
 
+                    <div className="users-photos">
+                    
+                        <p>Photos</p>
+                        <div className="profile-photo-grid">
+                            {photos.map((photo,idx) => 
+                                <div  className="profile-photo-grid-photo">
+                                <img key={idx} src={photo}></img>
+                                 </div>
+                        )}
+                        </div>
+                    </div>
+                   
+                </div>
+                <div>
                 {form}
                     <ul className="news-feed"> 
                 {
                         this.props.posts.map(post => <NewsFeedItem key={post.id} updateReaction={this.props.updateReaction} deleteReaction={this.props.deleteReaction} createReaction={this.props.createReaction} fetchComments={this.props.fetchComments} deletePost={this.props.deletePost} currentUser={this.props.currentUser} user={this.props.user} post={post} /> )
                 } 
                 </ul>
+                </div>
             </div>
         )
     }

@@ -1,4 +1,6 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
+
 
 export default class SuggestedFriendsItem extends React.Component {
     constructor(props){
@@ -20,10 +22,12 @@ export default class SuggestedFriendsItem extends React.Component {
         return(
         <div className="suggested-friends">
             <div className="suggested-details">
+                <Link to={`/users/${this.props.user.id}`}>
                     <div className="suggested-img">
                 <img src={this.props.user.profileUrl} alt=""/>
                 </div>
                 <li>{this.props.user.name}</li>
+                    </Link>
             </div>
                 <li className="mutual-friends">Mutual Friends: {this.props.user.mutualFriends}</li>
             {button}

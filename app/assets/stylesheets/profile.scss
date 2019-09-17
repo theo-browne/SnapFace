@@ -1,18 +1,21 @@
 .cover-photo {
     width: 100%;
-    height: 150px;
+    height: 250px;
     justify-self: center;
     position: relative;
-    background-image: url("https://iso.500px.com/wp-content/uploads/2014/07/big-one.jpg");
+    background-position-y: -150px;
+    // background-image: url("https://images.unsplash.com/photo-1532274402911-5a369e4c4bb5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80");
+    background-image: url("https://images.unsplash.com/photo-1418985227304-f32df7d84e39?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80");
     background-size: cover
 }
 
 .user-info-panel{
     display: block;
     justify-content: center;
-    justify-self: flex-start;
-    width: 100%;
-    height: 200px
+    margin: auto;
+    // justify-self: flex-start;
+    width: 700px;
+    height: 300px
 }
 
 .profile-photo{
@@ -20,7 +23,7 @@
     height: 100px;
     width: 100px;
     position: relative;
-    bottom: -60px;
+    bottom: -165px;
     left: 10px;
     // background-image: url("https://s3-us-west-2.amazonaws.com/aa-progress-tracker/students/avatars/000/003/806/medium/Wesley_Tam.jpg?1563384027");
     background-size: cover;
@@ -62,7 +65,6 @@
 }
 .profile-photo-link{
     background-color: rgba(0,0,0,.6);
-
     display: none;
     /* align-content: flex-end; */
     position: absolute;
@@ -70,7 +72,6 @@
    padding-left:30%;
    padding-right: 70%;
     margin-top: 50%; 
-
     font-size: 12px;
 
 }
@@ -90,4 +91,112 @@
 
 .news-feed{
     padding: 0
+}
+.profile-feed{
+    width: 700px;
+    display: flex;
+    justify-content: space-between;
+    margin: auto
+}
+.profile-photo-grid{
+    display: grid;
+    padding-left: 4px;
+    box-sizing: border-box;
+    width: 250px;
+    // height: 250px;
+    // flex-wrap: wrap;
+    grid-template-columns: repeat(3, 1fr) ;
+    grid-gap: 5px;
+    // grid-auto-flow: column;
+    // grid-template-columns: 1fr 1fr 1fr;
+    // grid-template-rows: 1fr 1fr 1fr;
+    // grid-template-rows: 70px;
+    // grid-template-rows: 70px;
+    // grid-row: 1 / 1;
+    // grid-auto-rows: 70px;
+    background-color: white;
+
+}
+.profile-photo-grid-photo{
+    // width: 50px;
+        height: 70px;
+        // overflow: hidden;
+}
+.profile-photo-grid img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover
+    // padding-left: 2px;
+    // padding-right: 2px;
+}
+.users-photos{
+    background-color: white;
+    border: 1px solid lightgray;
+    border-radius: 4px;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0
+}
+.users-photos p{
+    margin: 5px
+}
+.profile-feed-info{
+    position: sticky;
+    width: 260px;
+    height: fit-content;
+    top: 45px
+}
+.friends-info{
+    background-color: white;
+    padding: 5px;
+    margin-bottom: 5px;
+    border: 1px solid lightgray;
+    display: block;
+    border-radius: 4px;
+    width: 260px;
+    box-sizing: border-box
+}
+
+.friends-info p{
+    margin: 0
+}
+.friends-info > p{
+clear: right;
+
+}
+.friends-info img{
+    padding: 0;
+    margin: 0;
+    margin-right: 5px
+}
+
+.friends-photo-grid{
+    // display: flex;
+    // flex-wrap: wrap;
+    // font-size: 10px
+    widows: 260px;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr) ;
+    grid-gap: 5px;
+ }
+ .friends-photo-grid > div{
+     font-size: 12px
+ }
+.friends-info > div{
+   display: flex;
+   margin-bottom: 5px
+}
+.friends-photo-grid a {
+    color: black;
+    text-decoration: none
+}
+.friends-photo-grid a:hover{
+    color: plum;
+    text-decoration: underline solid plum
+}
+.friends-photo-grid img{
+    height: 70px;
+    width: 100%;
+    margin: auto
 }

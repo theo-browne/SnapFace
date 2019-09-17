@@ -9,6 +9,8 @@
 
 .home-nav{
     height: 40px;
+    box-sizing: border-box;
+    padding-left: 10%;
     width: 110%;
     background-color: plum;
     display: flex;
@@ -23,7 +25,7 @@
     display: flex;
     justify-content: space-between;
     width: 800px;
-    padding-left: 100px;
+    // padding-left: 150px;
      min-width: 700px;
 }
 .home-mid{
@@ -72,7 +74,7 @@
 
 .search-results{
     // position: ;
-    width: 100.5%;
+    width: 100.3%;
     padding: 4px;
     padding-top: 0;
     list-style: none;
@@ -124,7 +126,7 @@
 
 }
 .profile-icon:hover{
-    cursor: pointer;
+    // cursor: pointer;
 }
 .search-item{
     margin-bottom: 5px;
@@ -227,7 +229,7 @@
     width: 100%
 }
 .feed-sponsored {
-    width: 120px;
+    width: 150px;
     height: fit-content;
     // border: 1px solid red;
     background-color: white;
@@ -251,8 +253,20 @@
 .suggested-friends {
     // background-color: white;
     padding: 10px;
-    margin-top: 10px
+    // margin-top: 10px
 }
+.suggested-friends button:hover{
+    color: plum
+}
+.suggested-friends button.added-friend:hover{
+    color: black
+}
+.added-friend:hover{
+    color: black;
+    cursor: initial;
+}
+
+
 .suggested-friends img {
     width: 20px;
     height: 20px;
@@ -261,9 +275,21 @@
 .suggested-details {
     display: flex
 }
+.suggested-details a li {
+   text-align: left
+}
+.suggested-details a {
+    text-decoration: none;
+    color: black;
+    display: flex
+}
+.suggested-details a:hover{
+    color: plum
+}
 .suggested-img {
     width: 20px;
     height: 20px;
+    margin-right: 5px
 }
 
 .feed-sidebar{
@@ -278,7 +304,7 @@
 }
 .feed-sidebar div {
     display: flex;
-    margin-top: 10px
+    margin-bottom: 10px
 }
 
 .feed-sidebar img {

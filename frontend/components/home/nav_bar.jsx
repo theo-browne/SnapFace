@@ -8,6 +8,7 @@ const NavBar = props => {
     
     return(
         <div className="home-nav">
+   
             <div className="home-nav-content">
             {/* <div className="home-nav" ></div> */}
             <SearchContainer />
@@ -22,6 +23,7 @@ const NavBar = props => {
             <button onClick={() => props.logoutUser()}>Logout</button>
         </div>
             </div>
+        
      </div>
 
     )

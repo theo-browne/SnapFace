@@ -19,7 +19,7 @@ const mDTP = dispatch => ({
     createReaction: reaction => dispatch(createReaction(reaction)),
     deleteReaction: id => dispatch(deleteReaction(id)),
     updateReaction: reaction => dispatch(updateReaction(reaction)),
-    createFriendship: friendship => dispatch(createFriendship(friendship)),
+    createFriendship: friendship => dispatch(createFriendship(friendship))
 })
 
 export default connect(mSTP, mDTP)(NewsFeed)
