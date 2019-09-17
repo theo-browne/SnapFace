@@ -15,7 +15,7 @@ import { Route, Link} from 'react-router-dom'
         this.handleScroll = this.handleScroll.bind(this)
     }
     componentDidMount(){
-        
+        this.props.clearUsers()
         this.props.fetchUser(this.props.match.params.id, 1).then(() => this.props.removeUsers())
         window.addEventListener('scroll', this.handleScroll)
     }
@@ -53,13 +53,13 @@ import { Route, Link} from 'react-router-dom'
     render(){
         if (this.props.user === undefined) return null
         let form = null
+        let num = (this.props.user.friends > 0) ? (this.props.user.friends - 1) : 0
 
         
         if (this.props.currentUser.id === this.props.user.id) {
             form = (<PostFormContainer user={this.props.user} />)   
         }
         const photos = this.props.user.postPhotos || []
-        const num = (this.props.user.friends > 0) ? (this.props.user.friends - 1) : 0
         return(
             <div className="profile-feed">
                 <Route path={`/posts/:id/edit`} component={PostEditContainer} />
@@ -86,8 +86,8 @@ import { Route, Link} from 'react-router-dom'
                         <p>Photos</p>
                         <div className="profile-photo-grid">
                             {photos.map((photo,idx) => 
-                                <div  className="profile-photo-grid-photo">
-                                <img key={idx} src={photo}></img>
+                                <div key={idx}  className="profile-photo-grid-photo">
+                                <img  src={photo}></img>
                                  </div>
                         )}
                         </div>

@@ -65,6 +65,7 @@ reactions = ["like", "love", "wow", "laugh", "sad"]
     user = User.new(name: Faker::Sports::Basketball.player.downcase, email: rand() , password: "123456" )
     user.profile_photo.attach(io: file, filename: filename)
     user.save!
+    Friendship.create(user_id: user.id, friend_id: user.id, status: "CONFIRMED")
     user_count += 1
     5.times do 
         post = Post.create(user_id: user.id, body: Faker::TvShows::RickAndMorty.quote.downcase )

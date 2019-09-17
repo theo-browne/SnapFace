@@ -110,7 +110,7 @@ end
 
  json.friends do 
     if @user.friends.length > 0
-    @user.friends[1..9].each do |friend|
+    @user.friends[0..8].each do |friend|
         json.set! friend.id do 
             name = []
                 friend.name.split(" ").each do |part|
