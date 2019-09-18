@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_16_205638) do
+ActiveRecord::Schema.define(version: 2019_09_17_222823) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,8 +53,17 @@ ActiveRecord::Schema.define(version: 2019_09_16_205638) do
     t.string "status", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "room_id", null: false
     t.index ["friend_id"], name: "index_friendships_on_friend_id"
     t.index ["user_id"], name: "index_friendships_on_user_id"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.text "content", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id", null: false
+    t.integer "room_id", null: false
   end
 
   create_table "posts", force: :cascade do |t|
@@ -74,6 +83,11 @@ ActiveRecord::Schema.define(version: 2019_09_16_205638) do
     t.datetime "updated_at", null: false
     t.index ["user_id", "reacted_id", "reacted_type"], name: "index_reactions_on_user_id_and_reacted_id_and_reacted_type"
     t.index ["user_id"], name: "index_reactions_on_user_id"
+  end
+
+  create_table "rooms", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|

@@ -6,6 +6,8 @@ import {Route} from 'react-router-dom'
 import CommentEditFormContainer from '../comments/commnent_edit_form_container'
 import SuggestedFriendItem from '../home/suggested_friend_item'
 import PhotoModalContainer from './photo_modal_container'
+import MessageForm from '../messaging/message_form'
+
 
 export default class NewsFeed extends React.Component {
     constructor(props){
@@ -15,6 +17,19 @@ export default class NewsFeed extends React.Component {
         this.handleScroll = this.handleScroll.bind(this)
     }
     componentDidMount(){
+        
+        this.props.fetchFriendships().then(() => {
+            this.props.friendships.forEach(friendship => {
+                App.cable.subscriptions.create(
+                    {channel: `RoomChannel`, room_id: friendship.room_id},
+                    {
+                        received: data => {
+                            this.props.updateUnread();
+                            console.log("test")
+                        }}
+                )
+            })
+        })
         this.props.fetchPosts(1)
         this.props.fetchPosts(2);
         this.event = window.addEventListener('scroll', this.handleScroll)
@@ -47,6 +62,8 @@ export default class NewsFeed extends React.Component {
         if (this.props.posts === undefined) return null
         return(
             <div className="feed" >
+                <MessageForm />
+
                 <div className="feed-sidebar">
                     <div className="feed-sidebar-user">
                         <img src={this.props.currentUser.profileUrl} alt=""/>

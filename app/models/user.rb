@@ -40,6 +40,10 @@ class User < ApplicationRecord
   has_many :reactions, 
      dependent: :destroy
 
+  has_many :messages
+
+  
+
   after_initialize :ensure_session_token
 
   def password=(password)
@@ -69,7 +73,7 @@ class User < ApplicationRecord
 
   def mutual_friends(current_user, user)
     return -1 if current_user.friends.include?(user) 
-    return  if current_user.id == user.id
+    return -1 if current_user.id == user.id
     hash = {}
     count = 0 
       current_user.friends.each do |user|

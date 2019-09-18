@@ -1,6 +1,7 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 import SearchContainer from '../search/search_container'
+import MessagesContainer from '../messaging/messages_container'
 
 
 const NavBar = props => {
@@ -20,6 +21,7 @@ const NavBar = props => {
             <Link to={`/users/${props.user.id}`} >{name}</Link>
             <Link to={`/`}>Home</Link>
             <img className="profile-icon" src="https://image.flaticon.com/icons/svg/1006/1006052.svg" alt="" />
+                <MessagesContainer />
             <button onClick={() => props.logoutUser()}>Logout</button>
         </div>
             </div>

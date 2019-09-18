@@ -25,4 +25,9 @@ export const deleteFriendship = (id)  => {
     })
 }
 
-
+export const fetchFriendships = () => {
+    return $.ajax({
+        method: "GET",
+        url: 'api/friendships'
+    })
+}
