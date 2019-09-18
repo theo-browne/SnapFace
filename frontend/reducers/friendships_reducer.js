@@ -19,12 +19,13 @@ const friendshipsReducer = (state = {}, action) => {
         case REMOVE_FRIENDSHIP:
             delete newState[action.friendshipId.friendId]
             return newState
-        case RECEIVE_POSTS:
-            return action.payload.friendships || {}
+        // case RECEIVE_POSTS:
+        //     return action.payload.friendships || {}
         case RECEIVE_FRIENDSHIPS: 
             let count = 0
             Object.values(action.friendships).forEach(friendship => {
-                friendship.subscription = count
+                
+                friendship['subscription'] = count
                 newState[friendship.friendId] = friendship
                 count += 1
             })

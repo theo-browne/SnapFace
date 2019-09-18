@@ -17,19 +17,6 @@ export default class NewsFeed extends React.Component {
         this.handleScroll = this.handleScroll.bind(this)
     }
     componentDidMount(){
-        
-        this.props.fetchFriendships().then(() => {
-            this.props.friendships.forEach(friendship => {
-                App.cable.subscriptions.create(
-                    {channel: `RoomChannel`, room_id: friendship.room_id},
-                    {
-                        received: data => {
-                            this.props.updateUnread();
-                            console.log("test")
-                        }}
-                )
-            })
-        })
         this.props.fetchPosts(1)
         this.props.fetchPosts(2);
         this.event = window.addEventListener('scroll', this.handleScroll)
@@ -62,7 +49,7 @@ export default class NewsFeed extends React.Component {
         if (this.props.posts === undefined) return null
         return(
             <div className="feed" >
-                <MessageForm />
+                {/* <MessageForm /> */}
 
                 <div className="feed-sidebar">
                     <div className="feed-sidebar-user">

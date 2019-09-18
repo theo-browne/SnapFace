@@ -8,6 +8,7 @@ export default class MessageForm extends React.Component{
             message: "",
             id: 2
         }
+        this.sent = false
         this.handleChange = this.handleChange.bind(this)
     }
 
@@ -18,15 +19,19 @@ export default class MessageForm extends React.Component{
 
     handleChange(e){
         this.setState({message: e.target.value})
-
+        let that = this
         // if (!this.state.listen) {
         e.target.addEventListener('keypress', (e) => {
             // this.setState({listen: true})
             if (e.keyCode === 13) {
                 e.preventDefault()
-                App.room.speak(this.state)
-                // this.setState({ message: "", listen: false })
-                
+                if (!that.sent) {
+                    that.sent = true
+                App.cable.subscriptions.subscriptions[that.props.friendship.subscription].perform("speak", { message: { message: that.state.message, room_id: that.props.friendship.room_id, user_id: that.props.currentUser.id } })
+                // App.room.speak(that.state)
+                that.setState({ message: "" })
+                setTimeout(() => that.sent = false, 1000)
+                }
             }
         }
         )
@@ -36,9 +41,10 @@ export default class MessageForm extends React.Component{
 
     render(){
         return(
-            <div>
-                <form action="">
-                    <input type="text" value={this.state.message} id="message-input" data-behavior="room-speaker" onChange={this.handleChange}/>
+            <div className="message-form">
+                <form action="" onSubmit={() => e.preventDefault()}>
+                    {/* <input type="text" value={this.state.message} id="message-input" data-behavior="room-speaker" onChange={this.handleChange}/> */}
+                    <input type="text" value={this.state.message} placeholder="Write a Message..." onChange={this.handleChange}/>
                 </form>
             </div>
         )

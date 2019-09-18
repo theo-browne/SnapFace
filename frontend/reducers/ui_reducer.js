@@ -1,4 +1,4 @@
-import { SET_COMMENT, UPDATE_UNREAD, CURRENT_MESSAGE } from '../actions/ui_actions'
+import { SET_COMMENT, UPDATE_UNREAD, CURRENT_MESSAGE, REMOVE_MESSAGE } from '../actions/ui_actions'
 
 const uiReducer = (state = {}, action) => {
     Object.freeze(state)
@@ -19,6 +19,9 @@ const uiReducer = (state = {}, action) => {
         case CURRENT_MESSAGE:
             newState['currentMessage'] = action.friendshipId
             return newState
+        case REMOVE_MESSAGE: 
+           delete newState['currentMessage'] 
+           return newState
         default:
             return state;
     }

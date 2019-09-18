@@ -5,6 +5,7 @@ import postsReducer from './post_reducer'
 import searchedUsersReducer from './searched_users_reducer'
 import commentsReducer from './comments_reducer'
 import reactionReducer from './reaction_reducer'
+import messageReducer from './message_reducer'
 
 
 export default combineReducers({
@@ -13,5 +14,6 @@ export default combineReducers({
     posts: postsReducer,
     searchedUsers: searchedUsersReducer,
     comments: commentsReducer,
-    reactions: reactionReducer
+    reactions: reactionReducer,
+    messages: messageReducer
 })
