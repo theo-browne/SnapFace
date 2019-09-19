@@ -99,7 +99,7 @@ name_generators = [
  
 ]
 
-3.times do 
+5.times do 
     name_generators << Faker::TvShows::SiliconValley.character
     name_generators << Faker::DcComics.name
     name_generators << Faker::GreekPhilosophers.name
@@ -111,7 +111,7 @@ end
 content_generators = [
     
 ]
-15.times do 
+20.times do 
    content_generators << Faker::Quote.most_interesting_man_in_the_world + " -Faker Gem Quote"
     content_generators << Faker::Quote.famous_last_words + " -Faker Gem Quote"
     content_generators << Faker::Quote.matz + " -Faker Gem Quote"
@@ -130,7 +130,7 @@ post_count = 0
 
 # reaction_count = 0
 reactions = ["like", "love", "wow", "laugh", "sad"]
-10.times do 
+15.times do 
 
     # photo = photos.sample
     filename = profile_photos.sample
