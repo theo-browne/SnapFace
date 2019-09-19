@@ -1,6 +1,7 @@
 import { RECEIVE_USERS, ADD_FRIEND, REMOVE_FRIENDSHIP, RECEIVE_FRIENDSHIPS } from '../actions/friend_actions';
 import { RECEIVE_USER} from '../actions/user_actions';
 import {RECEIVE_POSTS} from '../actions/post_actions'
+import { RECEIVE_MESSAGE } from '../actions/message_actions'
 
 const friendshipsReducer = (state = {}, action) => {
     Object.freeze(state)
@@ -29,6 +30,9 @@ const friendshipsReducer = (state = {}, action) => {
                 newState[friendship.friendId] = friendship
                 count += 1
             })
+            return newState
+        case RECEIVE_MESSAGE:
+            newState[action.message.userId]['last_message'] = action.message.content
             return newState
         default:
             return state;

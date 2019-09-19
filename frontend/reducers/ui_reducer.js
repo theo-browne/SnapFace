@@ -1,4 +1,5 @@
 import { SET_COMMENT, UPDATE_UNREAD, CURRENT_MESSAGE, REMOVE_MESSAGE } from '../actions/ui_actions'
+import {RECIEVE_MESSAGE} from '../actions/message_actions'
 
 const uiReducer = (state = {}, action) => {
     Object.freeze(state)
@@ -22,6 +23,7 @@ const uiReducer = (state = {}, action) => {
         case REMOVE_MESSAGE: 
            delete newState['currentMessage'] 
            return newState
+
         default:
             return state;
     }

@@ -12,9 +12,9 @@ const messageReducer = (state = {}, action) => {
                 newState[message.id] = message
             })
             return newState
-        case RECEIVE_MESSAGE: 
-            newState[action.message.id] = action.message
-            return newState
+        // case RECEIVE_MESSAGE: 
+        //     newState[action.message.id] = action.message
+        //     return newState
         default:
             return state;
     }
