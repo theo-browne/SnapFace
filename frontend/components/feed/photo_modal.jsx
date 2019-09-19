@@ -80,10 +80,12 @@ export default class PhotoModal extends React.Component{
                        
                         <button className="comment-button" onClick={() => this.props.fetchComments(this.props.post.id, 1)}>Comment</button>
                         </div>
+                        
                         <CommentFormContainer post={this.state.post} />
-
+                        <div className="photo-comments">
                         <CommentIndexContainer post={this.state.post} />
-
+                        </div>
+                        
                 </div>
                     
                 </div>

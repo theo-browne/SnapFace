@@ -8,6 +8,10 @@
 .messages > img {
     width: 100%;
     height: 100%;
+
+}
+.messages > img:hover{
+    cursor: pointer;
 }
 .messages > p {
     z-index: 24;

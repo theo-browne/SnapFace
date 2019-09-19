@@ -12,13 +12,13 @@ import MessageForm from '../messaging/message_form'
 export default class NewsFeed extends React.Component {
     constructor(props){
         super(props)
-        this.page = 2
+        this.page = 1
         this.ready = true 
         this.handleScroll = this.handleScroll.bind(this)
     }
     componentDidMount(){
         this.props.fetchPosts(1)
-        this.props.fetchPosts(2);
+        // this.props.fetchPosts(2);
         this.event = window.addEventListener('scroll', this.handleScroll)
     }
 

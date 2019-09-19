@@ -10,7 +10,7 @@
 }
 .photo-modal-content{
     display: flex;
-    width: 600px;
+    width: 650px;
     height: 400px;
     margin-top: 10%;
     background-color: white
@@ -25,7 +25,7 @@
 }
 .photo-info{
     background-color: white;
-    width: 200px;
+    width: 250px;
     height: 300px;
     display: block;
     margin:20px;
@@ -63,7 +63,7 @@
 .photo-info > div {
     margin: 0;
     position: relative;
-    width: 80%;
+    width: 100%;
     border: none;
  }
 // .photo-info > div.post-interaction-container {
@@ -79,7 +79,11 @@
 .photo-info > div.comment-form textarea{
     width: 100%
 }
-
+.photo-info > div.comment-form {
+    margin: 0;
+    box-sizing: border-box;
+    width: 90%
+}
 .photo-info button.comment-delete-button {
     margin-left: 5px;
     position: relative;
@@ -97,17 +101,35 @@
 
 .photo-info div.post-interaction-details {
     margin-top: 20px;
-    margin-right: 0;
+    margin-right: 0px;
     width: 100%;
     border-bottom: 1px solid lightgray
     }
 .photo-user-info > a{
     color: black;
     position: absolute;
-    top: -5px;
-    right: -38px;
+    top: -2px;
+    right: 5px;
     text-decoration: none
 }
 .photo-user-info > a:hover{
     color: plum
+}
+
+.photo-comments{
+    height: 80%;
+    overflow-y: scroll;
+    width: 100%;
+    margin: 0
+}
+.photo-comments > div.comment-index{
+    width: 80%;
+    z-index: 35;
+    border: none;
+    padding-left: 0;
+    margin-left: 3px;
+    margin: 0px
+}
+.photo-comments > div > ul {
+    width: 100%
 }
