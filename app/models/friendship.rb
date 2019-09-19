@@ -12,7 +12,7 @@ class Friendship < ApplicationRecord
 
         res = friendships.sort_by do |friendship|
             if friendship.room.messages[-1]
-           friendship.room.messages[-1].created_at
+                friendship.room.messages[-1].created_at
             else 
                 friendship.room.created_at
             end
