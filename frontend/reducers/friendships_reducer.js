@@ -31,9 +31,9 @@ const friendshipsReducer = (state = {}, action) => {
                 count += 1
             })
             return newState
-        case RECEIVE_MESSAGE:
-            newState[action.message.userId]['last_message'] = action.message.content
-            return newState
+        // case RECEIVE_MESSAGE:
+        //     newState[action.message.userId]['last_message'] = action.message.content
+        //     return newState
         default:
             return state;
     }
