@@ -6,8 +6,10 @@ import { receiveMessage} from '../../actions/message_actions'
 
 const mSTP = state => ({
     unread: state.ui.unread,
-    friendships: Object.values(state.entities.friendships)
+    friendships: Object.values(state.entities.friendships).filter(friendship => friendship.room_id)
 })
+
+
 
 const mDTP = dispatch => ({
     fetchFriendships: () => dispatch(fetchFriendships()),

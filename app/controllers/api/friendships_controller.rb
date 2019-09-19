@@ -28,7 +28,8 @@ class Api::FriendshipsController < ApplicationController
     end
 
     def index 
-        @friendships = current_user.friendships
+        
+        @friendships = Friendship.sort_by_messages(current_user.friendships)
         render :index
     end
 

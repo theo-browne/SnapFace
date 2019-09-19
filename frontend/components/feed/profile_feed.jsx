@@ -5,6 +5,7 @@ import PostFormContainer from '../posts/post_form_container'
 import UserInfoPanel from '../home/user_info_panel'
 import PostEditContainer from '../posts/post_edit_container'
 import { Route, Link} from 'react-router-dom'
+import PhotoModalContainer from '../feed/photo_modal_container'
 
 
  class ProfileFeed extends React.Component {
@@ -62,6 +63,8 @@ import { Route, Link} from 'react-router-dom'
         const photos = this.props.user.postPhotos || []
         return(
             <div className="profile-feed">
+                
+                <Route exact path={`/posts/:id`} component={PhotoModalContainer} />
                 <Route path={`/posts/:id/edit`} component={PostEditContainer} />
                 <div className="profile-feed-info">
                     <div className="friends-info">

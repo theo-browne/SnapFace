@@ -1,10 +1,11 @@
 
-    @friendships.each do |friendship|
+    @friendships.each.with_index do |friendship, idx|
         json.set! friendship.friend_id do 
             json.id friendship.id
             json.friendId friendship.friend_id
             json.room_id friendship.room_id
             json.friend_name friendship.friend.name
+            json.pos idx + 1
             last_message = friendship.room.messages[-1] ? friendship.room.messages[-1].content :  ""
             json.last_message last_message
             if friendship.friend.profile_photo.attached?

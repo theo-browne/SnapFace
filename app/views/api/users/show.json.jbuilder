@@ -97,7 +97,7 @@ end
 end
     
  json.friendship do 
-         json.set! @user.id do
+         
              if @friendship
                 json.id @friendship.id 
                 json.friendId @friendship.friend_id 
@@ -105,7 +105,7 @@ end
                 json.friendId @user.id
                 json.id false
              end
-         end
+         
  end
 
  json.friends do 

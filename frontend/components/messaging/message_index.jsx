@@ -24,14 +24,14 @@ export default class MessageIndex extends React.Component{
         if (this.props.friendship.id !== prevProps.friendship.id) {
             this.props.fetchMessages(this.props.friendship.room_id, 1)
             this.page = 1
-            // this.bottom.current.scrollIntoView()
         } 
+                    // this.bottom.current.scrollIntoView()
+
         
     }
 
     handleScroll(e) {
         let lastEl = e.currentTarget.firstElementChild
-        console.log(lastEl.clientHeight)
         // const ul = document.querySelector(".news-feed")
         // console.log(e.currentTarget.scrollTop)
         // console.log(e.currentTarget.scrollHeight)
