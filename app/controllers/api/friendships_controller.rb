@@ -7,7 +7,7 @@ class Api::FriendshipsController < ApplicationController
         @reverse_friendship.friend_id = @friendship.user_id
         @reverse_friendship.user_id = @friendship.friend_id
         @reverse_friendship.status = @friendship.status
-        @room = Room.create
+        @room = Room.create()
         @friendship.room_id = @room.id
         @reverse_friendship.room_id = @room.id
         if @friendship.save
