@@ -4,7 +4,11 @@
             json.id friendship.id
             json.friendId friendship.friend_id
             json.room_id friendship.room_id
-            json.friend_name friendship.friend.name
+            name = []
+            friendship.friend.name.split(" ").each do |part|
+                name << part.capitalize
+            end
+            json.friend_name name.join(" ")
             json.pos idx + 1
             last_message = friendship.room.messages[-1] ? friendship.room.messages[-1].content :  ""
             json.last_message last_message

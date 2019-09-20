@@ -2,7 +2,8 @@ class Room < ApplicationRecord
 
 
     
-    has_many :friendships
+    has_many :friendships,
+        dependent: :destroy
 
     has_many :users, 
         through: :friendships,
