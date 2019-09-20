@@ -131,9 +131,8 @@
     // padding-bottom: 40px
 }
 .user-message{ 
-    text-align: right;
+    text-align: left;
     display: flex;
-
     justify-self: flex-end;
     width: 100%;
     justify-content: flex-end;
@@ -228,9 +227,20 @@
 }
 
 .friend-name{
-    font-size: 12px
+    font-size: 12px;
+    text-align: left
 }
 
 .last-message {
     text-align: left
+}
+.message-list-item-img{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%
+}
+.message-list-item-img > img {
+     width: 30px;
+    height: 30px;
+    border-radius: 50%
 }
