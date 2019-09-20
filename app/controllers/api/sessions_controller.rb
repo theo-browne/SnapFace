@@ -15,6 +15,7 @@ class Api::SessionsController < ApplicationController
     if current_user
       logout
        if @user.name == "Demo User"
+        Friendship.where("friendships.friend_id = ?", @user.id).destroy_all
         @user.destroy
        end
       render json: {}

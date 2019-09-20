@@ -4,8 +4,8 @@ class Api::UsersController < ApplicationController
     @user = User.find(params[:id])
     @friendship = current_user.friendships.find_by("friend_id = ?", @user.id)
     # @posts = @user.posts.order("posts.created_at DESC")
-    @posts = @user.posts.order("posts.created_at DESC").page(params[:page]).per(5)
-    @max = @user.posts.length / 5
+    @posts = @user.posts.order("posts.created_at DESC").page(params[:page]).per(3)
+    @max = @user.posts.length / 3
     render :show
   end
  

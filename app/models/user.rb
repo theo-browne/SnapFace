@@ -17,8 +17,8 @@ class User < ApplicationRecord
     dependent: :destroy
 
   has_many :friends,
-  through: :friendships,
-  source: :friend
+    through: :friendships,
+    source: :friend
 
   has_many :posts, 
      dependent: :destroy
