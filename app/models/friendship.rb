@@ -9,7 +9,6 @@ class Friendship < ApplicationRecord
     belongs_to :room
 
     def self.sort_by_messages(friendships) 
-
         res = friendships.sort_by do |friendship|
             if friendship.room.messages[-1]
                 friendship.room.messages[-1].created_at
@@ -19,4 +18,6 @@ class Friendship < ApplicationRecord
         end
         res.reverse
     end
+
+    
 end

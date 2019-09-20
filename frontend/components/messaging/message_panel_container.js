@@ -3,7 +3,7 @@ import MessagePanel from './message_panel'
 import {fetchMessages} from '../../actions/message_actions'
  
 const mSTP = state => ({
-    friendship: state.entities.friendships[state.ui.currentMessage],
+    friendship: state.entities.rooms[state.ui.currentMessage],
     messages: Object.values(state.entities.messages).filter(message => message.roomId === 5),
     currentUser: state.session
 })

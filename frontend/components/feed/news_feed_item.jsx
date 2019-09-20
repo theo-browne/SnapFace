@@ -76,15 +76,12 @@ export default class NewsFeedItem extends React.Component {
             </Link>) : null
         return(
             <div className="post-container">
-                {/* <img src={this.props.post.loveImg} alt=""/> */}
             <div className="post" key={this.props.post.id}>
                 {button}
                 <div className="post-author">
-                    
                     <Link to={`/users/${this.props.post.authorId}`}> <img src={this.props.post.profileUrl} className="profile-icon" alt="" /></Link>
                     <div className="post-info">
                     <Link to={`/users/${this.props.post.authorId}`}>{this.props.post.author}</Link>
-                
                 <p>{this.props.post.time}</p>
                 </div>
                 
@@ -100,7 +97,6 @@ export default class NewsFeedItem extends React.Component {
             </div>
             {counts}
                 <div className="post-interactions-container">
-                  
                     <button className="react-button" onMouseEnter={this.revealDropdown} onMouseLeave={this.unrevealDropdown}>{reacted}
                             <div className="reaction-pop-up">
                             <img src={this.props.post.likeImg} onClick={() => this.react('like')} alt=""/>
@@ -110,10 +106,7 @@ export default class NewsFeedItem extends React.Component {
                             <img src={this.props.post.sadImg} onClick={() => this.react('sad')} alt=""/>
                             </div>
                         </button>
-                  
                     <button className="comment-button" onClick={() => this.props.fetchComments(this.props.post.id, 1)}>Comment</button>
-                       
-                    
                 </div>
                 <CommentFormContainer post={this.props.post} />
                 <CommentIndexContainer post={this.props.post}/>

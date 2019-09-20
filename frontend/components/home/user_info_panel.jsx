@@ -22,29 +22,8 @@ export default class UserInfoPanel extends React.Component {
         const file = e.currentTarget.files[0];
         const formData = new FormData();
         formData.append('user[profile_photo]', file);
-        // formData.append('user[id]', this.props.user.id)
-        // const fileReader = new FileReader();
-        
         this.props.updateUser(formData, this.props.user.id)   
-   
-        // fileReader.onloadend = () => {
-            // if (file) {
-            //     fileReader.readAsDataURL(file);
-            // }
-            // const formData = new FormData();
-            // if (file) {
-            //     formData.append('user[profile_photo]', file);
-            //     this.props.updatePost(formData)
-            // }
-
-
         };
-       
-  
-
-
-        // this.props.updatePost(formData).then(() => this.setState({ body: "", photoFile: null, photoUrl: null }))
-    
 
     showUpdate(e){
         e.currentTarget.childNodes[0].classList.add("shown")

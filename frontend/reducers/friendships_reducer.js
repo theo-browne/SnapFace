@@ -22,15 +22,15 @@ const friendshipsReducer = (state = {}, action) => {
             return newState
         // case RECEIVE_POSTS:
         //     return action.payload.friendships || {}
-        case RECEIVE_FRIENDSHIPS: 
-            let count = 0
-            Object.values(action.friendships).forEach(friendship => {
+        // case RECEIVE_FRIENDSHIPS: 
+        //     let count = 0
+        //     Object.values(action.friendships).forEach(friendship => {
                 
-                friendship['subscription'] = count
-                newState[friendship.friendId] = friendship
-                count += 1
-            })
-            return newState
+        //         friendship['subscription'] = count
+        //         newState[friendship.friendId] = friendship
+        //         count += 1
+        //     })
+        //     return newState
         // case RECEIVE_MESSAGE:
         //     newState[action.message.userId]['last_message'] = action.message.content
         //     return newState

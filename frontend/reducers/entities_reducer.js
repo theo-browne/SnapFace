@@ -6,6 +6,7 @@ import searchedUsersReducer from './searched_users_reducer'
 import commentsReducer from './comments_reducer'
 import reactionReducer from './reaction_reducer'
 import messageReducer from './message_reducer'
+import roomsReducer from './room_reducer'
 
 
 export default combineReducers({
@@ -15,5 +16,6 @@ export default combineReducers({
     searchedUsers: searchedUsersReducer,
     comments: commentsReducer,
     reactions: reactionReducer,
-    messages: messageReducer
+    messages: messageReducer,
+    rooms: roomsReducer
 })

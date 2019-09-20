@@ -14,7 +14,6 @@ export default class Search extends React.Component{
 
 
     handleChange(e){
-        // e.persist()
         if (e.target.value === "") {
             this.setState({ name: e.target.value })
             this.props.removeUsers()
@@ -24,19 +23,9 @@ export default class Search extends React.Component{
         setTimeout(() => {
             if (this.state.name === "") return
             this.props.fetchUsers({name: this.state.name.toLowerCase()}) }, 100)
-        // this.props.fetchUsers(this.state)
-        // setTimeout(() => {
-        // // if (e.target.value === "") {
-        // //     this.setState({ name: e.target.value })
-        // //     this.props.removeUsers()
-        // //     return
-        // // }
-        //     this.setState({ name: e.target.value })
-        //     // setTimeout
-        //     setTimeout(() => this.props.fetchUsers({ name: this.state.name.toLowerCase() }), 0)
-        //     this.props.fetchUsers({ name: this.state.name.toLowerCase() })
-        // }, 500)
     }
+
+
     clear(){
         this.setState({name: ""})
         this.props.removeUsers()
@@ -70,3 +59,16 @@ export default class Search extends React.Component{
         )
     }
 }
+
+    // this.props.fetchUsers(this.state)
+        // setTimeout(() => {
+        // // if (e.target.value === "") {
+        // //     this.setState({ name: e.target.value })
+        // //     this.props.removeUsers()
+        // //     return
+        // // }
+        //     this.setState({ name: e.target.value })
+        //     // setTimeout
+        //     setTimeout(() => this.props.fetchUsers({ name: this.state.name.toLowerCase() }), 0)
+        //     this.props.fetchUsers({ name: this.state.name.toLowerCase() })
+        // }, 500)

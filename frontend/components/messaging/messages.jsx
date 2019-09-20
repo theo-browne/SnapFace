@@ -46,6 +46,7 @@ export default class Messages extends React.Component{
     render(){
         
         let notif = this.props.unread || ""
+    
         return(
             <div>
                 <MessagePanelContainer />

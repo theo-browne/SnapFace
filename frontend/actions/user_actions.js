@@ -26,3 +26,6 @@ export const updateUser = (data, id) => dispatch => {
         dispatch(setUser(user.user))
     })
 }
+
+
+

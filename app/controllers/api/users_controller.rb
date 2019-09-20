@@ -31,7 +31,6 @@ class Api::UsersController < ApplicationController
   end
 
   def update 
-    
     @user = User.find(params[:id])
     @posts = @user.posts
     if @user.update(user_params)
