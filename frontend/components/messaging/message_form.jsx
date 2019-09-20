@@ -44,7 +44,8 @@ export default class MessageForm extends React.Component{
             <div className="message-form">
                 <form action="" onSubmit={() => e.preventDefault()}>
                     {/* <input type="text" value={this.state.message} id="message-input" data-behavior="room-speaker" onChange={this.handleChange}/> */}
-                    <input type="text" value={this.state.message} placeholder="Write a Message..." onChange={this.handleChange}/>
+                    <textarea value={this.state.message} placeholder="Write a Message..." onChange={this.handleChange} cols="30" rows="1"></textarea>
+                    {/* <input type="text" value={this.state.message} placeholder="Write a Message..." onChange={this.handleChange}/> */}
                 </form>
             </div>
         )
