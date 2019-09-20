@@ -100,11 +100,11 @@ name_generators = [
 ]
 
 5.times do 
-    name_generators << Faker::TvShows::SiliconValley.character
-    name_generators << Faker::DcComics.name
-    name_generators << Faker::GreekPhilosophers.name
-    name_generators << Faker::Science.scientist
-    name_generators << Faker::Movies::StarWars.character
+    name_generators << Faker::TvShows::SiliconValley.character.downcase
+    name_generators << Faker::DcComics.name.downcase
+    name_generators << Faker::GreekPhilosophers.name.downcase
+    name_generators << Faker::Science.scientist.downcase
+    name_generators << Faker::Movies::StarWars.character.downcase
 end 
 
 
