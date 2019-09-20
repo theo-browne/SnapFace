@@ -6,6 +6,7 @@ import UserInfoPanel from '../home/user_info_panel'
 import PostEditContainer from '../posts/post_edit_container'
 import { Route, Link} from 'react-router-dom'
 import PhotoModalContainer from '../feed/photo_modal_container'
+import ProfilePhotosModal from './profile_photos_modal'
 
 
  class ProfileFeed extends React.Component {
@@ -64,8 +65,9 @@ import PhotoModalContainer from '../feed/photo_modal_container'
         return(
             <div className="profile-feed">
                 
-                <Route exact path={`/posts/:id`} component={PhotoModalContainer} />
-                <Route path={`/posts/:id/edit`} component={PostEditContainer} />
+                <Route exact path={`/users/:id/posts/:postId`} component={PhotoModalContainer} />
+                <Route path={`/users/:id/posts/:postId/edit`} component={PostEditContainer} />
+                <Route path={`/users/:id/photos/:pos`} render={(props) => <ProfilePhotosModal photos={photos} /> } />
                 <div className="profile-feed-info">
                     <div className="friends-info">
                         <div>
@@ -89,9 +91,11 @@ import PhotoModalContainer from '../feed/photo_modal_container'
                         <p>Photos</p>
                         <div className="profile-photo-grid">
                             {photos.map((photo,idx) => 
+                                <Link key={idx} to={`/users/${this.props.user.id}/photos/${idx}`}>
                                 <div key={idx}  className="profile-photo-grid-photo">
                                 <img  src={photo}></img>
                                  </div>
+                                </Link>
                         )}
                         </div>
                     </div>
@@ -101,7 +105,7 @@ import PhotoModalContainer from '../feed/photo_modal_container'
                 {form}
                     <ul className="news-feed"> 
                 {
-                        this.props.posts.map(post => <NewsFeedItem key={post.id} updateReaction={this.props.updateReaction} deleteReaction={this.props.deleteReaction} createReaction={this.props.createReaction} fetchComments={this.props.fetchComments} deletePost={this.props.deletePost} currentUser={this.props.currentUser} user={this.props.user} post={post} /> )
+                        this.props.posts.map(post => <NewsFeedItem key={post.id} updateReaction={this.props.updateReaction} deleteReaction={this.props.deleteReaction} createReaction={this.props.createReaction} fetchComments={this.props.fetchComments} deletePost={this.props.deletePost} currentUser={this.props.currentUser} user={this.props.user} profile={true} post={post} /> )
                 } 
                 </ul>
                 </div>

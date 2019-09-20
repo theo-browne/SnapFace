@@ -11,7 +11,8 @@ export default class PhotoModal extends React.Component{
     }
     
     componentDidMount(){
-        this.props.fetchPost(this.props.match.params.id)
+        
+        this.props.fetchPost(this.props.match.params.postId)
             .then(() => this.setState({
             count: this.props.post.reactions,
             reacted: this.props.post.userReaction,
@@ -19,7 +20,7 @@ export default class PhotoModal extends React.Component{
             reactionImg: this.props.post.userReactionImg,
             post: this.props.post
             }))
-        this.props.fetchComments(this.props.match.params.id, 1)
+        this.props.fetchComments(this.props.match.params.postId, 1)
     }
     revealDropdown(e) {
         e.currentTarget.lastChild.classList.add('reveal')
@@ -53,7 +54,7 @@ export default class PhotoModal extends React.Component{
             </div>
         </div>) : null
         const reacted = this.state.reacted ? <img src={this.state.reactionImg} alt="" /> : "React"
-        
+        let route = this.props.match.params.id ? `/users/${this.props.match.params.id}` : '/'
         return(
             <div className="photo-modal">
                 <div className="photo-modal-content">
@@ -64,7 +65,7 @@ export default class PhotoModal extends React.Component{
                         <div className="photo-user-info">
                     <img src={this.state.post.profileUrl} alt=""/>
                     <p>{this.state.post.author}</p>
-                    <Link to="/">X</Link>
+                            <Link to={route}>X</Link>
                         </div>
                     {counts}
                         <div className="post-interactions-container">

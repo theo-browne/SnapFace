@@ -11,7 +11,10 @@ import {withRouter, Link} from 'react-router-dom'
         
     }
     componentDidMount(){
-        this.props.fetchPost(this.props.match.params.id).then((post) => this.setState(this.props.post))
+        let that = this
+        this.props.fetchPost(this.props.match.params.postId).then((post) => {
+            that.setState(that.props.post)
+        })
     }
     handleSubmit(e) {
         e.preventDefault()
@@ -28,7 +31,7 @@ import {withRouter, Link} from 'react-router-dom'
     render(){
         
         if (this.state === null ) return null
-        
+        let route = this.props.match.params.id ? `/users/${this.props.match.params.id}` : "/"
         return(
             <div className="edit-post-modal">
                 <div className="edit">
@@ -36,7 +39,7 @@ import {withRouter, Link} from 'react-router-dom'
                     <div className="post-edit-content">
                 <img className="profile-image" src={this.props.user.profileUrl} alt="" />
                 <div className="modal-close">
-                <Link to="/" >X</Link>
+                <Link to={route} >X</Link>
                     </div>
                 <form className="new-post edit-post" action="">
                     <textarea  value={this.state.body} onChange={this.handleChange} cols="30" rows={this.rows}></textarea>

@@ -47,12 +47,14 @@ export default class NewsFeedItem extends React.Component {
     render(){
         if (this.props.post === undefined) return null
         let button;
+        let editRoute = this.props.profile ? `/users/${this.props.user.id}/posts/${this.props.post.id}/edit` : `/posts/${this.props.post.id}/edit`
+        
         if (this.props.currentUser.id === this.props.post.authorId){
             button = ( 
                 <button className="post-delete-button" onMouseEnter={this.showDropdown} onMouseLeave={this.hideDropdown}  >...
                     <div className="post-drop-down" >
                         <li onClick={() => this.props.deletePost(this.props.post.id)} className="post-delete">Delete Post</li>
-                        <Link to={`/posts/${this.props.post.id}/edit`}><li >Edit Post</li></Link>
+                        <Link to={editRoute}><li >Edit Post</li></Link>
                     </div>
                 </button>
             )
@@ -67,10 +69,10 @@ export default class NewsFeedItem extends React.Component {
             </div>
         </div>) : null
 
-
+        let photoRoute = this.props.profile ? `/users/${this.props.user.id}/posts/${this.props.post.id}` : `/posts/${this.props.post.id}`
 
         const photo = this.props.post.photoUrl ? ( 
-        <Link to={`/posts/${this.props.post.id}`}><img className="post-photo" src={this.props.post.photoUrl} alt="" /> 
+        <Link to={photoRoute}><img className="post-photo" src={this.props.post.photoUrl} alt="" /> 
             </Link>) : null
         return(
             <div className="post-container">

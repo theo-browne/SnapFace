@@ -9,7 +9,7 @@ import EditPostForm from './edit_post_form'
 const mSTP = (state, props) => {
     
     return{
-    post: state.entities.posts[props.match.params.id],
+    post: state.entities.posts[props.match.params.postId],
     user: state.session
     }
 }

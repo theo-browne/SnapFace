@@ -64,8 +64,8 @@ export default class NewsFeed extends React.Component {
                     </div>
                 </div>
                 <div className="feed-main">
-                <Route path={`/posts/:id/edit`} component={PostEditContainer} />
-                <Route exact path={`/posts/:id`} component={PhotoModalContainer}/>
+                <Route path={`/posts/:postId/edit`} component={PostEditContainer} />
+                <Route exact path={`/posts/:postId`} component={PhotoModalContainer}/>
                 {/* <Route exact path={`/comments/:id/edit`} component={CommentEditFormContainer}></Route> */}
                 
                 <PostFormContainer user={this.props.currentUser} />

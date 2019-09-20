@@ -6,7 +6,7 @@ import {createReaction, updateReaction, deleteReaction} from '../../actions/reac
 
 
 const mSTP = (state, props) => ({
-    post: state.entities.posts[props.match.params.id]
+    post: state.entities.posts[props.match.params.postId]
 })
 
 const mDTP = dispatch => ({
