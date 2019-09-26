@@ -54,13 +54,13 @@ export default class NewsFeed extends React.Component {
                 <div className="feed-sidebar">
                     <div className="feed-sidebar-user">
                         <Link to={`/users/${this.props.currentUser.id}`} >
-                        <div>
+                       
                         <img src={this.props.currentUser.profileUrl} alt=""/>
-                        </div>
                         <li>{this.props.currentUser.name}</li>
+                      
                         </Link>
                     </div>
-                    <div>
+                    <div className="github">
                         <a href="https://github.com/theo-browne">
                             <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="" />
                             <li>Github</li>

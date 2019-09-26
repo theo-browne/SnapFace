@@ -146,7 +146,8 @@
 
 
 .new-post textarea{
-    border: none
+    border: none;
+    width: 100%
 }
 
 .file-input{
@@ -194,6 +195,7 @@ textarea:focus {
     width: 90%;
     margin-top: 10px;
     border-radius: 10px;
+    border: 1px solid lightgray
 }
 .new-post-head{
     width: 100%;
@@ -300,7 +302,8 @@ textarea:focus {
     height: 100%;
     text-align: center;
     border: none;
-    position: absolute
+    position: absolute;
+    background-color: white
     
 }
 .post-interactions-container button:hover{
