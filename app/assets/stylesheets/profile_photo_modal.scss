@@ -23,7 +23,7 @@
 .profile-modal-content{
     display: flex;
     width: 650px;
-    height: 400px;
+    height: 500px;
     // height: fit-content;
     margin-top: 10%;
     position: relative;
@@ -47,6 +47,7 @@
     color: white;
     background-color: none;
     opacity: 0.5;
+    //  box-sizing: border-box
 }
 .next-arrow{
     height: 50px;
@@ -62,6 +63,7 @@
     color: white;
     background-color: none;
     opacity: 0.5;
+    // box-sizing: border-box
 }
 .next-arrow:hover{
     opacity: 1;

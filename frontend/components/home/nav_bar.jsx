@@ -15,12 +15,12 @@ const NavBar = props => {
             <SearchContainer />
         <div className="user-info">
         
-            <img src={props.user.profileUrl} alt="" className="nav-user-icon"/>
-       
+            {/* <img src={props.user.profileUrl} alt="" className="nav-user-icon"/> */}
+                    <Link to={`/users/${props.user.id}`} ><img src={props.user.profileUrl} alt="" className="nav-user-icon" /></Link>
       
             <Link to={`/users/${props.user.id}`} >{name}</Link>
             <Link to={`/`}>Home</Link>
-            <img className="profile-icon" src="https://image.flaticon.com/icons/svg/1006/1006052.svg" alt="" />
+            {/* <img className="profile-icon" src="https://image.flaticon.com/icons/svg/1006/1006052.svg" alt="" /> */}
                 <MessagesContainer />
             <button onClick={() => props.logoutUser()}>Logout</button>
         </div>

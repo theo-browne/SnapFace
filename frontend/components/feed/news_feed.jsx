@@ -2,7 +2,7 @@ import React from 'react'
 import NewsFeedItem from './news_feed_item'
 import PostFormContainer from '../posts/post_form_container'
 import PostEditContainer from '../posts/post_edit_container'
-import {Route} from 'react-router-dom'
+import {Route, Link} from 'react-router-dom'
 import CommentEditFormContainer from '../comments/commnent_edit_form_container'
 import SuggestedFriendItem from '../home/suggested_friend_item'
 import PhotoModalContainer from './photo_modal_container'
@@ -53,8 +53,12 @@ export default class NewsFeed extends React.Component {
 
                 <div className="feed-sidebar">
                     <div className="feed-sidebar-user">
+                        <Link to={`/users/${this.props.currentUser.id}`} >
+                        <div>
                         <img src={this.props.currentUser.profileUrl} alt=""/>
+                        </div>
                         <li>{this.props.currentUser.name}</li>
+                        </Link>
                     </div>
                     <div>
                         <a href="https://github.com/theo-browne">

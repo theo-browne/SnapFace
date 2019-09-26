@@ -1,4 +1,4 @@
-import { RECEIVE_USERS, ADD_FRIEND, REMOVE_FRIENDSHIP, RECEIVE_FRIENDSHIPS } from '../actions/friend_actions';
+import { RECEIVE_USERS, ADD_FRIEND, REMOVE_FRIENDSHIP, RECEIVE_FRIENDSHIPS , REMOVE_USERS} from '../actions/friend_actions';
 import { RECEIVE_USER} from '../actions/user_actions';
 import {RECEIVE_POSTS} from '../actions/post_actions'
 import { RECEIVE_MESSAGE } from '../actions/message_actions'
@@ -20,6 +20,7 @@ const friendshipsReducer = (state = {}, action) => {
         case REMOVE_FRIENDSHIP:
             delete newState[action.friendshipId.friendId]
             return newState
+        
         // case RECEIVE_POSTS:
         //     return action.payload.friendships || {}
         // case RECEIVE_FRIENDSHIPS: 
