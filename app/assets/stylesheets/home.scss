@@ -71,6 +71,17 @@
     margin-top: 9px
     
 }
+.search-input {
+    display: flex;
+    align-content: center
+}
+.search-input img {
+    z-index: 13;
+    height: 30px;
+    width: 30px;
+    margin-right: 5px;
+    margin-top: -4px
+}
 
 .search-results{
     // position: ;

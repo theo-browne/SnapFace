@@ -1,5 +1,6 @@
 import React from 'react'
 import SearchItem from './search_item'
+import {Link} from 'react-router-dom'
 
 export default class Search extends React.Component{
     constructor(props){
@@ -43,9 +44,12 @@ export default class Search extends React.Component{
     
         return(
             <div className="search-bar">
-                
+
                 <form action="" onSubmit={this.handleSubmit}>
-                  <div>
+                  <div className='search-input'>
+                      <Link to='/'>
+                        <img src="https://image.flaticon.com/icons/svg/864/864685.svg" alt="" />
+                        </Link>
                     <input type="text" value={this.state.name} placeholder="Search" onChange={this.handleChange}/>
                     </div>
                 </form>

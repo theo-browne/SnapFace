@@ -1,5 +1,5 @@
 import React from 'react'
-import {withRouter} from 'react-router-dom'
+import {withRouter, Link} from 'react-router-dom'
 
 
  class PostForm extends React.Component {
@@ -59,7 +59,9 @@ import {withRouter} from 'react-router-dom'
                 <div className="new-post-head"> Create Post</div>
                 <div className="new-post-main">
                     <div className="new-post-photo">
+                        <Link to={`/users/${this.props.user.id}`} >
                         <img className="" src={image} alt=""  />
+                        </Link>
                     </div>
                 <form className="new-post" action="">
                     <textarea placeholder="Whats on your mind?" value={this.state.body} onChange={this.handleChange}  cols="30" rows={this.rows}></textarea>
