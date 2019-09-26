@@ -66,6 +66,12 @@ export default class NewsFeed extends React.Component {
                             <li>Github</li>
                             </a>
                     </div>
+                    <div>
+                        <a href="https://www.linkedin.com/in/theodore-browne-7201a3165" className="linked">
+                            <img src="https://media.licdn.com/dms/image/C4E0BAQGBBp0LaObq0A/company-logo_200_200/0?e=2159024400&v=beta&t=tyrD06lDsdOelMjanHDd2gC1iqekh_JWTaXny9bAT4o" alt=""/>
+                            <li>LinkedIn</li>
+                        </a>
+                    </div>
                 </div>
                 <div className="feed-main">
                 <Route path={`/posts/:postId/edit`} component={PostEditContainer} />
