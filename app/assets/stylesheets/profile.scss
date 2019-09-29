@@ -14,7 +14,7 @@
     justify-content: center;
     margin: auto;
     // justify-self: flex-start;
-    width: 700px;
+    width: 750px;
     height: 300px
 }
 
@@ -93,7 +93,7 @@
     padding: 0
 }
 .profile-feed{
-    width: 700px;
+    width: 750px;
     display: flex;
     justify-content: space-between;
     margin: auto
@@ -145,11 +145,13 @@
     position: sticky;
     width: 260px;
     height: fit-content;
-    top: 45px
+    top: 40px;
+    margin-top: 12px
 }
 .friends-info{
     background-color: white;
-    padding: 5px;
+    padding: 15px;
+    padding-top: 10px;
     margin-bottom: 5px;
     border: 1px solid lightgray;
     display: block;

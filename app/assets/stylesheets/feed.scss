@@ -1,5 +1,5 @@
 .post{
-    width: 400px;
+    width: 450px;
     display: flex;
     /* justify-content: center; */
   
@@ -115,7 +115,7 @@
 .new-post-div {
     display: flex;
     justify-content: left;
-    width: 400px;
+    width: 450px;
     background-color: white;
     padding: 10px;
     margin: auto;
@@ -242,11 +242,12 @@ textarea:focus {
     height: 30px;
 }
 .comment-form{
-    margin-bottom: 20px;
+    margin-bottom: 0px;
     padding: 10px;
+    padding-bottom: 0px;
     display: flex;
     background-color: white;
-    width: 400px;
+    width: 450px;
     margin: auto;
     border: 1px solid lightgray;
     border-top: none;
@@ -265,7 +266,8 @@ textarea:focus {
     background-color: rgb(243, 243, 243);
     // height: 20px;
     min-height: 15px;
-    width: 300px;
+    margin-top: 3px;
+    width: 350px;
     font-size: 12px;
 }
 .comment-image{
@@ -277,7 +279,7 @@ textarea:focus {
 }
 .post-interactions-container{
     height: 10px;
-    width: 400px;
+    width: 450px;
     padding: 10px;
     background-color: white;
     margin: auto;
@@ -289,7 +291,8 @@ textarea:focus {
 }
 
 .new-post-main{
-    display: flex
+    display: flex;
+    width: 100%
 }
 
 .post-interactions-container{
@@ -319,16 +322,17 @@ textarea:focus {
 }
 
 .comment-index{
-    width: 400px;
+    width: 450px;
     padding: 10px;
     background-color: white;
     margin: auto;
     border: 1px solid lightgray;
     border-top: none;
     margin-bottom: 10px;
-    padding-top: 0;
+    padding-top: 5px;
     border-bottom-right-radius: 4px;
-    border-bottom-left-radius: 4px
+    border-bottom-left-radius: 4px;
+
 }
 .comment-index ul{
     padding: 0
@@ -379,7 +383,7 @@ textarea:focus {
 .comment-show{
     margin: 0;
     overflow-wrap: break-word;
-    width: 300px;
+    width: 350px;
     background-color: rgb(243, 243, 243);
     border-radius: 10px;
     padding: 5px;
@@ -521,7 +525,7 @@ textarea:focus {
     padding: 10px;
     display: flex;
     background-color: white;
-    width: 400px;
+    width: 450px;
     margin: auto;
     // border: 1px solid lightgray;
     border-top: none;
@@ -554,7 +558,7 @@ textarea:focus {
 
 .post-interaction-details{
     height: 10px;
-    width: 400px;
+    width: 450px;
     padding: 10px;
     background-color: white;
     margin: auto;
@@ -567,7 +571,7 @@ textarea:focus {
 }
 .comment-interaction-details{
     height: 10px;
-    width: 400px;
+    width: 450px;
     margin-right: 60px ;
     display: flex;
     position: relative;;
