@@ -341,7 +341,9 @@ textarea:focus {
     list-style: none;
     flex-wrap: wrap;
     overflow-wrap: break-word;
-    padding-bottom: 5px
+    padding-bottom: 5px;
+    padding-right: 7px;
+    height: fit-content;
 }
 .comment-react{
     position: relative;
