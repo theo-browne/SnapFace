@@ -1,11 +1,6 @@
 class Api::PostsController < ApplicationController
 
     def index 
-        # @posts = []
-        # @friend_posts = current_user.friends_posts
-        # @posts.concat(current_user.posts)
-        # @posts.concat(@friend_posts)
-        #order("posts.created_at DESC").limit(5)
         @posts = current_user.friends_posts.order("posts.created_at DESC").page(params[:page]).per(5)
         @max = current_user.friends_posts.length / 5
         @suggested = current_user.suggested_friends
@@ -13,7 +8,6 @@ class Api::PostsController < ApplicationController
     end
 
     def create 
-        
         @post = Post.new(post_params)
         @post.user_id = current_user.id 
         if @post.save 
@@ -24,6 +18,7 @@ class Api::PostsController < ApplicationController
     end 
 
     def destroy 
+       
         @post = Post.find(params[:id])
         @post.destroy
         render :show

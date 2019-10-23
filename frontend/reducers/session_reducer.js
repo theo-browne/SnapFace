@@ -1,4 +1,5 @@
 import { LOGIN_USER, LOGOUT_USER } from "../actions/session_actions"
+import { deletePost} from '../actions/post_actions'
 
 const sessionReducer = (state = {}, action) => {
     Object.freeze(state)

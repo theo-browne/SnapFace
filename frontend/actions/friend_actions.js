@@ -7,6 +7,7 @@ export const REMOVE_FRIENDSHIP = 'REMOVE_FRIENDSHIP'
 export const RECEIVE_FRIENDSHIPS = 'RECEIVE_FRIENDSHIPS'
 
 
+
 export const receiveUsers = (payload) => ({
     type: RECEIVE_USERS,
     payload
@@ -30,6 +31,8 @@ export const removeFriendship = (friendshipId) => ({
     type: REMOVE_FRIENDSHIP,
     friendshipId
 })
+
+
 
 
 

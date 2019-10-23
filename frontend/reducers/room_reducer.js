@@ -12,7 +12,8 @@ const roomsReducer = (state = {}, action) => {
         // case RECEIVE_USERS:
         //     return action.payload.friendships || {}
         // case RECEIVE_USER:
-        //     newState[action.payload.friendship.friendId] = action.payload.friendship
+        //     console.log('hello')
+        //     newState['lastMessage'] = 0
         //     return newState
         // case ADD_FRIEND:
         //     newState[action.friendship.friendId] = action.friendship
@@ -23,6 +24,7 @@ const roomsReducer = (state = {}, action) => {
         // case RECEIVE_POSTS:
         //     return action.payload.friendships || {}
         case RECEIVE_FRIENDSHIPS:
+            newState['lastMessage'] = 0
             let count = 0
             Object.values(action.friendships).forEach(friendship => {
                 friendship['subscription'] = count
@@ -30,9 +32,12 @@ const roomsReducer = (state = {}, action) => {
                 count += 1
             })
             return newState
-        // case RECEIVE_MESSAGE:
-        //     newState[action.message.userId]['last_message'] = action.message.content
-        //     return newState
+        case RECEIVE_MESSAGE:
+            let room = Object.values(newState).filter(room => room.room_id === action.message.roomId)[0]
+            newState[room.friendId]['last_message'] = action.message.content
+            newState['lastMessage'] -= 1
+            newState[room.friendId]['pos'] = newState['lastMessage']
+            return newState
         default:
             return state;
     }

@@ -17,7 +17,7 @@ class Api::UsersController < ApplicationController
         Friendship.create(user_id: @user.id, friend_id: @user.id, status: "CONFIRMED", room_id: room.id)
         login(@user)
         if @user.name == "Demo User"
-          Post.create(user_id: @user.id, body: "Welcome to Snap Face! This is your news feed. The posts of you and all your friends will be here! If want to find users to be friends with, you can use the search bar or use the suggested friends panel.")
+          @demo_post = Post.create(user_id: @user.id, body: "Welcome to Snap Face! This is your news feed. The posts of you and all your friends will be here! If want to find users to be friends with, you can use the search bar or use the suggested friends panel.")
             room1 = Room.create
             room2 = Room.create
               Friendship.create(user_id: @user.id, friend_id: User.first.id, status: "CONFIRMED", room_id: room1.id)

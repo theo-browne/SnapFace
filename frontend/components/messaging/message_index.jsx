@@ -59,7 +59,6 @@ export default class MessageIndex extends React.Component{
     handleClick(){
         this.page += 1
         this.props.fetchMessages(this.props.friendship.room_id, this.page)
-        // this.props.fetchPosts(this.page)
         this.ready = false
         setTimeout(() => this.ready = true, 1000)
     }

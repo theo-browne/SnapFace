@@ -23,6 +23,8 @@ export default class SignUp extends React.Component {
             password: "123456"
         }
         this.props.createUser(demoUser)
+
+        
     }
 
     handleInput(str) {
