@@ -94,8 +94,9 @@ class User < ApplicationRecord
   end
 
   def suggested_friends 
-    users = User.all.sort_by {|user| -self.mutual_friends(self, user)}
-    users[0..4]
+    users = User.all.select {|user| user.name != "Demo User"}
+    valid_users = users.sort_by {|user| -self.mutual_friends(self, user)}
+    valid_users[0..4]
   end 
 
   def grab_posts(last_post)
