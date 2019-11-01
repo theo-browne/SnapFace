@@ -5,11 +5,14 @@ export default class MessageItem extends React.Component{
         super(props)
     }
 
+/**
+* Renders the messages in the message panel. Different classes are given to messages the user sent 
+* vs ones they recieved.
+*/
     render(){
 
         let img = (this.props.message.userId === this.props.currentUser.id ) ? (
             <div className="user-message">
-
                 <p>{this.props.message.content}</p>
                 <img src={this.props.currentUser.profileUrl} alt="" />
             </div>
@@ -22,7 +25,6 @@ export default class MessageItem extends React.Component{
         )
         return(
             <div className="message-item">
-    
                 {img}
             </div>
         )

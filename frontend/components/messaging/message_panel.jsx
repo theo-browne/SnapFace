@@ -5,7 +5,9 @@ export default class MessagePanel extends React.Component{
     constructor(props){
         super(props)
     }
-
+/**
+* Renders the message panel
+*/
     render(){
         if (!this.props.friendship) return null
         return(
