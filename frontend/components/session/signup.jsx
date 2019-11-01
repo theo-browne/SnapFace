@@ -56,7 +56,7 @@ same email being used more than once
     }
 
 /**
-* Renders the signup form, splash page, and any errors caused by an invalid signup attempt
+* Renders the signup form, and any errors caused by an invalid signup attempt
 */
     render() {
         let nameId = this.props.errors["Name"] ? "error" : "input"
