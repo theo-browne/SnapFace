@@ -9,8 +9,6 @@ const friendshipsReducer = (state = {}, action) => {
     let newState = Object.assign({}, state)
 
     switch (action.type) {
-        // case RECEIVE_USERS:
-        //     return action.payload.friendships || {}
         case RECEIVE_USER:
             newState[action.payload.friendship.friendId] = action.payload.friendship
             return newState

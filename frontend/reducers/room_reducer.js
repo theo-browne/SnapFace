@@ -9,20 +9,6 @@ const roomsReducer = (state = {}, action) => {
     let newState = Object.assign({}, state)
 
     switch (action.type) {
-        // case RECEIVE_USERS:
-        //     return action.payload.friendships || {}
-        // case RECEIVE_USER:
-        //     console.log('hello')
-        //     newState['lastMessage'] = 0
-        //     return newState
-        // case ADD_FRIEND:
-        //     newState[action.friendship.friendId] = action.friendship
-        //     return newState
-        // case REMOVE_FRIENDSHIP:
-        //     delete newState[action.friendshipId.friendId]
-        //     return newState
-        // case RECEIVE_POSTS:
-        //     return action.payload.friendships || {}
         case RECEIVE_FRIENDSHIPS:
             newState['lastMessage'] = 0
             let count = 0

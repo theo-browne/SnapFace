@@ -13,35 +13,41 @@ export default class Search extends React.Component {
         this.clear = this.clear.bind(this)
 
     }
-
-
+    /**
+     * Handles input to search bar. 100ms delay on requests to limit database hits.
+     * @e {event} title - The event.
+     */
     handleChange(e) {
-        if (e.target.value === "") {
-            this.setState({ name: e.target.value })
-            this.props.removeUsers()
+        if (e.target.value === "") {;
+            this.setState({ name: e.target.value });
+            this.props.removeUsers();
             return
         }
-        this.setState({ name: e.target.value })
+        this.setState({ name: e.target.value });
         setTimeout(() => {
-            if (this.state.name === "") return
-            this.props.fetchUsers({ name: this.state.name.toLowerCase() })
+            if (this.state.name === "") return;
+            this.props.fetchUsers({ name: this.state.name.toLowerCase() });
         }, 100)
     }
 
-
+    /**
+     * Clears searched users and sets the local query string to an empty string
+     */
     clear() {
-        this.setState({ name: "" })
-        this.props.removeUsers()
+        this.setState({ name: "" });
+        this.props.removeUsers();
     }
-
+    /**
+     * Renders search bar and book icon  
+     */
     render() {
 
-        let users = []
-        let name = "search-results"
+        let users = [];
+        let name = "search-results";
         if (this.state.name) {
-            users = this.props.users.slice(0)
+            users = this.props.users.slice(0);
         } else {
-            name = "search-results-none"
+            name = "search-results-none";
         }
 
         return (
@@ -56,7 +62,6 @@ export default class Search extends React.Component {
                     </div>
                 </form>
                 <div className={name}>
-                    
                     <ul className="users-list" onClick={this.clear} >
                         {users.map(user => <SearchItem key={user.id} receiveUser={this.props.receiveUser} deleteFriendship={this.props.deleteFriendship} createFriendship={this.props.createFriendship} friends={this.props.friends} user={user} />)}
                     </ul>
@@ -66,15 +71,3 @@ export default class Search extends React.Component {
     }
 }
 
-    // this.props.fetchUsers(this.state)
-        // setTimeout(() => {
-        // // if (e.target.value === "") {
-        // //     this.setState({ name: e.target.value })
-        // //     this.props.removeUsers()
-        // //     return
-        // // }
-        //     this.setState({ name: e.target.value })
-        //     // setTimeout
-        //     setTimeout(() => this.props.fetchUsers({ name: this.state.name.toLowerCase() }), 0)
-        //     this.props.fetchUsers({ name: this.state.name.toLowerCase() })
-        // }, 500)
