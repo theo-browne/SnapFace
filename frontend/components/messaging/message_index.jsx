@@ -20,7 +20,6 @@ export default class MessageIndex extends React.Component{
         this.props.fetchMessages(this.props.friendship.room_id, 1).then(() => {
             this.bottom.current.scrollIntoView()
         })
-        // document.querySelector("#message-list").addEventListener('scroll', this.handleScroll)
     }
     componentDidUpdate(prevProps){
         if (this.props.friendship.id !== prevProps.friendship.id) {
@@ -31,9 +30,6 @@ export default class MessageIndex extends React.Component{
         if (this.props.messages.length === prevProps.messages.length + 1) {
             this.bottom.current.scrollIntoView()
         }
-                    // this.bottom.current.scrollIntoView()
-
-        
     }
 
     handleScroll(e) {
@@ -42,18 +38,12 @@ export default class MessageIndex extends React.Component{
         // console.log(this.top.scrollHeight)
         // if (e.currentTarget.scrollHeight  - e.currentTarget.scrollTop > e.currentTarget.offsetHeight && this.ready) {
         if (this.top.scrollTop < 5) {
-            // recievePostsBefore(lastPostId, this.props.match.params.channelId)
-        
-        // console.log('success')
+
             this.page += 1
             this.props.fetchMessages(this.props.friendship.room_id, this.page)
-            // this.props.fetchPosts(this.page)
             this.ready = false
             setTimeout(() => this.ready = true, 1000)
         }
-        // if (this.page > this.props.maxPages) {
-        //     window.removeEventListener('scroll', this.handleScroll)
-        // }
     }
 
     handleClick(){
@@ -75,15 +65,14 @@ export default class MessageIndex extends React.Component{
                     <button onClick={() => this.props.removeMessage()}>X</button>
                 </div>
             <ul id="message-list" onScroll={this.handleScroll}>
-                    <button onClick={this.handleClick}>Fetch More Messages</button>
-                {this.props.messages.map(message => <MessageItem key={message.id}message={message} currentUser={this.props.currentUser} friendship={this.props.friendship} /> )}
-                   
-                    {/* <h1>{this.props.friendship.friend_name}</h1> */}
-                    <div ref={this.bottom} />
-            </ul>
-                
-                <MessageForm friendship={this.props.friendship} currentUser={this.props.currentUser} />
+                <button onClick={this.handleClick}>Fetch More Messages</button>
+                {this.props.messages.map(message => <MessageItem key={message.id}message={message} 
+                    currentUser={this.props.currentUser} 
+                    friendship={this.props.friendship} /> )}
 
+                <div ref={this.bottom} />
+            </ul>      
+                <MessageForm friendship={this.props.friendship} currentUser={this.props.currentUser} />
         </div>
         )
     }
