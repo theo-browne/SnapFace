@@ -16,25 +16,9 @@ const friendshipsReducer = (state = {}, action) => {
             newState[action.friendship.friendId] = action.friendship
             return newState
         case REMOVE_FRIENDSHIP:
-            delete newState[action.friendshipId.friendId]
+            // delete newState[action.friendshipId.friendId]
+            newState[action.friendshipId.friendId] = {friendId: action.friendshipId.friendId, id: false }
             return newState
-        
-        // case RECEIVE_POSTS:
-        //     return action.payload.friendships || {}
-        // case RECEIVE_FRIENDSHIPS: 
-        //     let count = 0
-        //     Object.values(action.friendships).forEach(friendship => {
-                
-        //         friendship['subscription'] = count
-        //         newState[friendship.friendId] = friendship
-        //         count += 1
-        //     })
-        //     return newState
-        // case RECEIVE_MESSAGE:
-        //     // let room = 
-        //     // newState[action.message.userId]['last_message'] = action.message.content
-        //     console.log(newState)
-        //     return newState
         default:
             return state;
     }

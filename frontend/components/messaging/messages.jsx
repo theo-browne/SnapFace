@@ -17,6 +17,7 @@ export default class Messages extends React.Component{
             })
         })
     }
+    
 /**
 * Creates the subscription to each messaging channel the user is a part of.
 * @param {friendship} friendship - The friendship object returned from the API. Chat room id is attached to friendship
@@ -33,6 +34,7 @@ export default class Messages extends React.Component{
                         }
                     }
                 )
+                
     }
 
 

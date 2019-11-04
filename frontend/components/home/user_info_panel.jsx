@@ -10,15 +10,14 @@ export default class UserInfoPanel extends React.Component {
     }
 
     componentDidMount(){
-        
         this.props.fetchUser(this.props.match.params.id)
     }
+
     isFriend() {
         
         return Object.keys(this.props.friends).includes(String(this.props.user.id))
     }
     handleFile(e) {
-        
         const file = e.currentTarget.files[0];
         const formData = new FormData();
         formData.append('user[profile_photo]', file);
@@ -46,6 +45,7 @@ export default class UserInfoPanel extends React.Component {
             text = "Unfriend"
             action = () => this.props.deleteFriendship(this.props.friendship.id)
         } 
+
         let button = (this.props.currentUser.id !== this.props.user.id) ? <button className="profile-button" onClick={action}>{text}</button> : null
         let form = (this.props.currentUser.id === this.props.user.id) ? (<div className="profile-photo-link">
             <form action="" >
