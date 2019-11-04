@@ -5,3 +5,4 @@
     json.friendId @friendship.friend_id
     json.reverseId @reverse_friendship.id
     json.roomId @room.id
+    

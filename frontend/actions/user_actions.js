@@ -3,11 +3,23 @@ import { setUser } from './session_actions';
 
 
 export const RECEIVE_USER = "RECEIVE_USER";
+export const REMOVE_USER = "REMOVE_USER";
 export const CLEAR_USERS = "CLEAR_USERS";
+export const ADD_USER = "ADD_USER";
 
 export const receiveUser = (payload) => ({
     type: RECEIVE_USER,
     payload
+})
+
+export const addUser = (user) => ({
+    type: ADD_USER,
+    user
+})
+
+export const removeUser = (id) => ({
+    type: REMOVE_USER,
+    id
 })
 
 export const clearUsers = () => ({

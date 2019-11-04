@@ -57,7 +57,6 @@ import ProfilePhotosModal from './profile_photos_modal'
         let form = null
         let num = (this.props.user.friends > 0) ? (this.props.user.friends - 1) : 0
 
-        
         if (this.props.currentUser.id === this.props.user.id) {
             form = (<PostFormContainer user={this.props.user} />)   
         }

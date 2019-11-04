@@ -41,7 +41,7 @@ export default class UserInfoPanel extends React.Component {
 * The button text is determined by whether or not a user is friends with the user whos page is being displayed
 */
     render(){
-        
+    
         if (this.props.user === undefined) return null
         if (this.props.friendship === undefined) return null
         let text = ""
@@ -49,10 +49,17 @@ export default class UserInfoPanel extends React.Component {
         
         if (!this.props.friendship.id) {
             text = "Add Friend"
-            action = () => this.props.createFriendship({ status: "CONFIRMED", friend_id: this.props.user.id })
+            action = () => {
+                this.props.createFriendship({ status: "CONFIRMED", friend_id: this.props.user.id })
+                this.props.addUser(this.props.currentUser)
+            }
+           
         } else {
             text = "Unfriend"
-            action = () => this.props.deleteFriendship(this.props.friendship.id)
+            action = () => {
+                this.props.deleteFriendship(this.props.friendship.id)
+                this.props.removeUser(this.props.currentUser.id)
+            }
         } 
 
         let button = (this.props.currentUser.id !== this.props.user.id) ? <button className="profile-button" onClick={action}>{text}</button> : null

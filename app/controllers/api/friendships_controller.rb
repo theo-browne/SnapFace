@@ -22,7 +22,6 @@ class Api::FriendshipsController < ApplicationController
         @friendship = Friendship.find(params[:id])
         @reverse_friendship = Friendship.where("user_id = ? AND friend_id = ?", @friendship.friend_id, @friendship.user_id).limit(1)[0]
         @friendship.delete
-        # @reverse_friendship = {}
          @reverse_friendship.delete
         render :remove
     end

@@ -28,7 +28,8 @@ const mDTP = dispatch => ({
     deleteReaction: id => dispatch(deleteReaction(id)),
     updateReaction: reaction => dispatch(updateReaction(reaction)),
     removePosts: () => dispatch(removePosts()),
-    clearUsers: () => dispatch(clearUsers())
+    clearUsers: () => dispatch(clearUsers()),
+ 
 })
 
 export default connect(mSTP, mDTP)(ProfileFeed)
