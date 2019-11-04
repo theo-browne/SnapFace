@@ -17,6 +17,10 @@ export default class UserInfoPanel extends React.Component {
         
         return Object.keys(this.props.friends).includes(String(this.props.user.id))
     }
+/**
+* Allows a user to select a new profile photo from their device
+* @param {event} e - The submit event triggered by a user clicking on their profile photo on their profile page.
+*/
     handleFile(e) {
         const file = e.currentTarget.files[0];
         const formData = new FormData();
@@ -24,9 +28,17 @@ export default class UserInfoPanel extends React.Component {
         this.props.updateUser(formData, this.props.user.id)   
         };
 
+/**
+* Reveals the Update modal over a users profile photo on their profile page
+* @param {event} e - The submit event triggered by a user mousing over on their profile photo on their profile page.
+*/
     showUpdate(e){
         e.currentTarget.childNodes[0].classList.add("shown")
     }
+/**
+* Hides the Update modal over a users profile photo on their profile page
+* @param {event} e - The submit event triggered by a user's mouse leaving their profile photo on their profile page.
+*/
     hideUpdate(e){
         e.currentTarget.childNodes[0].classList.remove("shown")
     }
