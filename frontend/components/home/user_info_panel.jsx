@@ -1,7 +1,4 @@
 import React from 'react'
-import EditUserFormContainer from '../posts/edit_user_form_container'
-import {Link} from 'react-router-dom'
-
 
 export default class UserInfoPanel extends React.Component {
     constructor(props){
@@ -11,11 +8,6 @@ export default class UserInfoPanel extends React.Component {
 
     componentDidMount(){
         this.props.fetchUser(this.props.match.params.id)
-    }
-
-    isFriend() {
-        
-        return Object.keys(this.props.friends).includes(String(this.props.user.id))
     }
 /**
 * Allows a user to select a new profile photo from their device
@@ -43,6 +35,11 @@ export default class UserInfoPanel extends React.Component {
         e.currentTarget.childNodes[0].classList.remove("shown")
     }
 
+/**
+* Renders the info panel at the top of a user's profile page.
+* The displayed button renders if the user if not on their own page
+* The button text is determined by whether or not a user is friends with the user whos page is being displayed
+*/
     render(){
         
         if (this.props.user === undefined) return null
