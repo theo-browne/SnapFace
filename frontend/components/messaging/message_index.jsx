@@ -12,7 +12,6 @@ export default class MessageIndex extends React.Component{
         this.bottom = React.createRef()
         this.top = React.createRef()
         this.page = 1
-        this.handleScroll = this.handleScroll.bind(this)
         this.handleClick = this.handleClick.bind(this)
         this.ready = true
     }   
@@ -53,7 +52,9 @@ export default class MessageIndex extends React.Component{
         this.ready = false
         setTimeout(() => this.ready = true, 1000)
     }
-
+/**
+* Renders the chat box on the bottom of the page, the message of the current chat, and the form to create a new message
+*/
 
     render(){
         
