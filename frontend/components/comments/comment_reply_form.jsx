@@ -31,7 +31,6 @@ export default class CommentReplyForm extends React.Component {
     }
 
     handleSubmit(e) {
-        // e.preventDefault()
         this.props.createComment(this.state).then(() => this.setState({ body: "" }))
         this.rows = 1
     }
@@ -42,8 +41,8 @@ export default class CommentReplyForm extends React.Component {
             <div>
                 <button className="comment-reply-button">
                     <form className="comment-reply-form" action="">
-                    <textarea name="" id="" cols="30" rows="10"></textarea>
-                </form>
+                        <textarea name="" id="" cols="30" rows="10"></textarea>
+                    </form>
                 </button>
             </div>
         )

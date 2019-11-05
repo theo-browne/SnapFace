@@ -83,37 +83,37 @@ export default class NewsFeedItem extends React.Component {
             </Link>) : null
         return(
             <div className="post-container">
-            <div className="post" key={this.props.post.id}>
+                <div className="post" key={this.props.post.id}>
                 {button}
-                <div className="post-author">
-                    <Link to={`/users/${this.props.post.authorId}`}> <img src={this.props.post.profileUrl} className="profile-icon" alt="" /></Link>
-                    <div className="post-info">
-                    <Link to={`/users/${this.props.post.authorId}`}>{this.props.post.author}</Link>
-                <p>{this.props.post.time}</p>
-                </div>
-                
-                </div>
+                    <div className="post-author">
+                        <Link to={`/users/${this.props.post.authorId}`}> <img src={this.props.post.profileUrl} className="profile-icon" alt="" /></Link>
+                        <div className="post-info">
+                            <Link to={`/users/${this.props.post.authorId}`}>{this.props.post.author}</Link>
+                            <p>{this.props.post.time}</p>
+                        </div>
+                    </div>
                 <div className="post-content">
-                <p>
-                {this.props.post.body}
-                </p>
-              <br/>
-                {photo}
+                    <p>
+                    {this.props.post.body}
+                    </p>
+                    <br/>
+                    {photo}
                 </div>
-                
             </div>
             {counts}
                 <div className="post-interactions-container">
-                    <button className="react-button" onMouseEnter={this.revealDropdown} onMouseLeave={this.unrevealDropdown}>{reacted}
+                    <button className="react-button" onMouseEnter={this.revealDropdown} 
+                    onMouseLeave={this.unrevealDropdown}>{reacted}
                             <div className="reaction-pop-up">
-                            <img src={this.props.post.likeImg} onClick={() => this.react('like')} alt=""/>
-                            <img src={this.props.post.loveImg} onClick={() => this.react('love')} alt=""/>
-                            <img src={this.props.post.laughImg} onClick={() => this.react('laugh')} alt=""/>
-                            <img src={this.props.post.wowImg} onClick={() => this.react('wow')} alt=""/>
-                            <img src={this.props.post.sadImg} onClick={() => this.react('sad')} alt=""/>
+                                <img src={this.props.post.likeImg} onClick={() => this.react('like')} alt=""/>
+                                <img src={this.props.post.loveImg} onClick={() => this.react('love')} alt=""/>
+                                <img src={this.props.post.laughImg} onClick={() => this.react('laugh')} alt=""/>
+                                <img src={this.props.post.wowImg} onClick={() => this.react('wow')} alt=""/>
+                                <img src={this.props.post.sadImg} onClick={() => this.react('sad')} alt=""/>
                             </div>
                         </button>
-                    <button className="comment-button" onClick={() => this.props.fetchComments(this.props.post.id, 1)}>Comment</button>
+                    <button className="comment-button" onClick={() => 
+                        this.props.fetchComments(this.props.post.id, 1)}>Comment</button>
                 </div>
                 <CommentFormContainer post={this.props.post} />
                 <CommentIndexContainer post={this.props.post}/>

@@ -31,7 +31,6 @@ export default class CommentForm extends React.Component{
     }
 
     handleSubmit(e) {
-        // e.preventDefault()
         this.props.createComment(this.state).then(() => this.setState({body: ""})) 
         this.rows = 1
     }
@@ -43,8 +42,9 @@ export default class CommentForm extends React.Component{
             <div className="comment-form">
                 <img className="comment-image"  src={image} alt="" />
                 <form action="" onSubmit={this.handleSubmit} >
-                    <textarea onChange={this.handleChange} value={this.state.body} placeholder="Write a comment" cols="30" rows={this.rows}></textarea>
-                    {/* <input type="submit" onSubmit={this.handleSubmit} className="comment-submit" value=""/> */}
+                    <textarea onChange={this.handleChange} value={this.state.body} 
+                    placeholder="Write a comment" cols="30" rows={this.rows}>
+                    </textarea>
                 </form>
             </div>
         )

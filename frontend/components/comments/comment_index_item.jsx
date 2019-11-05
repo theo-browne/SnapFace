@@ -1,9 +1,7 @@
 import React from 'react'
-import {Link, Route} from 'react-router-dom'
-import CommentEditFormContainer from './commnent_edit_form_container'
+import {Link} from 'react-router-dom'
 import CommentEditForm from './comment_edit_form'
-import CommentFormContainer from './comment_form_container'
-import CommentReplyForm from './comment_reply_form'
+
 
 export default class CommentIndexItem extends React.Component{
     constructor(props){
@@ -35,14 +33,21 @@ export default class CommentIndexItem extends React.Component{
 
     react(type) {
         if (type === this.state.reacted) {
-            this.props.deleteReaction(this.state.reactionId).then(() => this.setState({ count: this.state.count -= 1, reacted: false, reactionId: false,  reactionImg: this.props.comment.likeImg }))
+            this.props.deleteReaction(this.state.reactionId).then(() => 
+            this.setState({ count: this.state.count -= 1, reacted: false, reactionId: false,  
+                reactionImg: this.props.comment.likeImg }))
         } else if (!this.state.reacted) {
-            this.props.createReaction({ reacted_type: "Comment", reacted_id: this.props.comment.id, reaction_type: type }).then((res) => {
-                this.setState({ count: this.state.count += 1, reacted: type, reactionId: res.reaction.id, reactionImg: this.props.comment[`${type}Img`] })
+            this.props.createReaction({ reacted_type: "Comment", reacted_id: this.props.comment.id, 
+            reaction_type: type })
+            .then((res) => {
+                this.setState({ count: this.state.count += 1, reacted: type, reactionId: res.reaction.id, 
+                    reactionImg: this.props.comment[`${type}Img`] })
             }
             )
         } else {
-            this.props.updateReaction({ id: this.state.reactionId, reacted_type: "Comment", reacted_id: this.props.comment.id, reaction_type: type }).then(() => this.setState({ reacted: type, reactionImg: this.props.comment[`${type}Img`] }))
+            this.props.updateReaction({ id: this.state.reactionId, reacted_type: "Comment", 
+            reacted_id: this.props.comment.id, reaction_type: type })
+            .then(() => this.setState({ reacted: type, reactionImg: this.props.comment[`${type}Img`] }))
         }
     }
    
@@ -52,7 +57,6 @@ export default class CommentIndexItem extends React.Component{
             <div className="comment-interaction-details-main">
                 <img src={this.state.reactionImg} alt="" />
                 <p>{this.state.count}</p>
-                {/* <p>{reacted}</p> */}
             </div>
         </div>) : <div></div>
         let button = null;
@@ -63,7 +67,6 @@ export default class CommentIndexItem extends React.Component{
                     <div className="comment-drop-down" >
                         <li onClick={() => this.props.deleteComment(this.props.comment.id)} className="comment-delete">Delete Comment</li>
                         <li onClick={() => this.setState({edit: true})}>Edit Comment</li>
-                        {/* <Link to={`/comments/${this.props.comment.id}/edit`} onClick={() => this.props.setComment(this.props.comment)}><li >Edit Comment</li></Link> */}
                     </div>
                 </button>
             )
@@ -93,7 +96,6 @@ export default class CommentIndexItem extends React.Component{
                     </div>
                 </button>
                     {counts}
-                    {/* <CommentReplyForm /> */}
                 </div>
 
             </div>

@@ -33,6 +33,10 @@ export default class MessageIndex extends React.Component{
             this.bottom.current.scrollIntoView()
         }
     }
+/**
+* Changes the displayed messages in the chat index to that of the current chat, and resets the page variable to 1.
+* Similiar functionality to the componentDidMount
+*/
 
     switchChat(){
         this.props.fetchMessages(this.props.friendship.room_id, 1)
@@ -40,18 +44,9 @@ export default class MessageIndex extends React.Component{
         this.bottom.current.scrollIntoView()
     }
 
-    handleScroll(e) {
-        let lastEl = e.currentTarget.firstElementChild
-        if (!lastEl) return null
-        if (this.top.scrollTop < 5) {
-
-            this.page += 1
-            this.props.fetchMessages(this.props.friendship.room_id, this.page)
-            this.ready = false
-            setTimeout(() => this.ready = true, 1000)
-        }
-    }
-
+/**
+* Requests more messages from the current chat 
+*/
     handleClick(){
         this.page += 1
         this.props.fetchMessages(this.props.friendship.room_id, this.page)
@@ -70,7 +65,7 @@ export default class MessageIndex extends React.Component{
                 <p>{this.props.friendship.friend_name}</p>
                 <button onClick={() => this.props.removeMessage()}>X</button>
             </div>
-            <ul id="message-list" onScroll={this.handleScroll}>
+            <ul id="message-list">
                 <button onClick={this.handleClick}>Fetch More Messages</button>
                 {this.props.messages.map(message => <MessageItem key={message.id}message={message} 
                     currentUser={this.props.currentUser} 

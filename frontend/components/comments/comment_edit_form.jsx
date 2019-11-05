@@ -11,10 +11,6 @@ export default class CommentEditForm extends React.Component{
         this.ready = true
     }
 
-    componentDidMount(){
-        // this.props.fetchComment(this.props.match.params.id)
-    }
-
     handleChange(e) {
         this.setState({ body: e.target.value })
         if ((this.state.body.length % 50) === 0) {
@@ -31,7 +27,6 @@ export default class CommentEditForm extends React.Component{
     }
 
     handleSubmit(e) {
-        // e.preventDefault()
         this.props.updateComment(this.state).then(() => {
             this.setState({ body: "" })
             this.props.editSubmit()
@@ -42,16 +37,14 @@ export default class CommentEditForm extends React.Component{
 
     render(){
         if (this.props.comment === undefined) return null
-        
-        // if (this.props.comment.id !== +this.props.match.params.id ) return null
         return(
             <div>
                 <form action="" className="edit-comment-form" onSubmit={this.handleSubmit} >
                     <img className="comment-image" src={this.props.comment.profileUrl} alt="" />
-                    
-                    <textarea onChange={this.handleChange} value={this.state.body} placeholder="Write a comment" cols="30" rows={this.rows}></textarea>
+                    <textarea onChange={this.handleChange} value={this.state.body} 
+                    placeholder="Write a comment" cols="30" rows={this.rows}>
+                    </textarea>
                     <button onClick={() => this.props.editSubmit()}>X</button>
-                    {/* <input type="submit" onSubmit={this.handleSubmit} className="comment-submit" value="" /> */}
                 </form>
             </div>
         )

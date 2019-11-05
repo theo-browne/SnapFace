@@ -12,6 +12,7 @@ export default class SuggestedFriendsItem extends React.Component {
         this.handleClick = this.handleClick.bind(this)
     }
 
+
     handleClick(){
         this.props.createFriendship({ status: "CONFIRMED", friend_id: this.props.user.id }).then(() => 
         this.setState({added: true, text: "Added"}))
