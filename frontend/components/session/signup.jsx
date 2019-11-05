@@ -78,13 +78,27 @@ same email being used more than once
                     <h2 className="signup-header">Create a New Account</h2>
             <form className="auth-form">
                     <div className="sign-in-names" >
-                                <input type="text" className={nameId} value={this.state.firstName} placeholder="First Name" autoComplete="name" onChange={this.handleInput("firstName")} />
-                                <input type="text" className={nameId} value={this.state.lastName} placeholder="Last Name" autoComplete="family-name" onChange={this.handleInput("lastName")} />
+
+                                <input type="text" className={nameId} value={this.state.firstName} 
+                                placeholder="First Name" autoComplete="name" 
+                                onChange={this.handleInput("firstName")} />
+
+                                <input type="text" className={nameId} value={this.state.lastName} 
+                                placeholder="Last Name" autoComplete="family-name" 
+                                onChange={this.handleInput("lastName")} />
+
                             <li>{nameError}</li>
                     </div>
-                            <input type="text" className={emailId} value={this.state.email} placeholder="Email" autoComplete="email" onChange={this.handleInput("email")} />
+                    
+                            <input type="text" className={emailId} value={this.state.email} 
+                            placeholder="Email" autoComplete="email" 
+                            onChange={this.handleInput("email")} />
                             <li>{emailError}</li>
-                            <input type="password" className={passwordId} value={this.state.password} autoComplete="new-password" placeholder="New Password" onChange={this.handleInput("password")} />
+
+                            <input type="password" className={passwordId} value={this.state.password} 
+                            autoComplete="new-password" placeholder="New Password" 
+                            onChange={this.handleInput("password")} />
+
                             <li>{passwordError}</li>
                    <div className="sign-up-button">
                 <button onClick={this.handleSubmit}>Sign Up</button>

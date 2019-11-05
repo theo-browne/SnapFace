@@ -3,9 +3,6 @@ import { updatePost, fetchPost }  from '../../actions/post_actions'
 import EditPostForm from './edit_post_form'
 
 
-// const mSTP = (state, props) => ({
-//     post: state.entities.posts[props.match.params.id]
-// })
 const mSTP = (state, props) => {
     
     return{

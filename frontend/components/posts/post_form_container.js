@@ -10,8 +10,6 @@ const mSTP = (state, props) => {
     } else {
         userPhoto = state.session.profileUrl
     }
-
-
     return {
     userPhoto
     }

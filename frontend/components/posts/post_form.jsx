@@ -22,8 +22,8 @@ import {withRouter, Link} from 'react-router-dom'
             this.rows = (this.state.body.length / 35) + 1
         } 
     }
+
     handleFile(e) {
-        
         const file = e.currentTarget.files[0];
         const fileReader = new FileReader();
         fileReader.onloadend = () => {
@@ -37,7 +37,6 @@ import {withRouter, Link} from 'react-router-dom'
 
 
     handleSubmit(e){
-        
         e.preventDefault()
         if (!this.state.body) return
         const formData = new FormData();
@@ -64,7 +63,10 @@ import {withRouter, Link} from 'react-router-dom'
                         </Link>
                     </div>
                 <form className="new-post" action="">
-                    <textarea placeholder="Whats on your mind?" value={this.state.body} onChange={this.handleChange}  cols="30" rows={this.rows}></textarea>
+                    <textarea placeholder="Whats on your mind?" value={this.state.body} 
+                    onChange={this.handleChange}  cols="30" rows={this.rows}>
+                        
+                    </textarea>
                     <br/>
                     <label className="file-input-label"> Upload a file
                         <input className="file-input" size="600" type="file" onChange={this.handleFile} />

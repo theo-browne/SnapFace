@@ -62,7 +62,9 @@ export default class UserInfoPanel extends React.Component {
             }
         } 
 
-        let button = (this.props.currentUser.id !== this.props.user.id) ? <button className="profile-button" onClick={action}>{text}</button> : null
+        let button = (this.props.currentUser.id !== this.props.user.id) ? <button className="profile-button" 
+        onClick={action}>{text}</button> : null
+
         let form = (this.props.currentUser.id === this.props.user.id) ? (<div className="profile-photo-link">
             <form action="" >
                 <label className="file-input-label"> Update
@@ -79,20 +81,18 @@ export default class UserInfoPanel extends React.Component {
         return(
             <div className="user-info-panel">
                 <div>
-                <div className="cover-photo">
-                    
-                        <div className="profile-photo"   onMouseEnter={this.showUpdate} onMouseLeave={this.hideUpdate}>
-                        {form}
+                    <div className="cover-photo">
+                        <div className="profile-photo" onMouseEnter={this.showUpdate} onMouseLeave={this.hideUpdate}>
+                            {form}
                             <img src={image} alt=""/>
-                        
                         </div>
                         <p className="user-name">{this.props.user.name}</p>
                         <div className="profile-buttons">
                             {button}
                         </div>
-                        </div>
-                <div className="user-info-panel-bottom">
-                </div>
+                    </div>
+                    <div className="user-info-panel-bottom">
+                    </div>
                 </div>
             </div>
         )

@@ -31,14 +31,21 @@ export default class PhotoModal extends React.Component{
     }
     react(type) {
         if (type === this.state.reacted) {
-            this.props.deleteReaction(this.state.reactionId).then(() => this.setState({ count: this.state.count -= 1, reacted: false, reactionId: false, reactionImg: this.props.post.likeImg }))
+            this.props.deleteReaction(this.state.reactionId)
+            .then(() => 
+                this.setState({ count: this.state.count -= 1, reacted: false, reactionId: false, reactionImg: 
+                this.props.post.likeImg }))
         } else if (!this.state.reacted) {
-            this.props.createReaction({ reacted_type: "Post", reacted_id: this.props.post.id, reaction_type: type }).then((res) => {
-                this.setState({ count: this.state.count += 1, reacted: type, reactionId: res.reaction.id, reactionImg: this.props.post[`${type}Img`] })
-            }
+            this.props.createReaction({ reacted_type: "Post", reacted_id: this.props.post.id, reaction_type: type })
+            .then((res) => {
+                this.setState({ count: this.state.count += 1, reacted: type, reactionId: res.reaction.id, 
+                    reactionImg: this.props.post[`${type}Img`] })
+                }
             )
         } else {
-            this.props.updateReaction({ id: this.state.reactionId, reacted_type: "Post", reacted_id: this.props.post.id, reaction_type: type }).then(() => this.setState({ reacted: type, reactionImg: this.props.post[`${type}Img`] }))
+            this.props.updateReaction({ id: this.state.reactionId, reacted_type: "Post", reacted_id: 
+            this.props.post.id, reaction_type: type })
+            .then(() => this.setState({ reacted: type, reactionImg: this.props.post[`${type}Img`] }))
         }
     }
 
@@ -46,11 +53,9 @@ export default class PhotoModal extends React.Component{
         if (this.state === null) return null
         
         const counts = this.state.count ? (<div className="post-interaction-details">
-            <div className="post-interaction-details-main">
-                {/* <img src="https://image.flaticon.com/icons/svg/1946/1946399.svg" alt="" /> */}
+            <div className="post-interaction-details-main">     
                 <img src={this.state.reactionImg} alt="" />
                 <p>{this.state.count}</p>
-                {/* <p>{reacted}</p> */}
             </div>
         </div>) : null
         const reacted = this.state.reacted ? <img src={this.state.reactionImg} alt="" /> : "React"
@@ -58,18 +63,20 @@ export default class PhotoModal extends React.Component{
         return(
             <div className="photo-modal">
                 <div className="photo-modal-content">
-                <div className="photo-modal-photo">
-                    <img src={this.state.post.photoUrl} alt=""/>
-                </div>
+                    <div className="photo-modal-photo">
+                        <img src={this.state.post.photoUrl} alt=""/>
+                    </div>
                 <div className="photo-info">
-                        <div className="photo-user-info">
-                    <img src={this.state.post.profileUrl} alt=""/>
-                    <p>{this.state.post.author}</p>
-                            <Link to={route}>X</Link>
-                        </div>
+                    <div className="photo-user-info">
+                        <img src={this.state.post.profileUrl} alt=""/>
+                        <p>{this.state.post.author}</p>
+                        <Link to={route}>X</Link>
+                    </div>
                     {counts}
-                        <div className="post-interactions-container">
-                        <button className="react-button" onMouseEnter={this.revealDropdown} onMouseLeave={this.unrevealDropdown}>{reacted}
+                    <div className="post-interactions-container">
+                        <button className="react-button" onMouseEnter={this.revealDropdown} 
+                            onMouseLeave={this.unrevealDropdown}>
+                            {reacted}
                             <div className="reaction-pop-up">
                                 <img src={this.state.post.likeImg} onClick={() => this.react('like')} alt="" />
                                 <img src={this.state.post.loveImg} onClick={() => this.react('love')} alt="" />
@@ -78,17 +85,14 @@ export default class PhotoModal extends React.Component{
                                 <img src={this.state.post.sadImg} onClick={() => this.react('sad')} alt="" />
                             </div>
                         </button>
-                       
-                        <button className="comment-button" onClick={() => this.props.fetchComments(this.props.post.id, 1)}>Comment</button>
+                        <button className="comment-button" onClick={() => 
+                            this.props.fetchComments(this.props.post.id, 1)}>Comment</button>
                         </div>
-                        
                         <CommentFormContainer post={this.state.post} />
                         <div className="photo-comments">
-                        <CommentIndexContainer post={this.state.post} />
+                            <CommentIndexContainer post={this.state.post} />
                         </div>
-                        
                 </div>
-                    
                 </div>
             </div>
         )

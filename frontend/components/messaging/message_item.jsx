@@ -20,8 +20,7 @@ export default class MessageItem extends React.Component{
                 <div className="friend-message">
                     <img src={this.props.friendship.friend_img} alt="" />
                     <p>{this.props.message.content}</p>
-                   
-            </div>
+                </div>
         )
         return(
             <div className="message-item">

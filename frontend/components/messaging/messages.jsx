@@ -58,13 +58,15 @@ export default class Messages extends React.Component{
         return(
             <div>
                 <MessagePanelContainer />
-            <div className="messages" onClick={this.handleClick}>
-                <img src="https://image.flaticon.com/icons/svg/130/130958.svg" alt=""/>
-                <div className="message-dropdown" id="message-drop-down" >
+                <div className="messages" onClick={this.handleClick}>
+                    <img src="https://image.flaticon.com/icons/svg/130/130958.svg" alt=""/>
+                    <div className="message-dropdown" id="message-drop-down" >
                         <ul onClick={(e) => e.stopPropagation()}>
-                            {this.props.friendships.sort((a, b) => (a.pos > b.pos) ? 1 : -1).map(friendship => <MessageListItem friendship={friendship} currentMessage={this.props.currentMessage} key={friendship.id}/> )}
-                    </ul>
-                </div>
+                            {this.props.friendships.sort((a, b) => (a.pos > b.pos) ? 1 : -1).map(friendship => 
+                            <MessageListItem friendship={friendship} currentMessage={this.props.currentMessage}
+                             key={friendship.id}/> )}
+                        </ul>
+                    </div>
                 </div>
             </div>
         )

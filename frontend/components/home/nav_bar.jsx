@@ -9,23 +9,17 @@ const NavBar = props => {
     
     return(
         <div className="home-nav">
-   
             <div className="home-nav-content">
-            {/* <div className="home-nav" ></div> */}
-            <SearchContainer />
-        <div className="user-info">
-        
-            {/* <img src={props.user.profileUrl} alt="" className="nav-user-icon"/> */}
-                    <Link to={`/users/${props.user.id}`} ><img src={props.user.profileUrl} alt="" className="nav-user-icon" /></Link>
-      
-            <Link to={`/users/${props.user.id}`} >{name}</Link>
-            <Link to={`/`}>Home</Link>
-            {/* <img className="profile-icon" src="https://image.flaticon.com/icons/svg/1006/1006052.svg" alt="" /> */}
-                <MessagesContainer />
-            <button onClick={() => props.logoutUser()}>Logout</button>
-        </div>
+                <SearchContainer />
+                <div className="user-info">
+                    <Link to={`/users/${props.user.id}`} ><img src={props.user.profileUrl} 
+                    alt="" className="nav-user-icon" /></Link>
+                    <Link to={`/users/${props.user.id}`} >{name}</Link>
+                    <Link to={`/`}>Home</Link>
+                    <MessagesContainer />
+                    <button onClick={() => props.logoutUser()}>Logout</button>
+                </div>
             </div>
-        
      </div>
 
     )

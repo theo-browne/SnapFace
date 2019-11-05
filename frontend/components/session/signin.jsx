@@ -40,14 +40,16 @@ export default class SignIn extends React.Component {
                 <div>
                 <label>Email:
                       <br />
-                            <input type="text" value={this.state.email} autoComplete="email" onChange={this.handleInput("email")} />
+                            <input type="text" value={this.state.email} autoComplete="email" 
+                            onChange={this.handleInput("email")} />
                 </label>
               
                 </div>
                 <div>
                 <label>Password:
                      <br />
-                            <input type="password" value={this.state.password} autoComplete="current-password" onChange={this.handleInput("password")} />
+                            <input type="password" value={this.state.password} 
+                            autoComplete="current-password" onChange={this.handleInput("password")} />
                 </label>
                 </div>
                 <div className="sign-in-button">

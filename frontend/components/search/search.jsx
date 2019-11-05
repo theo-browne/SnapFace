@@ -58,12 +58,15 @@ export default class Search extends React.Component {
                         <Link to='/'>
                             <img src="https://image.flaticon.com/icons/svg/864/864685.svg" alt="" />
                         </Link>
-                        <input type="text" value={this.state.name} placeholder="Search" onChange={this.handleChange} />
+                        <input type="text" value={this.state.name} placeholder="Search" 
+                        onChange={this.handleChange} />
                     </div>
                 </form>
                 <div className={name}>
                     <ul className="users-list" onClick={this.clear} >
-                        {users.map(user => <SearchItem key={user.id} receiveUser={this.props.receiveUser} deleteFriendship={this.props.deleteFriendship} createFriendship={this.props.createFriendship} friends={this.props.friends} user={user} />)}
+                        {users.map(user => <SearchItem key={user.id} receiveUser={this.props.receiveUser} 
+                        deleteFriendship={this.props.deleteFriendship} createFriendship={this.props.createFriendship} 
+                        friends={this.props.friends} user={user} />)}
                     </ul>
                 </div>
             </div>

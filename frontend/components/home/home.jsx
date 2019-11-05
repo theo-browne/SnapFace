@@ -16,15 +16,13 @@ class Home extends React.Component {
     }
 
     render() {
-        const name = this.props.currentUser.name.split(" ")[0]
+
         return (
             <div className="home-container">
-                {/* <div className="home-nav" ></div> */}
                 <div className="home">
                     <div className="home-left">
                     </div>
                     <div className="home-mid" >
-                        {/* <SearchContainer /> */}
                         <Route path="/users/:id" component={UserInfoPanelContainer} />
                         <NavBar user={this.props.currentUser} logoutUser={this.props.logoutUser} />
                         <Switch>

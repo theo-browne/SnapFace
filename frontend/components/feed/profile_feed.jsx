@@ -70,43 +70,45 @@ import ProfilePhotosModal from './profile_photos_modal'
                 <div className="profile-feed-info">
                     <div className="friends-info">
                         <div>
-                        <img className="profile-icon" src="https://image.flaticon.com/icons/svg/1006/1006052.svg" alt="" />
-                        <p>Friends {num}</p>
+                            <img className="profile-icon" src="https://image.flaticon.com/icons/svg/1006/1006052.svg" 
+                            alt="" />
+                            <p>Friends {num}</p>
                         </div>
                         <div>
-                        <div className="friends-photo-grid">
-                            {this.props.friends.map(friend => <div key={friend.id}>
-                                <Link to={`/users/${friend.id}`}>
-                                <img src={friend.profileUrl} alt=""/>
-                                <p>{friend.name}</p>
-                                </Link>
+                            <div className="friends-photo-grid">
+                                {this.props.friends.map(friend => <div key={friend.id}>
+                                    <Link to={`/users/${friend.id}`}>
+                                        <img src={friend.profileUrl} alt=""/>
+                                        <p>{friend.name}</p>
+                                    </Link>
                                 </div>)}
-                        </div>
+                            </div>
                         </div>
                     </div>
-
                     <div className="users-photos">
-                    
                         <p>Photos</p>
                         <div className="profile-photo-grid">
                             {photos.map((photo,idx) => 
                                 <Link key={idx} to={`/users/${this.props.user.id}/photos/${idx}`}>
                                 <div key={idx}  className="profile-photo-grid-photo">
-                                <img  src={photo}></img>
+                                    <img  src={photo}></img>
                                  </div>
                                 </Link>
-                        )}
+                            )}
                         </div>
-                    </div>
-                   
+                    </div>   
                 </div>
                 <div>
-                {form}
+                    {form}
                     <ul className="news-feed"> 
-                {
-                        this.props.posts.map(post => <NewsFeedItem key={post.id} updateReaction={this.props.updateReaction} deleteReaction={this.props.deleteReaction} createReaction={this.props.createReaction} fetchComments={this.props.fetchComments} deletePost={this.props.deletePost} currentUser={this.props.currentUser} user={this.props.user} profile={true} post={post} /> )
-                } 
-                </ul>
+                        {
+                        this.props.posts.map(post => <NewsFeedItem key={post.id} 
+                            updateReaction={this.props.updateReaction} deleteReaction={this.props.deleteReaction} 
+                            createReaction={this.props.createReaction} fetchComments={this.props.fetchComments} 
+                            deletePost={this.props.deletePost} currentUser={this.props.currentUser} 
+                            user={this.props.user} profile={true} post={post} /> )
+                        } 
+                    </ul>
                 </div>
             </div>
         )
