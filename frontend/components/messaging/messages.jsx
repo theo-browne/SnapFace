@@ -34,9 +34,7 @@ export default class Messages extends React.Component{
                         }
                     }
                 )
-                
     }
-
 
 /**
  * Toggles whether or not the users message icon and dropdown is shown

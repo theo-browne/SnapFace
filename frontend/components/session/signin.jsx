@@ -12,6 +12,8 @@ export default class SignIn extends React.Component {
 
 /**
 * Handles input on the Log in form
+* @param {string} str - A string indicating which field the user is typing in and which part of state is being modified
+* @param {event} e - The change event triggered by a user typing in an input field in the sign in form
 */
 
     handleInput(str) {

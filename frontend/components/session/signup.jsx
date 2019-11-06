@@ -34,7 +34,9 @@ same email being used more than once
     }
 
 /**
-* Handles input on the Sign Up form
+* Handles input on the Sign up form
+* @param {string} str - A string indicating which field the user is typing in and which part of state is being modified
+* @param {event} e - The change event triggered by a user typing in an input field in the sign up form
 */
     handleInput(str) {
         return (e) => {
@@ -89,7 +91,7 @@ same email being used more than once
 
                             <li>{nameError}</li>
                     </div>
-                    
+
                             <input type="text" className={emailId} value={this.state.email} 
                             placeholder="Email" autoComplete="email" 
                             onChange={this.handleInput("email")} />

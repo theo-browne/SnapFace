@@ -73,11 +73,7 @@ export default class UserInfoPanel extends React.Component {
 
             </form>
             </div>) : <div></div>
-
         let image = this.props.user.profileUrl || ""
-       
-
-        
         return(
             <div className="user-info-panel">
                 <div>
