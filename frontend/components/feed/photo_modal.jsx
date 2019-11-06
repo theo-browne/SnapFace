@@ -1,7 +1,7 @@
 import React from 'react'
 import CommentIndexContainer from '../comments/comment_index_container'
 import CommentFormContainer from '../comments/comment_form_container'
-import {Link, Redirect} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 
 
 export default class PhotoModal extends React.Component{
@@ -11,7 +11,6 @@ export default class PhotoModal extends React.Component{
     }
     
     componentDidMount(){
-        
         this.props.fetchPost(this.props.match.params.postId)
             .then(() => this.setState({
             count: this.props.post.reactions,
@@ -29,6 +28,8 @@ export default class PhotoModal extends React.Component{
     unrevealDropdown(e) {
         e.currentTarget.lastChild.classList.remove('reveal')
     }
+
+
     react(type) {
         if (type === this.state.reacted) {
             this.props.deleteReaction(this.state.reactionId)
@@ -48,6 +49,8 @@ export default class PhotoModal extends React.Component{
             .then(() => this.setState({ reacted: type, reactionImg: this.props.post[`${type}Img`] }))
         }
     }
+
+
 
     render(){
         if (this.state === null) return null

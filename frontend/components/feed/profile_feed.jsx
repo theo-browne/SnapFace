@@ -34,7 +34,11 @@ import ProfilePhotosModal from './profile_photos_modal'
         this.props.removePosts()
     }
 
-     handleScroll(e) {
+ /**
+ * The event that triggers when a user scrolls on a profile feed and sends a request for more content when the user 
+ * reaches the bottom of the page
+ */
+     handleScroll() {
          const ul = document.querySelector(".news-feed")
          if (!ul) return
          const lastEl = ul.lastElementChild
@@ -49,7 +53,10 @@ import ProfilePhotosModal from './profile_photos_modal'
              window.removeEventListener('scroll', this.handleScroll)
          }
      }
-    
+     
+ /**
+* Renders a profile feed page
+*/
 
     render(){
         if (this.props.user === undefined) return null

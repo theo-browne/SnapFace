@@ -86,7 +86,9 @@ export default class NewsFeedItem extends React.Component {
                 <div className="post" key={this.props.post.id}>
                 {button}
                     <div className="post-author">
-                        <Link to={`/users/${this.props.post.authorId}`}> <img src={this.props.post.profileUrl} className="profile-icon" alt="" /></Link>
+                        <Link to={`/users/${this.props.post.authorId}`}> 
+                            <img src={this.props.post.profileUrl} className="profile-icon" alt="" />
+                        </Link>
                         <div className="post-info">
                             <Link to={`/users/${this.props.post.authorId}`}>{this.props.post.author}</Link>
                             <p>{this.props.post.time}</p>

@@ -3,10 +3,8 @@ import NewsFeedItem from './news_feed_item'
 import PostFormContainer from '../posts/post_form_container'
 import PostEditContainer from '../posts/post_edit_container'
 import {Route, Link} from 'react-router-dom'
-import CommentEditFormContainer from '../comments/commnent_edit_form_container'
 import SuggestedFriendItem from '../home/suggested_friend_item'
 import PhotoModalContainer from './photo_modal_container'
-import MessageForm from '../messaging/message_form'
 
 
 export default class NewsFeed extends React.Component {
@@ -24,8 +22,12 @@ export default class NewsFeed extends React.Component {
     componentWillUnmount() {
         window.removeEventListener('scroll',  this.handleScroll)
     }
+/**
+* The event that triggers when a user scrolls on their news feed and sends a request for more content when the user
+* reaches the bottom of the page
+*/
 
-    handleScroll(e){
+    handleScroll(){
         const ul = document.querySelector(".news-feed")
         const lastEl = ul.lastElementChild
         if (!lastEl) return null
@@ -40,7 +42,9 @@ export default class NewsFeed extends React.Component {
         }
     }
 
-
+/**
+* Renders a user's news feed page
+*/
     render(){
         if (this.props.posts === undefined) return null
         return(

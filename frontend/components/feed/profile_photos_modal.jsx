@@ -7,7 +7,6 @@ class ProfilePhotosModal extends React.Component{
         this.state = {
             pos: Number(this.props.match.params.pos)
         }
-        // this.pos = this.props.match.params.pos
     }
 
     render(){
