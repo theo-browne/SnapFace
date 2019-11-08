@@ -5,18 +5,38 @@ export const RECEIVE_COMMENTS = 'RECEIVE_COMMENTS'
 export const REMOVE_COMMENT = 'REMOVE_COMMENT'
 export const REMOVE_COMMENTS = 'REMOVE_COMMENTS'
 
+/**
+* Action used to add a single comment to the redux store
+* @param {object} comments - The comment that will be added
+*/
 export const receiveComment = comment => ({
     type: RECEIVE_COMMENT,
     comment
 })
+
+/**
+* Action used to add a batch of comments to the redux store
+* @param {object} comments - The response from the API which includes
+*/
 export const receiveComments = comments => ({
     type: RECEIVE_COMMENTS,
     comments
 })
+
+/**
+* Action used to clear the comments for a paticular post from the redux store
+* @param {object} comment - The comment that will be removed 
+*/
+
 export const removeComment = comment => ({
     type: REMOVE_COMMENT, 
     comment
 })
+
+/**
+* Action used to clear the comments for a paticular post from the redux store
+* @param {number} postId - The post who's comments will be removed
+*/
 
 export const removeComments = postId => ({
     type: REMOVE_COMMENTS,

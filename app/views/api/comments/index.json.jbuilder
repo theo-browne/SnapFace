@@ -54,6 +54,5 @@
         end
         json.author name.join(" ")
         json.userReactionImg asset_path(userReactionImg)
-
     end
 end

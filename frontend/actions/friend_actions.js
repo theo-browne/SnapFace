@@ -35,7 +35,10 @@ export const removeFriendship = (friendshipId) => ({
 
 
 
-
+/**
+* Thunk action used to search for users who's name matches the search string 
+* @param {object} search - The search object which contains the search string 
+*/
 
 export const fetchUsers = (search) => dispatch => {
     return APIFriendsUtil.fetchUsers(search).then(users => dispatch(receiveUsers(users)))
