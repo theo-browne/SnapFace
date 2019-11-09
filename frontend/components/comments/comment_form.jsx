@@ -29,8 +29,7 @@ export default class CommentForm extends React.Component{
             })
         
     }
-
-    handleSubmit(e) {
+    handleSubmit() {
         this.props.createComment(this.state).then(() => this.setState({body: ""})) 
         this.rows = 1
     }
