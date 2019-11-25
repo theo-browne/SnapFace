@@ -82,7 +82,7 @@ same email being used more than once
                     <div className="sign-in-names" >
 
                                 <input type="text" className={nameId} value={this.state.firstName} 
-                                placeholder="First Name" autoComplete="name" 
+                                placeholder="First Name" autoComplete="given-name" 
                                 onChange={this.handleInput("firstName")} />
 
                                 <input type="text" className={nameId} value={this.state.lastName} 
