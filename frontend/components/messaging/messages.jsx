@@ -41,13 +41,8 @@ export default class Messages extends React.Component{
 * @param {event} e - The submit event triggered by clicking the messages icon.
  */
     handleClick(e){
-        if (!this.shown){
-            e.currentTarget.lastElementChild.classList.add("shown")
-            this.shown = true
-        } else {
-            document.getElementById("message-drop-down").classList.remove("shown")
-            this.shown = false
-        }
+        e.stopPropagation();
+        e.currentTarget.lastElementChild.classList.add("shown");
     }
 /**
 * Renders the message icon and dropdown

@@ -12,13 +12,18 @@ import NavBar from './nav_bar'
 
 class Home extends React.Component {
     constructor(props) {
-        super(props)
+        super(props);
+        this.handleClick = this.handleClick.bind(this)
+    }
+
+    handleClick() {
+        document.getElementById("message-drop-down").classList.remove("shown");
     }
 
     render() {
 
         return (
-            <div className="home-container">
+            <div className="home-container" onClick={this.handleClick}>
                 <div className="home">
                     <div className="home-left">
                     </div>
