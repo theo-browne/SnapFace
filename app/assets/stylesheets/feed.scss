@@ -375,17 +375,7 @@ textarea:focus {
 .post-container button {
     background: none;
 }
-// .comment-div li {
-//     margin: 0;
-//     overflow-wrap: break-word;
-//     width: 300px;
-//     background-color: rgb(243, 243, 243);
-//     border-radius: 10px;
-//     padding: 5px;
-//     font-size: 10px;
-//     text-indent: 70px;
-//     border: 1px solid lightgray
-// }
+
 .comment-show{
     margin: 0;
     overflow-wrap: break-word;
@@ -394,16 +384,12 @@ textarea:focus {
     border-radius: 10px;
     padding: 5px;
     font-size: 10px;
-    // text-indent: 70px;
     border: 1px solid lightgray;
     text-align: left;
     justify-content: center;
     margin-bottom: 5px;
+}
 
-}
-.react-button{
-    // margin-left: 40px
-}
 .comment-content{
     display: flex;
     width: 100%;
@@ -412,13 +398,10 @@ textarea:focus {
 }
 
 .comment-author-link{
-    // margin-right: -70px;
     font-size: 10px;
     z-index: 1;
     text-decoration: none;
     color: plum;
-    // padding-top: 6px;
-    // font-weight: bold
 }
 .comment-drop-down{
     display: none;
@@ -428,15 +411,12 @@ textarea:focus {
     box-shadow: 1px gray;
     position: absolute;
     right:0;
-    /* height: 50px; */
     width: 80px; 
     background-color: white;
  
 }
 .comment-reaction-pop-up{ 
      display: none;
-    // justify-content: space-around;
-    // background-color: white;
     position: absolute;
     top: -40px;
     left: 10px;
@@ -445,17 +425,13 @@ textarea:focus {
     background-color: white;
     border-radius: 20px;
     align-content: center;
-    //  padding-bottom: 10px;
-    //  padding-top: 5px;
     padding: 5px;
-     border: 1px solid lightgray;
-     z-index: 6;
-  
+    border: 1px solid lightgray;
+    z-index: 6;
 }
 
 .reaction-pop-up{
     display: none;
-    // background-color: white;
     justify-content: center;
     position: absolute;
     top: -40px;
@@ -465,11 +441,9 @@ textarea:focus {
     background-color: white;
     border-radius: 20px;
     align-content: center;
-    //  padding-bottom: 10px;
-    //  padding-top: 5px;
     padding: 5px;
-     border: 1px solid lightgray;
-     z-index: 21;
+    border: 1px solid lightgray;
+    z-index: 21;
 }
 .reaction-pop-up img {
     margin: 0;
